@@ -12,17 +12,18 @@ import {
   Stack,
   Image,
   ChakraProvider,
+  Spinner
 } from '@chakra-ui/react';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiEye, FiEyeOff,FiUser,FiMail,FiSmartphone } from 'react-icons/fi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
 import Head from "next/head";
-
+import Header from "../components/header";
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { csrfToken,page } from '../components/recoil';
+import { csrfToken,pageLoading,thisPage,mode } from '../components/recoil';
 
 export default function Register() {
   const [input, setInput] = useState({});
@@ -30,14 +31,35 @@ export default function Register() {
   const router = useRouter();
   const csrf = useRecoilValue(csrfToken);
   const setCsrf = useSetRecoilState(csrfToken);
-  const thisPage = useRecoilValue(page);
-  const setPage = useSetRecoilState(page);
+  //const thisPage = useRecoilValue(page);
+  //const setPage = useSetRecoilState(page);
+const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
+
+useEffect(() => {
+  
+  const userChoice = window.localStorage.getItem("mode");
+
+  if(userChoice === "dark"){
+  setMode("dark");
+  }
+  else{
+    setMode("light");
+  }
+
+},[]);
+  
+  const loadingPage = useRecoilValue(pageLoading);
+  const setLoadingPage = useSetRecoilState(pageLoading);
+
+    const currentPage = useRecoilValue(thisPage);
+  const setCurrentPage = useSetRecoilState(thisPage);
 
   useEffect(()=>{
-
-    setPage("register");
-    
+  setCurrentPage("register");
+  setLoadingPage(false);
   },[]);
+  
   
   useEffect(() => {
     
@@ -116,13 +138,16 @@ export default function Register() {
   };
 
   const openLogin = () => {
-   // showAlert('We are now taking you to the login page', 'info');
-//setPage("login");
-
-    router.push("/login");
+   // showAlert('We are now taking you to the login page', 'info')
+   setLoadingPage(true);
+   router.push("/login");
 
   };
 
+  
+currentMode !=="light" && currentMode !== "dark" && (<></>)
+
+  
   return (
      <>
      <Head>
@@ -152,115 +177,128 @@ export default function Register() {
   <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
 </Head>
          
-      <ChakraProvider>
-      <ToastContainer />
-      <Center h={{ md: '100vh' }}>
-        <Box
-          bgColor="white"
-          p={8}
-          rounded="lg"
-          boxShadow={0}
-          maxW="400px"
-          w="100%"
-          textAlign="center"
-        >
-          <Image
-            src="https://img.freepik.com/premium-vector/digital-interpreter-flat-style-design-vector-illustration-stock-illustration_357500-664.jpg"
-            alt="Register on MylesVTU"
-          />
-          <Heading as="h3" size="lg" mb={2}>
-            Register
-          </Heading>
-          <Text fontSize="sm" color="gray.800" mb={4}>
-            Create your account with{' '}
-            <Box as="span" cursor="pointer" color="#657ce0">
-              MylesVTU
-            </Box>
-          </Text>
-          <Stack spacing={4}>
-            <InputGroup>
-              <Input
-                type="number"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                onChange={getInput}
-                value={input.phoneNumber || ''}
-                required
-                size="lg"
-              />
-            </InputGroup>
-            <InputGroup>
-              <Input
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={getInput}
-                value={input.email || ''}
-                required
-                size="lg"
-              />
-            </InputGroup>
-            <InputGroup>
-              <Input
-                type={input.showPassword ? 'text' : 'password'}
-                name="password"
-                placeholder="Password"
-                onChange={getInput}
-                value={input.password || ''}
-                required
-                size="lg"
-              />
-              <InputRightElement width="3rem">
-                <Button
-                  size="sm"
-                  onClick={() =>
-                    setInput((prevInput) => ({
-                      ...prevInput,
-                      showPassword: !prevInput.showPassword,
-                    }))
-                  }
-                >
-                  {input.showPassword ? <FiEyeOff /> : <FiEye />}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            <InputGroup>
-              <Input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                onChange={getInput}
-                value={input.fullName || ''}
-                required
-                size="lg"
-              />
-            </InputGroup>
-            <Checkbox size="sm">I agree to the terms and conditions</Checkbox>
-          </Stack>
-          <Button
-            colorScheme="blue"
-            size="md"
-            isLoading={btnLoading}
-            loadingText="Registering"
-            onClick={processRegister}
-            mt={4}
-            w="100%"
-          >
-            Register
-          </Button>
-          <Text mt={4}>
-            Already have an account?{' '}
-            {/* <Link href="/login">*/}
-              <Text onClick={openLogin} as="span" color="blue.500" cursor="pointer">
-                Log In
-              </Text>
-            {/*</Link>*/}
-          </Text>
-          {btnLoading && <ToastContainer />}
-        </Box>
-      </Center>
-    </ChakraProvider>
+       <ChakraProvider>
+         <ToastContainer />
+         {loadingPage ? (
+           <Center bg={currentMode==="dark" && "black"} h="100vh" >
+<Box shadow="md" p={3}>
+               <Spinner size="xl" color="#657ce0" />
+             </Box>
+           </Center>
+         ) : currentMode !== "dark" && currentMode !=="light" ? (<></>) : (
+           <Center bg={currentMode==="dark" && "black"} h={{ md: '100vh' }}>
+             <Box bg={currentMode === "dark" && "black"} h="100vh">
+               <Header />
+               <Center bgColor={currentMode === "dark" && "black"}>
+                 <Box
+                   color={currentMode === "dark" && "white"}
+                   textAlign="center"
+                   p={6}
+                   rounded="lg"
+                   boxShadow={0}
+                   maxW="400px"
+                   w="100%"
+                 >
+                   <Heading as="h3" size="md" mb={2}>
+                     Register
+                   </Heading>
+                   <InputGroup my={6}>
+                     <Input
+                       border="1px solid #657ce0"
+                       h="3em"
+                       type="number"
+                       name="phoneNumber"
+                       placeholder="Phone Number"
+                       onChange={getInput}
+                       value={input.phoneNumber || ""}
+                       required
+                     />
+                     <InputRightElement>
+                       <FiSmartphone />
+                     </InputRightElement>
+                   </InputGroup>
+                   <InputGroup my={6}>
+                     <Input
+                       border="1px solid #657ce0"
+                       h="3em"
+                       type="email"
+                       name="email"
+                       placeholder="Email"
+                       onChange={getInput}
+                       value={input.email || ""}
+                       required
+                     />
+                     <InputRightElement>
+                       <FiMail />
+                     </InputRightElement>
+                   </InputGroup>
+                   <InputGroup my={6}>
+                     <Input
+                       border="1px solid #657ce0"
+                       h="3em"
+                       type={input.showPassword ? "text" : "password"}
+                       name="password"
+                       placeholder="Password"
+                       onChange={getInput}
+                       value={input.password || ""}
+                       required
+                     />
+                     <InputRightElement>
+                       <Text
+                         size="sm"
+                         onClick={() =>
+                           setInput((prevInput) => ({
+                             ...prevInput,
+                             showPassword: !prevInput.showPassword,
+                           }))
+                         }
+                       >
+                         {input.showPassword ? <FiEyeOff /> : <FiEye />}
+                       </Text> 
+                     </InputRightElement>
+                   </InputGroup>
+                   <InputGroup my={6}>
+                     <Input
+                       border="1px solid #657ce0"
+                       h="3em"
+                       type="text"
+                       name="fullName"
+                       placeholder="Full Name"
+                       onChange={getInput}
+                       value={input.fullName || ""}
+                       required
+                     />
+                     <InputRightElement>
+                       <FiUser />
+                     </InputRightElement>
+                   </InputGroup>
+                   
+                   <Button
+                     colorScheme="blue"
+                     size="md"
+                     isLoading={btnLoading}
+                     loadingText="Registering"
+                     onClick={processRegister}
+                     mt={2}
+                     w="100%"
+                   >
+                     Register
+                   </Button>
+                   <Text mt={4}>
+                     Already have an account?{' '}
+                     <Text onClick={openLogin} as="span" color="blue.500" cursor="pointer">
+                       Log In
+                     </Text>
+                   </Text>
+                   {btnLoading && <ToastContainer />}
+                 </Box>
+               </Center>
+             </Box>
+           </Center>
+         )}
+       </ChakraProvider>
 
      </>
+    
   );
 }

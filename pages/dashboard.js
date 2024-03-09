@@ -9,11 +9,11 @@ import { FallingLines } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import $ from 'jquery';
-import { Box, Button, Center, ChakraProvider, Text, Container,Spinner } from '@chakra-ui/react';
+import { Box, Button, Center, ChakraProvider, Text, Container,Spinner,Flex } from '@chakra-ui/react';
 import { FiFrown } from "react-icons/fi";
 import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
-import { loginStatus, userData,page,switchData } from "../components/recoil";
+import { loginStatus, userData,page,switchData,thisPage ,mode} from "../components/recoil";
 import { useRouter } from "next/router";
 import Transition from '../components/transition';
 import Head from "next/head";
@@ -28,11 +28,28 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
+const currentPage = useRecoilValue(thisPage);
+const setCurrentPage = useSetRecoilState(thisPage);
+  const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
+
+useEffect(() => {
+  
+  const userChoice = window.localStorage.getItem("mode");
+
+  if(userChoice === "dark"){
+  setMode("dark");
+  }
+  else{
+    setMode("light");
+  }
+
+},[])
   //const [spin, setSpin] = useState(true);
  // const thisPage = useRecoilValue(page);
  // const setPage = useSetRecoilState(page);
   const router = useRouter();
-const [switching,setSwitching] = useState(false);
+//const [switching,setSwitching] = useState(false);
   //const setSwitching = useSetRecoilState(switchData);
  //const switchData = {switching,setSwitching}
   
@@ -50,6 +67,12 @@ const [switching,setSwitching] = useState(false);
 
   }, [spin, setSpin]);
 */
+
+useEffect(()=>{
+
+  setCurrentPage("home");
+},[]);
+  
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
 if(!logged){
@@ -92,7 +115,7 @@ if(!logged){
     });
   };
 
-        const refreshData = ()=>{
+     /*   const refreshData = ()=>{
 
        const url =  "https://mylesvtu.com.ng/app/store/welcome/";
     $.ajax({
@@ -116,37 +139,36 @@ if(!logged){
         }
 
   setInterval(refreshData,180000);
-  
+  */
+
+
   if (!logged) {
-    return (
-      
-      <Transition/>
-  
-      );
-  }
+  return (
+    <></>
+
+  )
+}
+
 
   return (
     <>
       <Head>
 
-      <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
+      <title>mylesVTU — cheap data,airtime and hire web developer and graphics designer </title>
         </Head>
-       <Container textAlign="center" h="100vh">
-          <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <Header />
-            <div style={{ flex: 1 }}>
-              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      
+       <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
+          
+                   
+             <Header /> 
                 <Wallet />
-                <Menu switching={switching} setSwitching={setSwitching} />
-                <Transactions />
-              </div>
-            </div>
-            <NavbarBottom switching={switching} setSwitching={setSwitching}  />
-          </div>
+                <Menu />
+                <Transactions />                   
+                   <NavbarBottom  />  
         </Container>
       
 
-
+  
       
     </>
   );

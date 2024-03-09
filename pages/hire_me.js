@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   Box,
   Button,
@@ -12,7 +12,8 @@ import {
   Icon,
   FormControl,
   ChakraProvider,
-  Container 
+  Container ,
+  Center,Spinner,
 } from '@chakra-ui/react';
 import { FaPhone } from 'react-icons/fa';
 import NavbarBottom from '../components/navbarBottom';
@@ -23,10 +24,39 @@ import $ from 'jquery';
 import { useRouter } from 'next/router';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
+import{ useRecoilValue,useSetRecoilState} from "recoil";
+import{mode,thisPage,pageLoading} from "../components/recoil";
 
 const Hire = () => {
+  
+  const currentPage = useRecoilValue(thisPage);
+const setCurrentPage = useSetRecoilState(thisPage);
+       const loadingPage = useRecoilValue(pageLoading);
+const setLoadingPage = useSetRecoilState(pageLoading);
+              
   const router = useRouter();
+  const currentMode = useRecoilValue(mode);
+    const setMode = useSetRecoilState(mode);
 
+  useEffect(() => {
+setCurrentPage("hire");
+    const userChoice = window.localStorage.getItem("mode");
+
+    if(userChoice === "dark"){
+    setMode("dark");
+    }
+    else{
+      setMode("light");
+    }
+
+  },[]);
+
+    useEffect(()=>{
+  setCurrentPage("hire");
+  setLoadingPage(false);
+
+  },[]);
+  
   const [input, setInput] = useState({
     phoneNumber: '',
     service: '',
@@ -89,6 +119,10 @@ const Hire = () => {
     router.push('/dashboard');
   };
 
+if(currentMode !== "light" && currentMode !== "dark"){
+return(<></>);
+}
+  
   return (
     <>
      <Head>
@@ -118,7 +152,9 @@ const Hire = () => {
   <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
 </Head>
  <Header />
-      <Container>
+      <Container h="100vh" bg={currentMode ==="dark" && "black"} color={currentMode=="dark" && "white" }>
+
+        {loadingPage ? ( <ChakraProvider> <Center h="100vh"><Box position="absolute" top="40%" p={4} shadow="md" bgColor={currentMode === "dark" ? "black" : "white"}><Spinner size="xl" color="#657ce0" /></Box></Center></ChakraProvider>) : ( 
         <ChakraProvider>
           <Box p={4} maxWidth="500px" mx="auto">
             <Heading align="center" my={10} as="h2" size="lg" mb={4}>
@@ -174,9 +210,9 @@ const Hire = () => {
               </Button>
             </VStack>
           </Box>
-        </ChakraProvider>
+        </ChakraProvider>)}
       </Container>
-      <Adverts />
+      
       <NavbarBottom />
       <ToastContainer />
     </>

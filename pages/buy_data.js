@@ -5,11 +5,11 @@ import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import $ from 'jquery';
 import { FallingLines } from 'react-loader-spinner';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center } from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner } from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { userData,csrfToken } from "../components/recoil";
+import { userData,csrfToken,pageLoading,thisPage,mode } from "../components/recoil";
 import { Rings } from "react-loader-spinner";
 import Head from "next/head";
 
@@ -25,7 +25,32 @@ const Data = () => {
   const [spin, setSpin] = useState(true);
   const [selected, setSelected] = useState(null);
   const [network, setNetwork] = useState('mtn');
+const loadingPage = useRecoilValue(pageLoading);
+const setLoadingPage = useSetRecoilState(pageLoading);
+  const currentPage = useRecoilValue(thisPage);
+const setCurrentPage = useSetRecoilState(thisPage);
+  const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
 
+useEffect(() => {
+  
+  const userChoice = window.localStorage.getItem("mode");
+
+  if(userChoice === "dark"){
+  setMode("dark");
+  }
+  else{
+    setMode("light");
+  }
+
+},[]);
+  
+  useEffect(()=>{
+setCurrentPage("buy_data");
+setLoadingPage(false);
+
+},[]);
+    
 
   useEffect(() => {
     
@@ -56,7 +81,7 @@ const Data = () => {
       });
   //  }
   }, []);
-
+console.log(data);
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
   const mtn = bundle.mtn || [];
@@ -112,7 +137,7 @@ const Data = () => {
         setBtnLoading(false);
       },
       error: function () {
-        showAlert("Internet connection bseems to be los olos or the Server cannot be reached. Please Try again.", "info");
+        showAlert("Internet connection seems to be los olos or the Server cannot be reached. Please Try again.", "info");
         setBtnLoading(false);
       }
     });
@@ -181,10 +206,32 @@ const Data = () => {
   <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
 </Head>
 
-      <Header />
+      {currentMode ==="light" || currentMode === "dark" ?(<Header />) :(<></>)}
       <ChakraProvider>
-        <Flex maxHeight="100vh" align="center" justify="center" bg="white">
-          <Box p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="white" width="100%" maxWidth="500px">
+
+              {loadingPage ? (
+            <Center bg={currentMode ==="dark" && "black"} mt="" height="100vh">
+            <Box
+              position="absolute"
+              top="40%"
+             bg={currentMode==="dark" && "black"}
+              p={4}
+              maxW="md"
+              borderWidth=",0px"
+        borderColor="#657ce0"
+              borderRadius="md"
+              boxShadow="lg"
+              textAlign="center"
+
+            >
+              <Spinner color="#657ce0" size="lg" />
+              <p></p>
+            </Box>
+          </Center>): currentMode !== 'light' && currentMode !== 'dark' ? (
+                  <> </> // Empty view when mode is not known
+                ) : (
+        <Flex align="center" justify="center" bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"}>
+          <Box mt="2.6em" p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
@@ -224,13 +271,13 @@ const Data = () => {
                 </Center>
               )}
               {dataPlansDetails.map((item, index) => (
-                <Box onClick={() => {
+                <Box border={currentMode==="dark" && "0.1em solid #657ce0"} onClick={() => {
                   selectItem(index + 1);
                   getInput('plan', item.product);
                 }}
                   key={index}
-                  bg="white"
-                  color="black"
+                  bg={currentMode==="dark"?"black":"white"}
+                  color={currentMode==="dark"? "white" : "black"}
                   p="4"
                   borderRadius="md"
                   m="3" p="4"
@@ -280,10 +327,10 @@ const Data = () => {
               Buy
             </Button>
           </Box>
-        </Flex>
+        </Flex>)}
       </ChakraProvider>
       <ToastContainer />
-      <NavbarBottom />
+      {currentMode === "light" || currentMode ==="dark" ?(<NavbarBottom />) :(<></>)}
     </>
   );
 };

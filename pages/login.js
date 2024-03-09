@@ -8,21 +8,18 @@ import {
   Button,
   Heading,
   Text,
-  Checkbox,
-  Stack,
-  Image,
-  ChakraProvider
+  ChakraProvider,
+  Spinner
 } from '@chakra-ui/react';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiEye, FiEyeOff, FiUser } from 'react-icons/fi';
 import $ from 'jquery';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useRecoilState,useSetRecoilState ,useRecoilValue} from 'recoil';
-import { csrfToken, loginStatus, userData,page } from '../components/recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { csrfToken, loginStatus, userData, thisPage, pageLoading, mode } from '../components/recoil';
 import Head from "next/head";
-
+import Header from "../components/header";
 
 export default function Login() {
   const [input, setInput] = useState({});
@@ -30,49 +27,58 @@ export default function Login() {
   const [csrf, setCsrf] = useRecoilState(csrfToken);
   const [isLogged, setLogged] = useRecoilState(loginStatus);
   const [data, setData] = useRecoilState(userData);
-  const thisPage = useRecoilValue(page);
-  const setPage = useSetRecoilState(page);
   const router = useRouter();
+  const loadingPage = useRecoilValue(pageLoading);
+  const setLoadingPage = useSetRecoilState(pageLoading);
+  const currentPage = useRecoilValue(thisPage);
+  const setCurrentPage = useSetRecoilState(thisPage);
+  const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
 
-  useEffect(()=>{
-    setPage("login")
-  } ,[])
-  
+  useEffect(() => {
+    const userChoice = window.localStorage.getItem("mode");
+    if (userChoice === "null") {
+      return;
+    }
+    if (userChoice === "dark") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage("login");
+    setLoadingPage(false);
+  }, []);
+
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
-      
     $.ajax({
       url: url,
       type: 'post',
       dataType: 'json',
-      //crossDomain: true,
       success: function (r) {
         setBtnLoading(false);
         setLogged(r.data.isLogged);
-        
         setCsrf(r.token);
-        
       },
       error: function () {
-        //showAlert('Server is down', 'warning');
         setBtnLoading(false);
       },
     });
   }, [setLogged, setCsrf]);
 
   const showAlert = (message, type) => {
-    toast[type](`⚡ ${message}`, {
+    toast[type](` ${message}`, {
       position: 'top-center',
       autoClose: 5000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      //progress: undefined,
       theme: 'light',
-     // toastId:"login",
     });
-
     setBtnLoading(false);
   };
 
@@ -90,7 +96,7 @@ export default function Login() {
       return;
     }
 
-      const url = 'https://mylesvtu.com.ng/app/store/login';
+    const url = 'https://mylesvtu.com.ng/app/store/login';
     $.ajax({
       url: url,
       method: 'post',
@@ -99,13 +105,9 @@ export default function Login() {
       success: function (r) {
         if (r.status === 1) {
           setLogged(true);
-         // const { profile, dataBundle } = r.data;
-
           const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
           setData({ profile: profile, dataBundle: dataBundle });
-
-setPage("dashboard");
           router.push({ pathname: '/dashboard' });
         } else {
           showAlert(r.msg, 'warning');
@@ -120,130 +122,104 @@ setPage("dashboard");
     });
   };
 
-  const openReg = () =>{
-    //setPage("register");
+  const openReg = () => {
+    setLoadingPage(true);
     router.push("/register");
   }
 
-  const openReset = () =>{
-    //setPage("reset");
-router.push("/reset")
+  const openReset = () => {
+    setLoadingPage(true);
+    router.push("/reset");
   }
-  
+
+  currentMode !=="light" && currentMode !== "dark" && (<></>)
+
   return (
     <>
-      
-    <Head>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - MylesVTU</title>
-  <meta name="description" content="Log in to your MylesVTU account. Access a wide range of services including cheap data, airtime top-up, fund wallet, and more. Your gateway to convenient and affordable digital services." />
-  <meta name="keywords" content="login, MylesVTU login, cheap data, airtime top-up, fund wallet, digital services" />
-  <meta name="author" content="MylesVTU" />
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
-  <meta name="language" content="English" />
-  <meta name="revisit-after" content="7 days" />
-  <meta name="generator" content="Your CMS or Development Platform" />
-
-  {/* Open Graph meta tags for social sharing */}
-  <meta property="og:title" content="Login - MylesVTU" />
-  <meta property="og:description" content="Log in to your MylesVTU account. Access a wide range of services including cheap data, airtime top-up, fund wallet, and more. Your gateway to convenient and affordable digital services." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mylesvtu.com.ng/login" />
-  <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
-
-  {/* Twitter Card meta tags for Twitter sharing */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Login - MylesVTU" />
-  <meta name="twitter:description" content="Log in to your MylesVTU account. Access a wide range of services including cheap data, airtime top-up, fund wallet, and more. Your gateway to convenient and affordable digital services." />
-  <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
-</Head>
-
+      <Head>
+        {/* Meta tags */}
+      </Head>
       <ChakraProvider>
-        <Center h="100vh">
-          <Box
-            bgColor="white"
-            p={8}
-            rounded="lg"
-            maxW="400px"
-            w="100%"
-            textAlign="center"
-          >
-            <Image
-              src="https://img.freepik.com/premium-vector/digital-interpreter-flat-style-design-vector-illustration-stock-illustration_357500-664.jpg"
-              alt="login to MylesVTU"
-            />
-
-            <Heading as="h3" size="lg" mb={2}>
-              Login
-            </Heading>
-            <Text fontSize="sm" color="gray.800" mb={4}>
-              Explore our services when you sign in to MylesVTU
-            </Text>
-            <InputGroup my={4}>
-              <Input
-                type="number"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                onChange={getInput}
-                value={input.phoneNumber || ''}
-                required
-              />
-            </InputGroup>
-            <InputGroup>
-              <Input
-                type={input.showPassword ? 'text' : 'password'}
-                name="password"
-                placeholder="Password"
-                onChange={getInput}
-                value={input.password || ''}
-                required
-              />
-              <InputRightElement width="3rem">
-                <Button
-                  size="sm"
-                  onClick={() =>
-                    setInput((prevInput) => ({
-                      ...prevInput,
-                      showPassword: !prevInput.showPassword,
-                    }))
-                  }
-                >
-                  {input.showPassword ? <FiEyeOff /> : <FiEye />}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            <Checkbox size="sm">Remember Me</Checkbox>
-
-            <Text onClick={openReset} mt={2} color="blue.500">Reset Password Here
-              {/*<Link href="/reset">Reset password here</Link>*/}
-            </Text>
-
-            <Button
-              colorScheme="blue"
-              size="md"
-              isLoading={btnLoading}
-              loadingText="Logging in"
-              onClick={processLogin}
-              mt={4}
-              w="100%"
-            >
-              Login
-            </Button>
-            <Text mt={4}>
-              Don't have an account?{' '}
-              {/*<Link href="/register">*/}
-                <Text cursor="pointer" onClick={openReg} as="span" color="blue.500">
-                  Sign Up
-                </Text>
-                {/*</Link>*/}
-            </Text>
-          </Box>
-        </Center>
         <ToastContainer />
+        {loadingPage ? (
+          <Center bg={currentMode =="dark" && "black"} h="100vh">
+            <Box position="absolute" top="40%" borderRadius={5} shadow="md" p={1}>
+              <Spinner size="xl" color="#657ce0" />
+            </Box>
+          </Center>
+        ) : currentMode !== 'light' && currentMode !== 'dark' ? (
+          <></> // Empty view when mode is not known
+        ) : (
+          <Box bg={currentMode === "dark" && "black"} h="100vh">
+            <Header />
+            <Center bgColor={currentMode === "dark" && "black"}>
+              {/* Login form */}
+              <Box
+                color={currentMode === "dark" && "white"}
+                textAlign="center"
+              >
+                <Text fontWeight="bold" size="xl" my={10}>Welcome</Text>
+                <InputGroup my={6}>
+                  <Input border="1px solid #657ce0" h="3em"
+                    type="number"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    onChange={getInput}
+                    value={input.phoneNumber || ""}
+                    required
+                  />
+                  <InputRightElement>
+                    <FiUser />
+                  </InputRightElement>
+                </InputGroup>
+                <InputGroup>
+                  <Input h="3em" border="1px solid #647ce0"
+                    type={input.showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    onChange={getInput}
+                    value={input.password || ""}
+                    required
+                  />
+                  <InputRightElement width="3rem">
+                    <Text justify="center" align="center"
+                      size="lg"
+                      onClick={() =>
+                        setInput((prevInput) => ({
+                          ...prevInput,
+                          showPassword: !prevInput.showPassword,
+                        }))
+                      }
+                    >
+                      {input.showPassword ? <FiEyeOff /> : <FiEye size="1em" />}
+                    </Text>
+                  </InputRightElement>
+                </InputGroup>
+                <Text onClick={openReset} mt={5} color="#657ce0" textAlign="right" fontSize="sm">
+                  Forgot Password
+                </Text>
+                <Button mt="4em"
+                  colorScheme="blue"
+                  size="md"
+                  isLoading={btnLoading}
+                  loadingText="Logging in"
+                  onClick={processLogin}
+                  w="50%"
+                  mx="auto"
+                >
+                  Login
+                </Button>
+                <Text mt={10}>
+                  Don't have an account?{" "}
+                  <Text mb={10} cursor="pointer" onClick={openReg} as="span" color="blue.500">
+                    Sign Up
+                  </Text>
+                </Text>
+              </Box>
+            </Center>
+          </Box>
+        )}
       </ChakraProvider>
-
     </>
   );
 }

@@ -11,7 +11,8 @@ import {
   InputLeftElement,
   InputGroup,
   Icon,
-  Center
+  Center,
+  Spinner,
 } from '@chakra-ui/react';
 import { FaUser, FaEnvelope, FaLock, FaPhone } from 'react-icons/fa';
 import Header from '../components/header';
@@ -28,10 +29,26 @@ import {
   useRecoilValue,
   useSetRecoilState,
 } from 'recoil';
-import { loginStatus, csrfToken, userData } from '../components/recoil';
+import { loginStatus, csrfToken, userData,pageLoading, thisPage,mode } from '../components/recoil';
 import Script from 'next/script';
 
 export default function Profile() {
+
+const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
+
+  useEffect(() => {
+    const userChoice = window.localStorage.getItem("mode");
+    if (userChoice === "null") {
+      return;
+    }
+    if (userChoice === "dark") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  }, []);
+
   const showAlert = (message, type) => {
     toast[type](`📑 ${message}`, {
       position: 'top-center',
@@ -64,7 +81,22 @@ export default function Profile() {
   const profile = data.profile;
   const router = useRouter();
 
+const loadingPage = useRecoilValue(pageLoading);
+  
+const setLoadingPage = useSetRecoilState(pageLoading);
+    
+const currentPage = useRecoilValue(thisPage);
+  
+const setCurrentPage = useSetRecoilState(thisPage);    
+useEffect(()=>{
+setCurrentPage("profile");
+setLoadingPage(false);
+   
+},[]);
+  
   useEffect(() => {
+
+    
     if (!profile) {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
@@ -89,7 +121,7 @@ export default function Profile() {
 
   if (!data || !profile) {
     return (
-      <Center display="flex" justifyContent="center" alignItems="center" h="100vh">
+      <Center color={currentMode === "dark" && "white"} bg={currentMode == "dark" && "black"} display="flex" justifyContent="center" alignItems="center" h="100vh">
         <FallingLines color="#657ce0" width="50" visible={true} ariaLabel="falling-lines-loading" />
       </Center>
     );
@@ -142,11 +174,28 @@ export default function Profile() {
         </Head>
       <Header />
       <ChakraProvider>
-        <Heading m={5} size="md" justify="center" align="center">
+        <Container color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"}>
+       {!loadingPage && ( <Heading mx={5} size="md" justify="center" align="center">
           My Profile
-        </Heading>
+        </Heading>)}
 
         <Container maxW="md" p={4}>
+             {loadingPage ? (
+      <Center mt={5} height="">
+      <Box
+        p={4}
+        maxW="md"
+        borderWidth=",0px"
+  borderColor="#657ce0"
+        borderRadius="md"
+        boxShadow="lg"
+        textAlign="center"
+        
+      >
+        <Spinner color="#657ce0" size="lg" />
+        <p></p>
+      </Box>
+    </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
           <Box zIndex={-1} borderWidth="1px" borderRadius="lg" p={6}>
             <VStack spacing={4} align="stretch">
               <InputGroup>
@@ -188,10 +237,11 @@ export default function Profile() {
                 {btnLoading ? <FallingLines color="white" width="50" visible={true} ariaLabel="falling-lines-loading" /> : 'Update'}
               </Button>
             </VStack>
-          </Box>
+          </Box>)}
+        </Container>
         </Container>
       </ChakraProvider>
-      <Adverts />
+      
       <NavbarBottom />
       <ToastContainer />
     </>

@@ -1,21 +1,42 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button ,Spinner,Center} from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Spinner, Center, Container, Text } from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import $ from 'jquery';
-import { FallingLines } from 'react-loader-spinner';
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { csrfToken } from "../components/recoil";
+import { csrfToken, pageLoading, thisPage, mode } from "../components/recoil";
 import Head from "next/head";
 
 const Airtime = () => {
   const router = useRouter();
   const csrf = useRecoilValue(csrfToken);
   const setCsrf = useSetRecoilState(csrfToken);
+  const currentPage = useRecoilValue(thisPage);
+  const setCurrentPage = useSetRecoilState(thisPage);
+  const loadingPage = useRecoilValue(pageLoading);
+  const setLoadingPage = useSetRecoilState(pageLoading);
+  const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
+
+  useEffect(() => {
+    const userChoice = window.localStorage.getItem("mode");
+
+    if (userChoice === "dark") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+
+  }, []);
+
+  useEffect(() => {
+    setLoadingPage(false);
+    setCurrentPage("airtime");
+  }, []);
 
   useEffect(() => {
     if (!csrf) {
@@ -33,12 +54,11 @@ const Airtime = () => {
       });
     }
   }, [csrf]);
+
   const [input, setInput] = useState({ network: "" });
   const [btnLoading, setBtnLoading] = useState(false);
-  const [data, setData] = useState({});
   const [network, setNetwork] = useState('mtn');
   const [amount, setAmount] = useState('');
-  const [number, setNumber] = useState(null);
   const [toCharge, setToCharge] = useState(0);
 
   const getInput = (name, value) => {
@@ -53,7 +73,6 @@ const Airtime = () => {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      //progress: undefined,
       theme: "light",
     });
     setBtnLoading(false);
@@ -66,20 +85,19 @@ const Airtime = () => {
       return;
     }
     setBtnLoading(true);
-      const url = 'https://mylesvtu.com.ng/app/store/buy_airtime';
+    const url = 'https://mylesvtu.com.ng/app/store/buy_airtime';
     $.ajax({
       url: url,
       method: 'post',
       dataType: 'json',
       data: updatedInput,
       success: function (r) {
-      setCsrf(r.token);
+        setCsrf(r.token);
         setBtnLoading(false);
         if (r.status === 1) {
           showAlert("Thank You ..Your order has been completed!!!", "success");
         } else {
-         // console.log(r);
-          showAlert("Oops!!! "+r.msg+ " If problem persists,contact us.", "info");
+          showAlert("Oops!!! " + r.msg + " If problem persists,contact us.", "info");
         }
         setBtnLoading(false);
       },
@@ -114,7 +132,7 @@ const Airtime = () => {
   return (
     <>
       <Head>
-    
+
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Airtime Exchange | Convert Mobile Credit to Cash - MylesVTU</title>
@@ -139,99 +157,106 @@ const Airtime = () => {
         <meta name="twitter:title" content="Airtime Exchange | Convert Mobile Credit to Cash - MylesVTU" />
         <meta name="twitter:description" content="Convert airtime to cash with ease. Exchange your mobile phone credit for real money instantly. Secure and fast airtime to cash service at MylesVTU." />
         <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
-     
-        </Head>
-      <Header />
-      <ChakraProvider>
-        <Box align="center" mb={5}>
-          <Heading as="h2">Buy Airtime</Heading>
-        </Box>
-        <Box padding="20px" display="flex" flexDirection="column" alignItems="center" justify="center">
-          <Flex alignItems="center" marginBottom="15px">
-            <Select w="250px" placeholder="Select network" onChange={(event) => chooseNetwork(event.target.value)}>
-              <option value="mtn">MTN</option>
-              <option value="glo">Glo</option>
-              <option value="airtel">Airtel</option>
-              <option value="9mobile">9Mobile</option>
-            </Select>
-          </Flex>
-          <Flex>
-            <Input colorScheme="blue" onChange={(e) => getInput(e.target.name, e.target.value)} type="number" placeholder="Phone Number" name="phoneNumber" />
-          </Flex>
-          <Flex mt={12} display="flex" direction="row" justifyContent="center" alignItems="center" marginBottom="20px">
-            <Box marginRight="6px">
-              <Heading as="h3" size="sm">Amount:</Heading>
-              <Box p={4} h={8} boxShadow="md" display="flex" justify="center" alignItems="center" border="solid" borderRadius="lg" borderWidth="1px" borderColor="#657ce0" w="150px">
-                <Flex alignItems="center" justify="center">
-                  {amount === "" ? 0 : amount}
-                </Flex>
-              </Box>
-            </Box>
-            <Box marginRight="4px">
-              <Heading as="h3" size="sm">To charge:</Heading>
-              <Box p={4} h={8} boxShadow="md" display="flex" justify="center" alignItems="center" borderWidth="1px" borderRadius="lg" borderColor="#657ce0" w="150px">
-                <Flex alignItems="center" justify="center">
-                  {toCharge}
-                </Flex>
-              </Box>
-            </Box>
-          </Flex>
-          <Flex flexDirection="column" marginBottom="20px">
-            <Flex marginBottom="10px">
-              {[1, 2, 3].map((number) => (
-                <Button onClick={() => getAmount(number)} key={number} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
-                  {number}
-                </Button>
-              ))}
-            </Flex>
-            <Flex marginBottom="10px">
-              {[4, 5, 6].map((number) => (
-                <Button onClick={() => getAmount(number)} key={number} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
-                  {number}
-                </Button>
-              ))}
-            </Flex>
-            <Flex marginBottom="10px">
-              {[7, 8, 9].map((number) => (
-                <Button onClick={() => getAmount(number)} key={number} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
-                  {number}
-                </Button>
-              ))}
-            </Flex>
-            <Flex>
-              <Button onClick={() => getAmount(0)} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
-                0
-              </Button>
-              <Button onClick={() => getAmount('x')} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px" width="25">
-                Clear
-              </Button>
-            </Flex>
-          </Flex>
-          <Button
-            w="300px"
-            size="md"
-            bgColor="#657ce0"
-            color="white"
-            isLoading={btnLoading}
-            onClick={buyAirtime}
-              opacity={1}
-            display={`${btnLoading ? "none": "block"}`}
-          >
-            Buy
-          </Button>
-              
-              <Center>
-              <Box>
-              <Spinner
 
-              bgColor="#657ce0"
+      </Head>
+      {currentMode =="dark" || currentMode =="light" ? (<Header/>) :(<></>)}
+      <ChakraProvider>
+        
+        
+        {loadingPage ? (<Container h="100vh" bg={currentMode === "dark" && "black"}><Center><Box position="absolute" top="40%" shadow="md"><Spinner size="xl" color="#657ce0" /></Box></Center></Container>) : currentMode !== 'light' && currentMode !== 'dark' ? (
+          <> </> // Empty view when mode is not known
+        ) : (
+
+          <Box bg={currentMode === "dark" && "black"}>
+            <Box bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} align="center" mb={5}>
+              <Text fontWeight="bold">Airtime</Text>
+            </Box>
+            <Box bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} padding="20px" display="flex" flexDirection="column" alignItems="center" justify="center">
+              <Flex alignItems="center" marginBottom="6px">
+                <Select w="250px" placeholder="Select network" onChange={(event) => chooseNetwork(event.target.value)}>
+                  <option value="mtn">MTN</option>
+                  <option value="glo">Glo</option>
+                  <option value="airtel">Airtel</option>
+                  <option value="9mobile">9Mobile</option>
+                </Select>
+              </Flex>
+              <Flex>
+                <Input colorScheme="blue" onChange={(e) => getInput(e.target.name, e.target.value)} type="number" placeholder="Phone Number" name="phoneNumber" />
+              </Flex>
+              <Flex mt={12} display="flex" direction="row" justifyContent="center" alignItems="center" marginBottom="20px">
+                <Box marginRight="6px">
+                  <Heading as="h3" size="sm">Amount:</Heading>
+                  <Box p={4} h={8} boxShadow="md" display="flex" justify="center" alignItems="center" border="solid" borderRadius="lg" borderWidth="1px" borderColor="#657ce0" w="150px">
+                    <Flex alignItems="center" justify="center">
+                      {amount === "" ? 0 : amount}
+                    </Flex>
+                  </Box>
+                </Box>
+                <Box marginRight="4px">
+                  <Heading as="h3" size="sm">To charge:</Heading>
+                  <Box p={4} h={8} boxShadow="md" display="flex" justify="center" alignItems="center" borderWidth="1px" borderRadius="lg" borderColor="#657ce0" w="150px">
+                    <Flex alignItems="center" justify="center">
+                      {toCharge}
+                    </Flex>
+                  </Box>
+                </Box>
+              </Flex>
+              <Flex flexDirection="column" marginBottom="20px">
+                <Flex marginBottom="10px">
+                  {[1, 2, 3].map((number) => (
+                    <Button onClick={() => getAmount(number)} key={number} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
+                      {number}
+                    </Button>
+                  ))}
+                </Flex>
+                <Flex marginBottom="10px">
+                  {[4, 5, 6].map((number) => (
+                    <Button onClick={() => getAmount(number)} key={number} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
+                      {number}
+                    </Button>
+                  ))}
+                </Flex>
+                <Flex marginBottom="10px">
+                  {[7, 8, 9].map((number) => (
+                    <Button onClick={() => getAmount(number)} key={number} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
+                      {number}
+                    </Button>
+                  ))}
+                </Flex>
+                <Flex>
+                  <Button onClick={() => getAmount(0)} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px">
+                    0
+                  </Button>
+                  <Button onClick={() => getAmount('x')} marginRight="5px" size="md" backgroundColor="white" borderWidth="1px" width="25">
+                    Clear
+                  </Button>
+                </Flex>
+              </Flex>
+              <Button
+                w="300px"
                 size="md"
-                  color="white"
+                bgColor="#657ce0"
+                color="white"
+                isLoading={btnLoading}
+                onClick={buyAirtime}
+                opacity={1}
+                display={`${btnLoading ? "none" : "block"}`}
+              >
+                Buy
+              </Button>
+
+              <Center>
+                <Box>
+                  <Spinner
+
+                    bgColor="#657ce0"
+                    size="md"
+                    color="white"
                     display={`${btnLoading ? "block" : "none"}`}
-              />
-                        </Box>
-  </Center>
-        </Box>
+                  />
+                </Box>
+              </Center>
+            </Box></Box>)}
       </ChakraProvider>
       <NavbarBottom />
       <ToastContainer />

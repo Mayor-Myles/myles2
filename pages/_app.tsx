@@ -11,7 +11,22 @@ import {useEffect} from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
 
+//const currentMode = window.localStorage.getItem("mode");
   
+  useEffect(() => {
+    const currentMode = window.localStorage.getItem("mode");
+  // alert(currentMode);
+    
+    //User hasn't chosen preffered mode
+    if (currentMode !== "dark") {  
+      window.localStorage.setItem("mode", "light");
+      
+    }
+
+
+    
+  }, []);
+
   return(
     <>
       
