@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
 import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp,AiOutlineLogout,AiOutlinePoweroff } from 'react-icons/ai';
 import Support from '../components/support';
 import { useRouter } from 'next/router';
 import {useRecoilValue,useSetRecoilState} from "recoil";
-import {loginStatus,switchData} from "./recoil";
+import {loginStatus,pageLoading,thisPage,mode} from "./recoil";
 import $ from "jquery";
 
 
@@ -15,8 +15,42 @@ const NavbarBottom = (props) => {
   const [idleTime, setIdleTime] = useState(5000);
  // const {switching,setSwitching} = switchData;
   const isLogged = useRecoilValue(loginStatus);
-  const switching= props.switching;
-const setSwitching = props.setSwitching;
+
+const loadingPage = useRecoilValue(pageLoading);
+
+  const setLoadingPage = useSetRecoilState(pageLoading);
+
+const currentPage = useRecoilValue(thisPage);
+
+  const setCurrentPage = useSetRecoilState(thisPage);
+  
+  const currentMode = useRecoilValue(mode);
+    const setMode = useSetRecoilState(mode);
+
+  useEffect(()=>{
+
+
+    const userChoice = window.localStorage.getItem("mode");
+
+    if(userChoice === "dark"){
+    setMode("dark");
+    }
+    else{
+      setMode("light");
+    }
+
+  },[])
+
+  useEffect(()=>{
+
+  setLoadingPage(false);
+  },[]);
+  
+  
+  //const switching= props.switching;
+//const setSwitching = props.setSwitching;
+
+
 
 //const switching = useRecoilValue(switchData);
   //const setSwitching = useSetRecoilState(switchData);
@@ -34,43 +68,51 @@ const setSwitching = props.setSwitching;
   };
 
   const goHome = () => {
- // setSwitching(true)
+
+  if(currentPage != "home"){
+    setLoadingPage(true)
     highlights(1);
     router.push('/dashboard');
    // setPage("dashboard");
-    ;
+  }
   };
 
   const fund = () => {
-setSwitching(true)
+    if(currentPage != "fundWallet"){
+setLoadingPage(true)
 
     highlights(2);
     router.push('/fundWallet');
    // setPage("fund");
-    
+    }
   };
 
   const login = () => {
 
-   // setSwitching(true)
-
+    if (currentPage != "login") {
+      
+    
+   setLoadingPage(true)
     //highlights(2);
     router.push('/login');
    // setPage("fund");
-    
+    }
   };
 
   const openProfile = () => {
 
-   setSwitching(true)
+    if(currentPage != "profile"){
+   setLoadingPage(true)
    // highlights(3);
-    router.push('/profile');
+   router.push('/profile');
     //setPage("profile");
+    }
   };
 
     const logout = () => {
+
       
-setSwitching(true)
+setLoadingPage(true)
       
       $.ajax({
         url:        'https://mylesvtu.com.ng/app/store/logout',
@@ -90,6 +132,7 @@ setSwitching(true)
          console.error('Logout error:', error);
         }
       })
+    
     };
 
   return (
@@ -97,8 +140,9 @@ setSwitching(true)
       {showSupport && <Support show={{ showSupport, setShowSupport }} idleTime={{ idleTime, setIdleTime }} />}
       <Flex
         zIndex={9999}
-        mt={18}
-        bg="white"
+        mt={5}
+        bg={currentMode==="dark" ? "black" :"white"}
+        color={currentMode ==="dark" && "white"}
         p={5}
         alignItems="center"
         justifyContent="space-around"

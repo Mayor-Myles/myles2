@@ -29,3 +29,28 @@ key:'switchData',
   default:false,
 
 });
+
+export const pageLoading = atom({
+
+  key:'pageLoading',
+  default:false,
+});
+
+export const thisPage = atom({
+
+key:'thisPage',
+  default:'',
+  
+})
+
+
+
+export const mode = atom({
+
+
+  
+key:"mode",
+  default:null,
+
+  
+});

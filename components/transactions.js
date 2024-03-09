@@ -18,14 +18,32 @@ import {
   useMediaQuery,
 } from '@chakra-ui/react';
 import { useRecoilValue,useSetRecoilState } from 'recoil';
-import { userData,csrfToken } from '../components/recoil';
+import { userData,csrfToken,mode } from '../components/recoil';
 
 const Transactions = () => {
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
  // const csrf = useRecoilValue(csrfToken);
  // const setCsrf = useSetRecoilState(csrfToken); 
- window.localStorage.setItem("data",JSON.stringify(data));
+  const currentMode = useRecoilValue(mode);
+    const setMode = useSetRecoilState(mode);
+
+  useEffect(()=>{
+
+
+    const userChoice = window.localStorage.getItem("mode");
+
+    if(userChoice === "dark"){
+    setMode("dark");
+    }
+    else{
+      setMode("light");
+    }
+
+  },[])
+
+  
+    window.localStorage.setItem("data",JSON.stringify(data));
   const d =JSON.parse(window.localStorage.getItem("data"));
  /* useEffect(() => {  
    // if (!csrf) {
@@ -58,23 +76,24 @@ const Transactions = () => {
 //console.log(data.profile.transactions);
   return (
     <ChakraProvider>
-      <Flex
+      <Flex bg={currentMode ==="dark"  && "black"}
         mt={8}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Heading as="h4" size="sm">
+        <Heading color={currentMode==="dark" && "white"} as="h4" size="sm">
           Transaction History
         </Heading>
       </Flex>
       <Box
-        mb={20}
+        mb={2}
         p={4}
         borderRadius="lg"
         boxShadow="lg"
-        bg="white"
+        bg={currentMode === "dark" &&"black"}
+        color={currentMode==="dark" && "white"}
         maxH="400px"
         overflowY="scroll"
         marginTop={2}
@@ -121,9 +140,9 @@ const Transactions = () => {
         )}
       </Box>
 
-      <Box m={2} mb="4em">
+      <Box bg={currentMode==="dark" && "black"}   mb="0em">
         <Flex
-          mt={8}
+          mt={0}
           as={isDesktop ? 'center' : ''}
           justifyContent="center"
           alignItems="center"
@@ -139,7 +158,8 @@ const Transactions = () => {
           p={4}
           borderRadius="lg"
           boxShadow="lg"
-          bg="white"
+          bg={currentMode === "dark" && "black"}
+        color={currentMode==="dark" && "white"}
           maxH="400px"
           overflowY="scroll"
           marginTop={2}

@@ -1,10 +1,40 @@
-import { Box, Text,Image } from '@chakra-ui/react';
-import { AiOutlineBell } from 'react-icons/ai';
+import { Box, Text, Image } from '@chakra-ui/react';
+import { FiMoon,FiSun} from 'react-icons/fi'; // Using Feather Icons for Moon
 import React, { useState, useEffect } from 'react';
 import Head from "next/head";
-//import Image from "next/image";
+import {mode} from "../components/recoil";
+import {useRecoilValue,useSetRecoilState} from "recoil";
+
+
+  
 const Header = () => {
+  
   const [isFixed, setIsFixed] = useState(false);
+  
+  const currentMode = useRecoilValue(mode);
+
+  const setMode = useSetRecoilState(mode);
+
+const changeMode = ()=>{
+
+  const userChoice = window.localStorage.getItem("mode");
+  //state not set before but user has picked choice
+  
+ if(currentMode ==="light" || userChoice ==="light"){
+setMode("dark");
+  }
+
+  else{
+setMode("light");
+  }
+}//method to change mode
+
+  useEffect(()=>{
+
+    
+    //alert(currentMode);
+   currentMode === "light" ? window.localStorage.setItem("mode","light") : window.localStorage.setItem("mode","dark");
+  },[currentMode,setMode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,80 +50,40 @@ const Header = () => {
 
   return (
     <>
-    <Head>
-      <link rel="preconnect" href="https://fonts.googleapis.com"/>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-      <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet"/>
-    </Head>
-    <Box
-      borderBottomLeftRadius="1px"
-      position={isFixed ? 'fixed' : 'static'}
-      top={isFixed ? 0 : 'auto'}
-      boxShadow={isFixed ? 'xl' : 'none'}
-      width="100%"
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-      p={7}
-      borderRadius="md"
-      backgroundColor="white"
-      zIndex={10}
-    >
-      <Text
-        fontFamily="Ubuntu"
-        fontSize="1.3em"
-        fontWeight="bold"
-        textAlign="left"
-        ml={4}
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet"/>
+      </Head>
+      <Box
+      backgroundColor={currentMode ==="dark" ? "black" : "white"}  borderBottomLeftRadius="1px"
+        position={isFixed ? 'fixed' : 'static'}
+        top={isFixed ? 0 : 'auto'}
+        boxShadow={isFixed ? 'sm' : 'none'}
+        width="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        p={5}
+        borderRadius="md"
+        zIndex={10}
       >
-        MylesVTU
-      </Text>
-      <Box position="relative">
-        <AiOutlineBell size={24} color="#657ce0" cursor="pointer" />
-        <Box
-          position="absolute"
-          top="-6px"
-          right="-6px"
-          borderRadius="50%"
-          bg="#ff5851"
-          color="white"
+        <Text
+          fontFamily="Ubuntu"
           fontSize="1em"
           fontWeight="bold"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          width="1em"
-          height="1em"
+          textAlign="left"
+          ml={4}
+          color={currentMode==="light" || currentMode === null ? "black" : "white"}
         >
-          <Text
-            fontFamily="Poppins, sans-serif"
-            fontSize="0.7em"
-            fontWeight="bold"
-            textAlign="center"
-          >
-            0
-          </Text>
-        </Box>
-      </Box>
-      <Box
-        width="50px"
-        height="50px"
-        borderRadius="50%"
-        borderWidth="2px"
-        borderColor="#657ce0"
-        overflow="hidden"
-        mr={4}
-      >
-        <Image
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYtuEswkYNUwFO1Z3MXApzRT053TBIcLXRVg&usqp=CAU"
+          MylesVTU
+        </Text>
+        
+        <Box onClick={changeMode}>{currentMode ==="light" || currentMode === null ? (<FiMoon size={30} color="#657ce0" cursor="pointer" />) : (<FiSun size={30} color="#657ce0" cursor="pointer" />)}</Box>
 
-          alt="Profile Picture"
-          objectFit="cover"
-          width="100%"
-          height="100%"
-        />
+       <Box> <Image src="/avater.jpeg" alt="Profile Picture" boxSize="50px" borderRadius="50%"  /></Box>
+
       </Box>
-    </Box>
     </>
   );
 };
