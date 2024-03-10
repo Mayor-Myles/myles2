@@ -34,7 +34,7 @@ const[cost,setCost] =  useState(0);
 
 //const n = numbers.trim().length;total phone numbers for messages to be sent to
 
-    const arr = numbers.trim().spilt(",");//getting the total phone numbers we want to send message to.
+    const arr = numbers.trim().split(",");//getting the total phone numbers we want to send message to.
 
     
     setCost(arr.len*3);
