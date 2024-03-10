@@ -174,7 +174,7 @@ if(!logged){
     return () => clearInterval(timer);
   }, [progress]);
 
-  if(progress < 100 && !logged){
+  if(progress < 100 && !logged && !data.transactions){
   return (
     <div className="ProgressBar">
       <LoadingBar progress={progress} color='#657ce0' />
