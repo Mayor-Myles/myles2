@@ -18,6 +18,12 @@ import { useRouter } from "next/router";
 import Transition from '../components/transition';
 import Head from "next/head";
 //import Data from "./buy_data";
+//import {progressBar} from "../components/progress";
+import LoadingBar from 'react-top-loading-bar';
+
+
+
+
 
 export default function Dashboard() {
 
@@ -44,6 +50,8 @@ useEffect(() => {
     setMode("light");
   }
 
+setCurrentPage("home");
+  
 },[])
   //const [spin, setSpin] = useState(true);
  // const thisPage = useRecoilValue(page);
@@ -68,10 +76,7 @@ useEffect(() => {
   }, [spin, setSpin]);
 */
 
-useEffect(()=>{
 
-  setCurrentPage("home");
-},[]);
   
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
@@ -142,12 +147,45 @@ if(!logged){
   */
 
 
-  if (!logged) {
-  return (
-    <></>
 
-  )
-}
+
+
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const incrementProgress = () => {
+      if (progress < 100) {
+        setProgress(progress + 20); // Adjust the speed of progress here
+      }
+    };
+
+    const finishProgress = () => {
+      setProgress(100);
+    };
+
+    window.onload = () => {
+      finishProgress();
+    };
+
+    const timer = setInterval(() => {
+      incrementProgress();
+    }, 50); // Adjust the interval for more or less frequent updates
+
+    return () => clearInterval(timer);
+  }, [progress]);
+
+  if(progress < 100 && !logged){
+  return (
+    <div className="ProgressBar">
+      <LoadingBar progress={progress} color='#657ce0' />
+      <Flex justify="center" align="center">Loading...</Flex>
+    </div>
+  );
+  }
+
+
+
+
 
 
   return (
@@ -161,6 +199,7 @@ if(!logged){
           
                    
              <Header /> 
+     
                 <Wallet />
                 <Menu />
                 <Transactions />                   
