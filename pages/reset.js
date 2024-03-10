@@ -145,6 +145,7 @@ const openLogin = () => {
 
 };
 
+currentMode !=="light" && currentMode !== "dark" && (<></>)
 
   return (
     <ChakraProvider>
