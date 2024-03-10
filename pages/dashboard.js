@@ -178,7 +178,7 @@ if(!logged){
   return (
     <div className="ProgressBar">
       <LoadingBar progress={progress} color='#657ce0' />
-      <Flex justify="center" align="center">Loading...</Flex>
+      <Flex h="100vh" color="#657ce0" justify="center" align="center">Loading...</Flex>
     </div>
   );
   }
