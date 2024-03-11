@@ -167,7 +167,7 @@ const Airtime = () => {
           <> </> // Empty view when mode is not known
         ) : (
 
-          <Box bg={currentMode === "dark" && "black"}>
+          <Box h="100vh" bg={currentMode === "dark" && "black"}>
             <Box bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} align="center" mb={5}>
               <Text fontWeight="bold">Airtime</Text>
             </Box>
