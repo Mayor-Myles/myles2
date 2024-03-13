@@ -149,7 +149,7 @@ if(!logged){
 
 
 
-
+/*
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -173,7 +173,7 @@ if(!logged){
 
     return () => clearInterval(timer);
   }, [progress]);
-
+*/
  /* if(progress < 100){
   return (
     <Flex h="100vh" bg={currentMode === "dark" && "black"}>
