@@ -174,7 +174,7 @@ if(!logged){
     return () => clearInterval(timer);
   }, [progress]);
 
-  if(progress < 100 || !logged){
+  if(progress < 100){
   return (
     <Flex h="100vh" bg={currentMode === "dark" && "black"}>
     <div className="ProgressBar">
@@ -203,7 +203,7 @@ if(!logged){
      
                 <Wallet />
                 <Menu />
-                <Transactions />                   
+            {logged &&(  <Transactions />   )}                
                    
         </Container>
       <NavbarBottom  />  
