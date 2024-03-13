@@ -36,13 +36,13 @@ export default function Wallet() {
     }
   }, [profile]);
 
-  if (!profile) {
+ /* if (!profile) {
     return (
       <>
         <Text mt={15} textAlign="center"> Wallet Loading...</Text>
       </>
     )
-  }
+  }*/
 
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
 
@@ -63,9 +63,9 @@ export default function Wallet() {
             My Wallet
           </Text>
           <Text fontSize="md" fontWeight="" color="white" mt={2}>
-            Balance: ₦{profile.balance.toLocaleString()}
+            Balance: ₦{profile && profile.balance.toLocaleString()}
           </Text>
-          <Text fontSize="md">Phone: +234{profile.phoneNumber}</Text>
+          <Text fontSize="md">Phone: +234{profile && profile.phoneNumber}</Text>
         </Box>
       </Flex>
     </ChakraProvider>
