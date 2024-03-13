@@ -204,9 +204,9 @@ if(!logged){
                 <Wallet />
                 <Menu />
                 <Transactions />                   
-                   <NavbarBottom  />  
+                   
         </Container>
-      
+      <NavbarBottom  />  
 
   
       
