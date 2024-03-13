@@ -140,7 +140,7 @@ setLoadingPage(true)
       {showSupport && <Support show={{ showSupport, setShowSupport }} idleTime={{ idleTime, setIdleTime }} />}
       <Flex
         zIndex={9999}
-        mt={5}
+        mt={1}
         bg={currentMode==="dark" ? "black" :"white"}
         color={currentMode ==="dark" && "white"}
         p={5}
