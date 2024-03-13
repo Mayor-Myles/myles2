@@ -235,9 +235,9 @@ function Airtime2Cash() {
             <ToastContainer />
           </Container>
         )}
-
+<NavbarBottom />
       </ChakraProvider>
-      <NavbarBottom />
+      
     </>
   );
 }
