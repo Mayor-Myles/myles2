@@ -176,7 +176,7 @@ if(!logged){
 
   if(progress < 100 || !logged){
   return (
-    <Flex h="100vh" bg="black">
+    <Flex h="100vh" bg={currentMode === "dark" && "black"}>
     <div className="ProgressBar">
       <LoadingBar progress={progress} color='#657ce0' />
       </div>
