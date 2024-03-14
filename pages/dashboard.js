@@ -199,7 +199,7 @@ if(!logged){
        <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
           
                    
-             <Header /> 
+{/*  <Header /> *}
      
         {/* <Wallet />*/}
                 <Menu />
