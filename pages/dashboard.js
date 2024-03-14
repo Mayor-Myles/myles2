@@ -3,23 +3,23 @@ import Header from '../components/header';
 import Wallet from '../components/wallet';
 import Menu from '../components/menu';
 import Transactions from '../components/transactions';
-//import Adverts from '../components/adverts';
+import Adverts from '../components/adverts';
 import NavbarBottom from '../components/navbarBottom';
-//import { FallingLines } from 'react-loader-spinner';
-//import { ToastContainer, toast } from 'react-toastify';
+import { FallingLines } from 'react-loader-spinner';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import $ from 'jquery';
 import { Box, Button, Center, ChakraProvider, Text, Container,Spinner,Flex } from '@chakra-ui/react';
-//import { FiFrown } from "react-icons/fi";
+import { FiFrown } from "react-icons/fi";
 import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
 import { loginStatus, userData,page,switchData,thisPage ,mode} from "../components/recoil";
 import { useRouter } from "next/router";
-//import Transition from '../components/transition';
+import Transition from '../components/transition';
 import Head from "next/head";
 //import Data from "./buy_data";
 //import {progressBar} from "../components/progress";
-//import LoadingBar from 'react-top-loading-bar';
+import LoadingBar from 'react-top-loading-bar';
 
 
 
@@ -149,7 +149,7 @@ if(!logged){
 
 
 
-/*
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -173,17 +173,16 @@ if(!logged){
 
     return () => clearInterval(timer);
   }, [progress]);
-*/
- /* if(progress < 100){
+
+  if(progress < 100 || !logged){
   return (
-    <Flex h="100vh" bg={currentMode === "dark" && "black"}>
     <div className="ProgressBar">
       <LoadingBar progress={progress} color='#657ce0' />
-      </div>
-    </Flex>
+      <Flex h="100vh" fontSize="2em" color="#647ce0" justify="center" align="center">Loading...</Flex>
+    </div>
   );
   }
-*/
+
 
 
 
@@ -199,13 +198,14 @@ if(!logged){
        <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
           
                    
-{/*  <Header /> *}
+             <Header /> 
      
-        {/* <Wallet />*/}
+                <Wallet />
                 <Menu />
-             
+                <Transactions />                   
+                   <NavbarBottom  />  
         </Container>
-      <NavbarBottom  />  
+      
 
   
       
