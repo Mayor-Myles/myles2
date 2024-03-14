@@ -174,14 +174,14 @@ if(!logged){
     return () => clearInterval(timer);
   }, [progress]);
 
-  if(progress < 100 || !logged){
+/*  if(progress < 100 || !logged){
   return (
     <div className="ProgressBar">
       <LoadingBar progress={progress} color='#657ce0' />
       <Flex h="100vh" fontSize="2em" color="#647ce0" justify="center" align="center">Loading...</Flex>
     </div>
   );
-  }
+  }*/
 
 
 
@@ -202,7 +202,7 @@ if(!logged){
      
                 <Wallet />
                 <Menu />
-                <Transactions />                   
+    {logged &&  (<Transactions />)}                   
                    <NavbarBottom  />  
         </Container>
       
