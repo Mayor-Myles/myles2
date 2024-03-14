@@ -201,7 +201,7 @@ if(!logged){
                    
              <Header /> 
      
-                <Wallet />
+        {/* <Wallet />*/}
                 <Menu />
              
         </Container>
