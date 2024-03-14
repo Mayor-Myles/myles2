@@ -15,11 +15,11 @@ import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
 import { loginStatus, userData,page,switchData,thisPage ,mode} from "../components/recoil";
 import { useRouter } from "next/router";
-import Transition from '../components/transition';
+//import Transition from '../components/transition';
 import Head from "next/head";
 //import Data from "./buy_data";
 //import {progressBar} from "../components/progress";
-import LoadingBar from 'react-top-loading-bar';
+//import LoadingBar from 'react-top-loading-bar';
 
 
 
@@ -149,7 +149,7 @@ if(!logged){
 
 
 
-
+/*
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -172,7 +172,7 @@ if(!logged){
     }, 50); // Adjust the interval for more or less frequent updates
 
     return () => clearInterval(timer);
-  }, [progress]);
+  }, [progress]);*/
 
 /*  if(progress < 100 || !logged){
   return (
