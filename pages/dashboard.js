@@ -203,8 +203,7 @@ if(!logged){
      
                 <Wallet />
                 <Menu />
-            {logged &&(  <Transactions />   )}                
-                   
+             
         </Container>
       <NavbarBottom  />  
 
