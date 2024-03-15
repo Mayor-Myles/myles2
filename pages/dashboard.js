@@ -15,11 +15,11 @@ import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
 import { loginStatus, userData,page,switchData,thisPage ,mode} from "../components/recoil";
 import { useRouter } from "next/router";
-//import Transition from '../components/transition';
+import Transition from '../components/transition';
 import Head from "next/head";
 //import Data from "./buy_data";
 //import {progressBar} from "../components/progress";
-//import LoadingBar from 'react-top-loading-bar';
+import LoadingBar from 'react-top-loading-bar';
 
 
 
@@ -172,18 +172,18 @@ if(!logged){
     }, 50); // Adjust the interval for more or less frequent updates
 
     return () => clearInterval(timer);
-  }, [progress]);*/
+  }, [progress]);
 
-/*  if(progress < 100 || !logged){
+  if(progress < 100 || !logged){
   return (
     <div className="ProgressBar">
       <LoadingBar progress={progress} color='#657ce0' />
       <Flex h="100vh" fontSize="2em" color="#647ce0" justify="center" align="center">Loading...</Flex>
     </div>
   );
-  }*/
+  }
 
-
+*/
 
 
 
@@ -202,7 +202,7 @@ if(!logged){
      
                 <Wallet />
                 <Menu />
-    <Transactions />                
+                <Transactions />                   
                    <NavbarBottom  />  
         </Container>
       
