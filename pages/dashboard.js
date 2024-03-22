@@ -197,19 +197,13 @@ if(!logged){
       <title>mylesVTU — cheap data,airtime and hire web developer and graphics designer </title>
         </Head>
       
-       <Container>
-          
-                   
-             <Header /> 
-     
+       <Container>                      
+             <Header />  
                 <Wallet />
                 <Menu />
                 <Transactions />                   
                    <NavbarBottom  />  
         </Container>
-      
-
-  
       
     </>
   );
