@@ -148,7 +148,7 @@ if(!logged){
 
 
 
-
+/*
 
   const [progress, setProgress] = useState(0);
 
@@ -181,7 +181,7 @@ if(!logged){
       <Flex h="100vh" fontSize="2em" color="#647ce0" justify="center" align="center">Loading...</Flex>
     </div>
   );
-  }
+  }*/
 
 
 
