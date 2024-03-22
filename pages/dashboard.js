@@ -5,7 +5,6 @@ import Menu from '../components/menu';
 import Transactions from '../components/transactions';
 import NavbarBottom from '../components/navbarBottom';
 import Head from "next/head";
-import $ from 'jquery';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
@@ -44,13 +43,15 @@ export default function Dashboard() {
   }, [logged, setLogged, setData, router]);
 
   useEffect(() => {
-    const userChoice = window?.localStorage.getItem("mode");
-    if (userChoice === "dark") {
-      setMode("dark");
-    } else {
-      setMode("light");
+    if (typeof window !== 'undefined') {
+      const userChoice = window.localStorage.getItem("mode");
+      if (userChoice === "dark") {
+        setMode("dark");
+      } else {
+        setMode("light");
+      }
+      setCurrentPage("home");
     }
-    setCurrentPage("home");
   }, [setMode, setCurrentPage]);
 
   return (
