@@ -54,6 +54,13 @@ export default function Dashboard() {
     setCurrentPage("home");
   }, [setMode, setCurrentPage]);
 
+
+if(currentMode !== "light" || currentMode !=="dark"){
+
+return(<></>)
+
+}
+  
   return (
     <>
       <Head>
