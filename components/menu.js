@@ -4,7 +4,7 @@ import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center, Spinn
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineMessage, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
-import { FaExchangeAlt} from 'react-icons/fa';
+import { FaExchangeAlt,FaMoneyBillAlt} from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
@@ -257,8 +257,8 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <AiOutlineUser color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
+                  <FaMoneyBillAlt color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.3em" fontWeight="bold">
                     Refer and Earn
                   </Text>
                 </Box>
