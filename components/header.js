@@ -21,7 +21,7 @@ const changeMode = ()=>{
   //state not set before but user has picked choice
   alert(userChoice);
  if(userChoice =="light"){
-setMode("dark);//set new mode to dark
+setMode("dark");//set new mode to dark
   }
 else if(userChoice =="dark"){
   setMode("light");//sets new mode to light 
