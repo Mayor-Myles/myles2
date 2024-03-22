@@ -43,15 +43,9 @@ export default function Dashboard() {
   }, [logged, setLogged, setData, router]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const userChoice = window.localStorage.getItem("mode");
-      if (userChoice === "dark") {
-        setMode("dark");
-      } else {
-        setMode("light");
-      }
-      setCurrentPage("home");
-    }
+    const userChoice = "light"; // Assuming default mode is 'light'
+    setMode(userChoice);
+    setCurrentPage("home");
   }, [setMode, setCurrentPage]);
 
   return (
