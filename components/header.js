@@ -17,16 +17,20 @@ const Header = () => {
 
 const changeMode = ()=>{
 
-  const userChoice = window.localStorage.getItem("mode");
+  const userChoice = localStorage.getItem("mode");
   //state not set before but user has picked choice
   alert(userChoice);
- if(userChoice =="light" || userChoice =="dark"){
-setMode(!userChoice);//set new mode
+ if(userChoice =="light"){
+setMode("dark);//set new mode to dark
+  }
+else if(userChoice =="dark"){
+  setMode("light");//sets new mode to light 
+}
+  else{
+setMode("light");//user doesn't have a preference yet
   }
 
-  else{
-setMode("light");
-  }
+
 }//method to change mode
 
   useEffect(()=>{  
