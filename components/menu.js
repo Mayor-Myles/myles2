@@ -247,7 +247,7 @@ export default function Menu() {
                   onClick={comingSoon}
                   textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
+                  boxShadow="sm"
                   p={4}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
@@ -258,7 +258,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <FaMoneyBillAlt color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.3em" fontWeight="bold">
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.5em" fontWeight="bold">
                     Refer and Earn
                   </Text>
                 </Box>
