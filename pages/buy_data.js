@@ -280,16 +280,16 @@ setLoadingPage(false);
                   color={currentMode==="dark"? "white" : "black"}
                   p="4"
                   borderRadius="md"
-                  m="3" p="4"
+                  m="3" 
                   textAlign="center"
                   width="22"
-                  boxShadow="lg"
+                  boxShadow="md"
                   style={selected === index + 1 ? styles.planSelected : {}}
                 >
                   <Box
                     bg="white"
-                    width="12px"
-                    height="4px"
+                    width="10px"
+                    height="10px"
                     borderRadius="2%"
                     mb="4"
                     mx="auto"
