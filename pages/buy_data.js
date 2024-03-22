@@ -81,7 +81,7 @@ setLoadingPage(false);
       });
   //  }
   }, []);
-console.log(data);
+//console.log(data);
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
   const mtn = bundle.mtn || [];
@@ -283,7 +283,7 @@ console.log(data);
                   m="3" p="4"
                   textAlign="center"
                   width="22"
-                  boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
+                  boxShadow="lg"
                   style={selected === index + 1 ? styles.planSelected : {}}
                 >
                   <Box
