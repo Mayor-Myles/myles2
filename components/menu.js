@@ -20,7 +20,7 @@ export default function Menu() {
   const setLoadingPage = useSetRecoilState(pageLoading);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-alert(currentMode);
+alert("curr is "+currentMode);
   useEffect(() => {
     if (!currentMode) {
       setMode("light"); // Setting a default mode if currentMode is not available
