@@ -49,7 +49,7 @@ export default function Dashboard() {
 
   //alert("dash curr mode is "+ currentMode);
     const userChoice = localStorage.getItem("mode"); 
-    alert(userChoice);
+   // alert(userChoice);
     setMode(userChoice);
     setCurrentPage("home");
   }, [setMode, setCurrentPage]);
