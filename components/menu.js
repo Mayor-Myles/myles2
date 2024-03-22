@@ -20,7 +20,7 @@ export default function Menu() {
   const setLoadingPage = useSetRecoilState(pageLoading);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-alert("curr is "+currentMode);
+
   useEffect(() => {
     if (!currentMode) {
       setMode("light"); // Setting a default mode if currentMode is not available
@@ -29,7 +29,8 @@ alert("curr is "+currentMode);
 
   useEffect(() => {
     const userChoice = localStorage.getItem("mode"); // Access localStorage directly without window object
-   alert(userChoice);
+   alert("curr is "+currentMode);
+    alert(userChoice);
     if (userChoice === "dark" || userChoice === "light") {
       setMode(userChoice);
     }
