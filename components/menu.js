@@ -136,7 +136,7 @@ export default function Menu() {
                   border={currentMode ==="dark" && "solid 0em #547ce0"}
                   textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
+                  boxShadow="sm"
                   p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
@@ -157,8 +157,8 @@ export default function Menu() {
                 <Box border={currentMode === "dark" && "solid 0.1em #657ce0" } onClick={openAirtime}
                   textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
+                  boxShadow="sm"
+                  p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
                   height={isDesktop ? " 100px" : "100%"}
@@ -180,8 +180,8 @@ export default function Menu() {
                   onClick={openAirtime2Cash}
                   textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
+                  boxShadow="sm"
+                  p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
                   height={isDesktop ? " 100px" : "100%"}
@@ -203,8 +203,8 @@ export default function Menu() {
                   onClick={openBulkSMS}
                   textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
+                  boxShadow="sm"
+                  p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
                   height={isDesktop ? " 100px" : "100%"}
@@ -224,8 +224,8 @@ export default function Menu() {
                 <Box border={currentMode==="dark" && "solid 0.1em #657ce0"} onClick={openHire}
                   textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
+                  boxShadow="sm"
+                  p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
                   height={isDesktop ? " 100px" : "100%"}
