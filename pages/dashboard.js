@@ -47,8 +47,9 @@ export default function Dashboard() {
 
   useEffect(() => {
 
-  alert("dash curr mode is "+ currentMode);
-    const userChoice = currentMode === null ? "light" : localStorage.getItem("mode"); 
+  //alert("dash curr mode is "+ currentMode);
+    const userChoice = localStorage.getItem("mode"); 
+    alert(userChoice);
     setMode(userChoice);
     setCurrentPage("home");
   }, [setMode, setCurrentPage]);
