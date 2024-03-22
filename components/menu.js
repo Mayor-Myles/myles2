@@ -257,7 +257,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaSackDollar color="#657ce0" size={24} />
+                  <AiOutlineUser color="#657ce0" size={24} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
                     Refer and Earn
                   </Text>
