@@ -17,7 +17,8 @@ export default function Dashboard() {
   const setCurrentPage = useSetRecoilState(thisPage);
   const setMode = useSetRecoilState(mode);
   const router = useRouter();
-
+  const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
   useEffect(() => {
     const fetchData = async () => {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
@@ -53,13 +54,13 @@ export default function Dashboard() {
       <Head>
         <title>mylesVTU — cheap data, airtime and hire web developer and graphics designer</title>
       </Head>
-      <div>
+      <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
         <Header />
     <Wallet />
      <Menu />
     {/* <Transactions />*/}
         <NavbarBottom />
-      </div>
+      </Container>
     </>
   );
 }
