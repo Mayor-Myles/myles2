@@ -35,7 +35,7 @@ setMode("light");//user doesn't have a preference yet
 
   useEffect(()=>{  
     //alert(currentMode);
-   currentMode === "light" ? window.localStorage.setItem("mode","light") : window.localStorage.setItem("mode","dark");
+   currentMode === "light" ? localStorage.setItem("mode","light") : localStorage.setItem("mode","dark");
   },[currentMode,setMode]);
 
   useEffect(() => {
