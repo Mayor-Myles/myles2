@@ -107,14 +107,14 @@ export default function Menu() {
           </Center>
         ) : (
           <Box mt={6}>
-            <Box maxW="md" mx="auto" p={4}>
-              <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+            <Box maxW="md" mx="auto" p={2}>
+              <Grid templateColumns="repeat(4, 1fr)" gap={6}>
               <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
                 <Box
-         border={currentMode==="dark" && "0.1em solid #657ce0"}         textAlign="center"
+         border={currentMode==="dark" && "0em solid #657ce0"}         textAlign="center"
                   borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
+                  boxShadow="sm"
+                  p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
                   height={isDesktop ? " 100px" : "100%"}
@@ -133,11 +133,11 @@ export default function Menu() {
               <GridItem colSpan={1} onClick={openFund} cursor="pointer">
                 <Box
                 
-                  border={currentMode ==="dark" && "solid 0.1em #547ce0"}
+                  border={currentMode ==="dark" && "solid 0em #547ce0"}
                   textAlign="center"
                   borderRadius="15%"
                   boxShadow="md"
-                  p={4}
+                  p={2}
                   _hover={{ boxShadow: 'xl' }}
                   width={isDesktop ? "100px" : "100%"}
                   height={isDesktop ? " 100px" : "100%"}
