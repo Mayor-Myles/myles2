@@ -42,7 +42,7 @@ const Transactions = () => {
 window.localStorage.setItem("data",JSON.stringify(data))
   },[])
 
-  if(!data || data.profile.transactions){
+  if(!data || !data.profile.transactions){
 
     return(<></>);
 
