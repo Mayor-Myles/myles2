@@ -150,7 +150,7 @@ if(!logged){
 
 
 
-  const [progress, setProgress] = useState(0);
+ /* const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const incrementProgress = () => {
@@ -172,7 +172,7 @@ if(!logged){
     }, 50); // Adjust the interval for more or less frequent updates
 
     return () => clearInterval(timer);
-  }, [progress]);
+  }, [progress]);*/
 
 /*
 
