@@ -6,9 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineMessage, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
 import { FaExchangeAlt } from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { userData, page, switchData,pageLoading,mode } from '../components/recoil';
+import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
-
 
 export default function Menu() {
   const data = useRecoilValue(userData);
@@ -20,8 +19,7 @@ export default function Menu() {
   const loadingPage = useRecoilValue(pageLoading);
   const setLoadingPage = useSetRecoilState(pageLoading);
   const currentMode = useRecoilValue(mode);
-    const setMode = useSetRecoilState(mode);
-
+  const setMode = useSetRecoilState(mode);
 
   useEffect(() => {
     if (!currentMode) {
@@ -40,7 +38,6 @@ export default function Menu() {
     setLoadingPage(false);
   }, [])
 
-  
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
@@ -55,231 +52,92 @@ export default function Menu() {
   }
 
   const openBuyData = () => {
-
     setLoadingPage(true);
     router.push("/buy_data");
-//setPage("data");
-   //alert(thisPage);
-
   };
 
   const openFund = () => {
-setLoadingPage(true);
-    
-   router.push('/fundWallet');
-//setPage("fund");
-    //setSwitching(true);
+    setLoadingPage(true);
+    router.push('/fundWallet');
   };
 
   const openAirtime = () => {
-
-setLoadingPage(true);
-
+    setLoadingPage(true);
     router.push('/airtime');
-    //setPage("airtime");
-  //  setSwitching(true);
   };
 
   const openHire = () => {
-
-setLoadingPage(true);
-
+    setLoadingPage(true);
     router.push('/hire_me');
-    //setPage("hire");
-//setSwitching(true);
-    
   };
 
-
   const openBulkSMS = () => {
+    setLoadingPage(true);
+    router.push('/bulkSMS');
+  };
 
-  setLoadingPage(true);
-
-      router.push('/bulkSMS');
-      //setPage("hire");
-  //setSwitching(true);
-
-    };
-
-  
   const openCable = () => {
     showAlert("We are sorry this service is not available. Check back again later...", "info");
   };
 
   const openAirtime2Cash = () => {
-
-setLoadingPage(true);
-
+    setLoadingPage(true);
     router.push("/airtime_to_cash");
-    //setPage("a2c");
-
- //   setSwitching(true);
   }
 
   return (
-    <>  
-      
+    <>
       <ChakraProvider>
-
         {loadingPage ? (
-      <Center mt={5} height="">
-      <Box
-        p={4}
-        maxW="md"
-        borderWidth=",0px"
-  borderColor="#657ce0"
-        borderRadius="md"
-        boxShadow="lg"
-        textAlign="center"
-        bg={currentMode === "dark" && "black"}
+          <Center mt={5} height="">
+            <Box
+              p={4}
+              maxW="md"
+              borderWidth=",0px"
+              borderColor="#657ce0"
+              borderRadius="md"
+              boxShadow="lg"
+              textAlign="center"
+              bg={currentMode === "dark" && "black"}
+            >
+              <Spinner color="#657ce0" size="lg" />
+              <p></p>
+            </Box>
+          </Center>
+        ) : (
+          <Box mt={6}>
+            <Box maxW="md" mx="auto" p={4}>
+              <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
+                  <Box
+                    border={currentMode === "dark" && "0.1em solid #657ce0"}
+                    textAlign="center"
+                    borderRadius="15%"
+                    boxShadow="md"
+                    p={4}
+                    _hover={{ boxShadow: 'xl' }}
+                    width={isDesktop ? "100px" : "100%"}
+                    height={isDesktop ? " 100px" : "100%"}
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <AiOutlineWifi color="#657ce0" size={24} />
+                    <Text cursor="pointer" color={currentMode === "dark" && "white"} mt={2} fontSize="sm" fontWeight="bold">
+                      Buy Data
+                    </Text>
+                  </Box>
+                </GridItem>
 
+                {/* Rest of the grid items */}
 
-      >
-        <Spinner color="#657ce0" size="lg" />
-        <p></p>
-      </Box>
-    </Center>) : (
-
-        <Box mt={6}>
-          <Box maxW="md" mx="auto" p={4}>
-            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-              <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
-                <Box
-         border={currentMode==="dark" && "0.1em solid #657ce0"}         textAlign="center"
-                  borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <AiOutlineWifi color="#657ce0" size={24} />
-                  <Text cursor="pointer" color={currentMode ==="dark" && "white"} mt={2} fontSize="sm" fontWeight="bold">
-                    Buy Data
-                  </Text>
-                </Box>
-              </GridItem>
-
-              <GridItem colSpan={1} onClick={openFund} cursor="pointer">
-                <Box
-                
-                  border={currentMode ==="dark" && "solid 0.1em #547ce0"}
-                  textAlign="center"
-                  borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <AiOutlineDollarCircle color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
-                    Fund
-                  </Text>
-                </Box>
-              </GridItem>
-
-              <GridItem colSpan={1}>
-                <Box border={currentMode === "dark" && "solid 0.1em #657ce0" } onClick={openAirtime}
-                  textAlign="center"
-                  borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <AiOutlineMobile color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
-                    Airtime
-                  </Text>
-                </Box>
-              </GridItem>
-
-              <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
-                  
-                  onClick={openAirtime2Cash}
-                  textAlign="center"
-                  borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <FaExchangeAlt color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
-                    Airtime 2 Cash
-                  </Text>
-                </Box>
-              </GridItem>
-
-              <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
-                  
-                  onClick={openBulkSMS}
-                  textAlign="center"
-                  borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <AiOutlineMessage color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
-                    Bulk SMS
-                  </Text>
-                </Box>
-              </GridItem>
-
-              <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #657ce0"} onClick={openHire}
-                  textAlign="center"
-                  borderRadius="15%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <AiOutlineUser color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
-                    Hire
-                  </Text>
-                </Box>
-              </GridItem>
-            </Grid>
+              </Grid>
+            </Box>
           </Box>
-        </Box>)}
+        )}
       </ChakraProvider>
       <ToastContainer />
-        
     </>
   );
 }
