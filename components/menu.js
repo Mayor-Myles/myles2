@@ -29,8 +29,7 @@ export default function Menu() {
 
   useEffect(() => {
     const userChoice = localStorage.getItem("mode"); // Access localStorage directly without window object
-   alert("curr is "+currentMode);
-    alert(userChoice);
+  
     if (userChoice === "dark" || userChoice === "light") {
       setMode(userChoice);
     }
