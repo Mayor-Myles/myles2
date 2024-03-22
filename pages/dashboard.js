@@ -41,7 +41,7 @@ const setCurrentPage = useSetRecoilState(thisPage);
 
 useEffect(() => {
   
-  const userChoice = window.localStorage.getItem("mode");
+  const userChoice = typeof window !== 'undefined' ? window.localStorage.getItem("mode") : null;
 
   if(userChoice === "dark"){
   setMode("dark");
