@@ -321,7 +321,7 @@ setLoadingPage(false);
               fontFamily="sans-serif"
               fontWeight="bold"
               mt="4"
-              opacity={1}
+              boxShadow="md"
               display={`${btnLoading ? "none" : "block"}`}
             >
               Buy
