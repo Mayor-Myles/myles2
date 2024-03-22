@@ -224,8 +224,8 @@ setLoadingPage(false);
               textAlign="center"
 
             >
-              <Spinner color="#657ce0" size="lg" />
-              <p></p>
+              <Spinner speed="0.3s" color="#657ce0" size="lg" />
+              
             </Box>
           </Center>): currentMode !== 'light' && currentMode !== 'dark' ? (
                   <> </> // Empty view when mode is not known
@@ -253,7 +253,7 @@ setLoadingPage(false);
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex justify="center" mb="4" flexWrap="wrap">
+            <Flex h="100%" justify="center" mb="4" flexWrap="wrap">
               {!data.dataBundle && (
                 <Center m={10}>
                   <Box>
@@ -282,8 +282,8 @@ setLoadingPage(false);
                   borderRadius="md"
                   m="3" 
                   textAlign="center"
-                  width="20"
-                  boxShadow="md"
+                  width="23"
+                  boxShadow="sm"
                   style={selected === index + 1 ? styles.planSelected : {}}
                 >
                   <Box
