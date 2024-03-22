@@ -253,10 +253,10 @@ setLoadingPage(false);
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex h="100%" justify="center" mb="4" flexWrap="wrap">
+            <Flex  justify="center" mb="4" flexWrap="wrap">
               {!data.dataBundle && (
                 <Center m={10}>
-                  <Box>
+                  <Box h="100vh">
                     <Rings
                       height="80"
                       width="80"
