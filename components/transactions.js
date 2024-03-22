@@ -51,6 +51,10 @@ const Transactions = () => {
     fetchData();
   }, [data, setData]);
 
+  console.log('data:', data);
+  console.log('data.profile:', data.profile);
+  console.log('data.profile.transactions:', data.profile ? data.profile.transactions : null);
+
   if (!data || !data.profile || !data.profile.transactions) {
     return null;
   }
@@ -58,6 +62,9 @@ const Transactions = () => {
   const transacs = data.profile.transactions;
   const requests = data.profile.request || [];
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
+
+  console.log('transacs:', transacs);
+  console.log('requests:', requests);
 
   return (
     <ChakraProvider>
