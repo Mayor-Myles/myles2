@@ -17,11 +17,11 @@ const Header = () => {
 
 const changeMode = ()=>{
 
-  const userChoice = localStorage.getItem("mode");
+  const userChoice = window.localStorage.getItem("mode");
   //state not set before but user has picked choice
   alert(userChoice);
- if(userChoice ==="light" || userChoice ==="dark"){
-setMode(userChoice);
+ if(userChoice =="light" || userChoice =="dark"){
+setMode(!userChoice);//set new mode
   }
 
   else{
