@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ChakraProvider,
   Flex,
@@ -13,16 +13,19 @@ import {
   Tag,
   Center,
   Text,
+  Spinner,
   useMediaQuery,
 } from '@chakra-ui/react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, mode } from '../components/recoil';
 
 const Transactions = () => {
+  const [loading, setLoading] = useState(true);
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
+  const [isDesktop] = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
     const userChoice = localStorage.getItem('mode');
@@ -45,26 +48,32 @@ const Transactions = () => {
         }
       } catch (error) {
         console.error('Error fetching data:', error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [data, setData]);
 
-  console.log('data:', data);
-  console.log('data.profile:', data.profile);
-  console.log('data.profile.transactions:', data.profile ? data.profile.transactions : null);
+  if (loading) {
+    return (
+      <Center h="100vh">
+        <Spinner size="xl" color="blue.500" />
+      </Center>
+    );
+  }
 
   if (!data || !data.profile || !data.profile.transactions) {
-    return <div>No data available</div>;
-        }
+    return (
+      <Center h="100vh">
+        <Text>No data available</Text>
+      </Center>
+    );
+  }
 
   const transacs = data.profile.transactions;
   const requests = data.profile.request || [];
-  const [isDesktop] = useMediaQuery('(min-width: 768px)');
-
-  console.log('transacs:', transacs);
-  console.log('requests:', requests);
 
   return (
     <ChakraProvider>
