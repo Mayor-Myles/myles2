@@ -55,7 +55,7 @@ export default function Dashboard() {
   }, [setMode, setCurrentPage]);
 
 
-if(currentMode !== "light" || currentMode !=="dark"){
+if(currentMode == null){
 
 return(<></>)
 
