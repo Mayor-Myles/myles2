@@ -46,7 +46,9 @@ export default function Dashboard() {
   }, [logged, setLogged, setData, router]);
 
   useEffect(() => {
-    const userChoice = currentMode; 
+
+    
+    const userChoice = currentMode === null ? "light" : localStorage.getItem("mode"); 
     setMode(userChoice);
     setCurrentPage("home");
   }, [setMode, setCurrentPage]);
