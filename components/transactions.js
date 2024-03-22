@@ -1,5 +1,4 @@
-import React from 'react';
-import {useEffect} from "react";
+import React, { useEffect } from 'react';
 import $ from "jquery";
 import {
   Flex,
@@ -17,109 +16,64 @@ import {
   Text,
   useMediaQuery,
 } from '@chakra-ui/react';
-import { useRecoilValue,useSetRecoilState } from 'recoil';
-import { userData,csrfToken,mode } from '../components/recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { userData, mode } from '../components/recoil';
 
 const Transactions = () => {
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
- // const csrf = useRecoilValue(csrfToken);
- // const setCsrf = useSetRecoilState(csrfToken); 
   const currentMode = useRecoilValue(mode);
-    const setMode = useSetRecoilState(mode);
+  const setMode = useSetRecoilState(mode);
 
-  useEffect(()=>{
-
-
+  useEffect(() => {
     const userChoice = localStorage.getItem("mode");
 
-    if(userChoice === "dark"){
-    setMode("dark");
-    }
-    else{
+    if (userChoice === "dark") {
+      setMode("dark");
+    } else {
       setMode("light");
     }
+  }, [setMode]);
 
-  },[]);
-
-
-useEffect(() => {
-    
-    if (!data.profile || data) {
-    //alert(4)
+  useEffect(() => {
+    if (!data.profile || !data.profile.transactions) {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
         type: 'get',
         dataType: 'json',
-        //crossDomain: true,
         success: function (r, status, xhr) {
-          //const dataBundle = r.data.dataBundle;
-         const profile = r.data.profile;
+          const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
-          setData({ profile: profile, dataBundle: dataBundle
-                  });
-        //  setData({ dataBundle: dataBundle });
-        //  setSpin(false);
-          
-        //   setCsrf(r.token);
-//console.log(data.profile.phoneNumber);
-        //  console.log("csrf id ",csrf);
+          setData({ profile: profile, dataBundle: dataBundle });
         },
         error: function () {
-          //showAlert("Server is down", "warning");
+          // Handle error
         },
       });
     }
-  }, []);
+  }, [data, setData]);
 
-
-  if(!data || !data.profile.transactions){
-
-    return(<></>);
-
+  if (!data || !data.profile || !data.profile.transactions) {
+    return <></>;
   }
-    
-//  const d =JSON.parse(window.localStorage.getItem("data"));
- /* useEffect(() => {  
-   // if (!csrf) {
-    //alert(4)
-      const url = 'https://mylesvtu.com.ng/app/store/welcome';
-      $.ajax({
-        url: url,
-        type: 'get',
-        dataType: 'json',
-        //crossDomain: true,
-        success: function (r, status, xhr) {
-          const dataBundle = r.data.dataBundle;
-          setData({ dataBundle: dataBundle });
-        //  setSpin(false);
-          // setCsrf(r.token);
-//console.log(data.profile.phoneNumber);
-        //  console.log("csrf id ",csrf);
-        },
-        error: function () {
-          //showAlert("Server is down", "warning");
-        },
-      });
-  //  }
-  }, []);*/
- // const data = useRecoilValue(userData);
-  const transacs = data.profile.transactions || [];
+
+  const transacs = data.profile.transactions;
   const requests = data.profile.request || [];
 
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
-//console.log(data.profile.transactions);
+
   return (
     <ChakraProvider>
-      <Flex bg={currentMode ==="dark"  && "black"}
+      <Flex
+        bg={currentMode === "dark" && "black"}
         mt={8}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Heading color={currentMode==="dark" && "white"} as="h4" size="sm">
+        <Heading color={currentMode === "dark" && "white"} as="h4" size="sm">
           Transaction History
         </Heading>
       </Flex>
@@ -128,8 +82,8 @@ useEffect(() => {
         p={4}
         borderRadius="lg"
         boxShadow="lg"
-        bg={currentMode === "dark" &&"black"}
-        color={currentMode==="dark" && "white"}
+        bg={currentMode === "dark" && "black"}
+        color={currentMode === "dark" && "white"}
         maxH="400px"
         overflowY="scroll"
         marginTop={2}
@@ -150,24 +104,23 @@ useEffect(() => {
             </Tr>
           </Thead>
           <Tbody>
-            {transacs && transacs.length >= 1 &&
-              transacs.map((item, index) => (
-                <Tr key={index}>
-                  <Td>{index + 1}</Td>
-                  <Td>{item.tid}</Td>
-                  <Td>{item.details}</Td>
-                  <Td>{item.amount}</Td>
-                  <Td>{item.date}</Td>
-                  <Td>
-                    <Tag size="sm" variant="solid" colorScheme="green">
-                      Success
-                    </Tag>
-                  </Td>
-                </Tr>
-              ))}
+            {transacs.map((item, index) => (
+              <Tr key={index}>
+                <Td>{index + 1}</Td>
+                <Td>{item.tid}</Td>
+                <Td>{item.details}</Td>
+                <Td>{item.amount}</Td>
+                <Td>{item.date}</Td>
+                <Td>
+                  <Tag size="sm" variant="solid" colorScheme="green">
+                    Success
+                  </Tag>
+                </Td>
+              </Tr>
+            ))}
           </Tbody>
         </Table>
-{transacs && transacs.length < 1 && (
+        {transacs.length < 1 && (
           <Center m={3}>
             <Text textAlign="center" color="#657ce0">
               No transactions have been made
@@ -176,7 +129,7 @@ useEffect(() => {
         )}
       </Box>
 
-      <Box bg={currentMode==="dark" && "black"}   mb="0em">
+      <Box bg={currentMode === "dark" && "black"} mb="0em">
         <Flex
           mt={0}
           as={isDesktop ? 'center' : ''}
@@ -195,7 +148,7 @@ useEffect(() => {
           borderRadius="lg"
           boxShadow="lg"
           bg={currentMode === "dark" && "black"}
-        color={currentMode==="dark" && "white"}
+          color={currentMode === "dark" && "white"}
           maxH="400px"
           overflowY="scroll"
           marginTop={2}
@@ -216,24 +169,23 @@ useEffect(() => {
               </Tr>
             </Thead>
             <Tbody>
-              {requests && requests.length >= 1 &&
-                requests.map((item, index) => (
-                  <Tr key={index}>
-                    <Td>{index + 1}</Td>
-                    <Td>{item.rid}</Td>
-                    <Td>{item.description}</Td>
-                    <Td>{item.phoneNo}</Td>
-                    <Td>{item.date}</Td>
-                    <Td>
-                      <Tag size="sm" variant="solid" colorScheme="green">
-                        Success
-                      </Tag>
-                    </Td>
-                  </Tr>
-                ))}
+              {requests.map((item, index) => (
+                <Tr key={index}>
+                  <Td>{index + 1}</Td>
+                  <Td>{item.rid}</Td>
+                  <Td>{item.description}</Td>
+                  <Td>{item.phoneNo}</Td>
+                  <Td>{item.date}</Td>
+                  <Td>
+                    <Tag size="sm" variant="solid" colorScheme="green">
+                      Success
+                    </Tag>
+                  </Td>
+                </Tr>
+              ))}
             </Tbody>
           </Table>
-          {requests && requests.length < 1 && (
+          {requests.length < 1 && (
             <Center m={3}>
               <Text textAlign="center" color="#657ce0">
                 No request have been made
