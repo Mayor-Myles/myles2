@@ -19,7 +19,7 @@ const changeMode = ()=>{
 
   const userChoice = localStorage.getItem("mode");
   //state not set before but user has picked choice
-  alert(userChoice);
+ // alert(userChoice);
  if(userChoice =="light"){
 setMode("dark");//set new mode to dark
   window.localStorage.setItem("mode","dark");
