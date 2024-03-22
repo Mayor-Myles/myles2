@@ -282,7 +282,7 @@ setLoadingPage(false);
                   borderRadius="lg"
                   m="4" 
                   textAlign="center"
-                  width="23"
+                  width="22"
                   boxShadow="md"
                   style={selected === index + 1 ? styles.planSelected : {}}
                 >
