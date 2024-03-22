@@ -22,12 +22,16 @@ const changeMode = ()=>{
   alert(userChoice);
  if(userChoice =="light"){
 setMode("dark");//set new mode to dark
+  window.localStorage.setItem("mode","dark");
+ 
   }
 else if(userChoice =="dark"){
   setMode("light");//sets new mode to light 
+  window.localStorage.setItem("mode","light");
 }
   else{
 setMode("light");//user doesn't have a preference yet
+window.localStorage.setItem("mode","light");
   }
 
 
