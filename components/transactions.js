@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import $ from 'jquery';
 import {
   ChakraProvider,
   Flex,
@@ -31,23 +30,25 @@ const Transactions = () => {
   }, [setMode]);
 
   useEffect(() => {
-    if (!data.profile || !data.profile.transactions) {
-      const url = 'https://mylesvtu.com.ng/app/store/welcome';
-      $.ajax({
-        url: url,
-        type: 'get',
-        dataType: 'json',
-        success: function (r, status, xhr) {
-          const profile = r.data.profile;
-          const dataBundle = r.data.dataBundle;
+    const fetchData = async () => {
+      try {
+        if (!data.profile || !data.profile.transactions) {
+          const url = 'https://mylesvtu.com.ng/app/store/welcome';
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Failed to fetch data');
+          }
+          const responseData = await response.json();
+          const profile = responseData.data.profile;
+          const dataBundle = responseData.data.dataBundle;
           setData({ profile: profile, dataBundle: dataBundle });
-        },
-        error: function () {
-          // Handle error
-          console.error('Error fetching data');
-        },
-      });
-    }
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+
+    fetchData();
   }, [data, setData]);
 
   if (!data || !data.profile || !data.profile.transactions) {
