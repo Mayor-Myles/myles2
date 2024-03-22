@@ -23,36 +23,23 @@ export default function Menu() {
     const setMode = useSetRecoilState(mode);
 
 
-  if(!currentMode){
-
-    return(<></>);
-    
-  }
-  useEffect(()=>{
-
-
-    const userChoice = localStorage.getItem("mode");
-
-    if(userChoice === "dark"){
-    setMode("dark");
+  useEffect(() => {
+    if (!currentMode) {
+      setMode("light"); // Setting a default mode if currentMode is not available
     }
-    else{
-      setMode("light");
-    }
+  }, [currentMode, setMode]);
 
-  },[]);
-//const switching = props.switching;
-//const setSwitching = props.setSwitching;
- // const switching = useRecoilValue(switchData);
- // const setSwitching = useSetRecoilState(switchData);
-  
-  if (!data) {
-    return null;
-  }
-  
-useEffect(()=>{
-  setLoadingPage(false);
-},[])
+  useEffect(() => {
+    const userChoice = localStorage.getItem("mode"); // Access localStorage directly without window object
+    if (userChoice === "dark" || userChoice === "light") {
+      setMode(userChoice);
+    }
+  }, [setMode]);
+
+  useEffect(() => {
+    setLoadingPage(false);
+  }, [])
+
   
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
