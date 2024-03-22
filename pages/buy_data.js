@@ -230,7 +230,7 @@ console.log(data);
           </Center>): currentMode !== 'light' && currentMode !== 'dark' ? (
                   <> </> // Empty view when mode is not known
                 ) : (
-        <Flex align="center" justify="center" bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh">
+        <Flex alignItems="center" justifyContent="center" bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh">
           <Box p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
