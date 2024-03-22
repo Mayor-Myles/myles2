@@ -70,7 +70,7 @@ return(<></>)
         <Header />
     <Wallet />
      <Menu />
-    {/* <Transactions />*/}
+   <Transactions />
         <NavbarBottom />
       </Container>
     </>
