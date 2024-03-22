@@ -15,7 +15,7 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
   const setCurrentPage = useSetRecoilState(thisPage);
-  const setMode = useSetRecoilState(mode);
+  //const setMode = useSetRecoilState(mode);
   const router = useRouter();
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
