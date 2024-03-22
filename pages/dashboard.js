@@ -151,7 +151,7 @@ if(!logged){
 
 
   const [progress, setProgress] = useState(0);
-/*
+
   useEffect(() => {
     const incrementProgress = () => {
       if (progress < 100) {
@@ -183,7 +183,7 @@ if(!logged){
   );
   }
 
-*/
+
 
 
 
