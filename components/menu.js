@@ -4,7 +4,7 @@ import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center, Spinn
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineMessage, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
-import { FaExchangeAlt,FaSackDollar } from 'react-icons/fa';
+import { FaExchangeAlt} from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
