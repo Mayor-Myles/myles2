@@ -42,7 +42,11 @@ const Transactions = () => {
 window.localStorage.setItem("data",JSON.stringify(data))
   },[])
 
-  
+  if(!data || data.profile.transactions){
+
+    return(<></>);
+
+  }
     
   const d =JSON.parse(window.localStorage.getItem("data"));
  /* useEffect(() => {  
