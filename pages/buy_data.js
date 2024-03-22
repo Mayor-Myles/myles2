@@ -278,7 +278,7 @@ setLoadingPage(false);
                   key={index}
                   bg={currentMode==="dark"?"black":"white"}
                   color={currentMode==="dark"? "white" : "black"}
-                  p="4"
+                  p="2"
                   borderRadius="md"
                   m="3" 
                   textAlign="center"
@@ -287,9 +287,9 @@ setLoadingPage(false);
                   style={selected === index + 1 ? styles.planSelected : {}}
                 >
                   <Box
-                    bg="white"
-                    width="10px"
-                    height="10px"
+                    bg="#656ce0"
+                    width="14px"
+                    height="2px"
                     borderRadius="2%"
                     mb="4"
                     mx="auto"
