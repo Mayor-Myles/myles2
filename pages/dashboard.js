@@ -38,7 +38,7 @@ const currentPage = useRecoilValue(thisPage);
 const setCurrentPage = useSetRecoilState(thisPage);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-
+/*
 useEffect(() => {
   
   const userChoice = typeof window !== 'undefined' ? window.localStorage.getItem("mode") : null;
@@ -52,7 +52,7 @@ useEffect(() => {
 
 setCurrentPage("home");
   
-},[])
+},[])*/
   //const [spin, setSpin] = useState(true);
  // const thisPage = useRecoilValue(page);
  // const setPage = useSetRecoilState(page);
