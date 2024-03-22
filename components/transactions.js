@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import $ from "jquery";
+import $ from 'jquery';
 import {
+  ChakraProvider,
   Flex,
   Box,
   Heading,
@@ -11,7 +12,6 @@ import {
   Th,
   Td,
   Tag,
-  ChakraProvider,
   Center,
   Text,
   useMediaQuery,
@@ -26,13 +26,8 @@ const Transactions = () => {
   const setMode = useSetRecoilState(mode);
 
   useEffect(() => {
-    const userChoice = localStorage.getItem("mode");
-
-    if (userChoice === "dark") {
-      setMode("dark");
-    } else {
-      setMode("light");
-    }
+    const userChoice = localStorage.getItem('mode');
+    setMode(userChoice === 'dark' ? 'dark' : 'light');
   }, [setMode]);
 
   useEffect(() => {
@@ -49,31 +44,31 @@ const Transactions = () => {
         },
         error: function () {
           // Handle error
+          console.error('Error fetching data');
         },
       });
     }
   }, [data, setData]);
 
   if (!data || !data.profile || !data.profile.transactions) {
-    return <></>;
+    return null;
   }
 
   const transacs = data.profile.transactions;
   const requests = data.profile.request || [];
-
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
 
   return (
     <ChakraProvider>
       <Flex
-        bg={currentMode === "dark" && "black"}
+        bg={currentMode === 'dark' ? 'black' : ''}
         mt={8}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Heading color={currentMode === "dark" && "white"} as="h4" size="sm">
+        <Heading color={currentMode === 'dark' ? 'white' : ''} as="h4" size="sm">
           Transaction History
         </Heading>
       </Flex>
@@ -82,8 +77,8 @@ const Transactions = () => {
         p={4}
         borderRadius="lg"
         boxShadow="lg"
-        bg={currentMode === "dark" && "black"}
-        color={currentMode === "dark" && "white"}
+        bg={currentMode === 'dark' ? 'black' : ''}
+        color={currentMode === 'dark' ? 'white' : ''}
         maxH="400px"
         overflowY="scroll"
         marginTop={2}
@@ -129,7 +124,7 @@ const Transactions = () => {
         )}
       </Box>
 
-      <Box bg={currentMode === "dark" && "black"} mb="0em">
+      <Box bg={currentMode === 'dark' ? 'black' : ''} mb="0em">
         <Flex
           mt={0}
           as={isDesktop ? 'center' : ''}
@@ -147,8 +142,8 @@ const Transactions = () => {
           p={4}
           borderRadius="lg"
           boxShadow="lg"
-          bg={currentMode === "dark" && "black"}
-          color={currentMode === "dark" && "white"}
+          bg={currentMode === 'dark' ? 'black' : ''}
+          color={currentMode === 'dark' ? 'white' : ''}
           maxH="400px"
           overflowY="scroll"
           marginTop={2}
