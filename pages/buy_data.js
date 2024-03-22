@@ -279,7 +279,7 @@ setLoadingPage(false);
                   bg={currentMode==="dark"?"black":"white"}
                   color={currentMode==="dark"? "white" : "black"}
                   p="4"
-                  borderRadius="md"
+                  borderRadius="lg"
                   m="4" 
                   textAlign="center"
                   width="23"
@@ -288,7 +288,7 @@ setLoadingPage(false);
                 >
                   <Box
                     bg="#657ce0"
-                    width="20px"
+                    width="25px"
                     height="2px"
                     borderRadius="2%"
                     mb="4"
