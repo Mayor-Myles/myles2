@@ -39,19 +39,44 @@ const Transactions = () => {
     else{
       setMode("light");
     }
-window.localStorage.setItem("data",JSON.stringify(data))
-  },[])
-console.log(data);
+useEffect(() => {
+    
+    if (!data.profile || data) {
+    //alert(4)
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
+      $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        //crossDomain: true,
+        success: function (r, status, xhr) {
+          //const dataBundle = r.data.dataBundle;
+         const profile = r.data.profile;
+          const dataBundle = r.data.dataBundle;
+          setData({ profile: profile, dataBundle: dataBundle
+                  });
+        //  setData({ dataBundle: dataBundle });
+        //  setSpin(false);
+          
+        //   setCsrf(r.token);
+//console.log(data.profile.phoneNumber);
+        //  console.log("csrf id ",csrf);
+        },
+        error: function () {
+          //showAlert("Server is down", "warning");
+        },
+      });
+    }
+  }, []);
 
-  console.log(data.profile.transactions);
-  
+
   if(!data || !data.profile.transactions){
 
     return(<></>);
 
   }
     
-  const d =JSON.parse(window.localStorage.getItem("data"));
+//  const d =JSON.parse(window.localStorage.getItem("data"));
  /* useEffect(() => {  
    // if (!csrf) {
     //alert(4)
@@ -76,7 +101,7 @@ console.log(data);
   //  }
   }, []);*/
  // const data = useRecoilValue(userData);
-  const transacs = d.profile.transactions || [];
+  const transacs = data.profile.transactions || [];
   const requests = data.profile.request || [];
 
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
@@ -95,7 +120,7 @@ console.log(data);
         </Heading>
       </Flex>
       <Box
-        mb={2}
+        mb={0}
         p={4}
         borderRadius="lg"
         boxShadow="lg"
@@ -104,7 +129,7 @@ console.log(data);
         maxH="400px"
         overflowY="scroll"
         marginTop={2}
-        marginBottom="20px"
+        marginBottom="2px"
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
         minW={isDesktop ? '500px' : ''}
@@ -121,7 +146,7 @@ console.log(data);
             </Tr>
           </Thead>
           <Tbody>
-            {transacs.length >= 1 &&
+            {transacs && transacs.length >= 1 &&
               transacs.map((item, index) => (
                 <Tr key={index}>
                   <Td>{index + 1}</Td>
@@ -138,7 +163,7 @@ console.log(data);
               ))}
           </Tbody>
         </Table>
-        {transacs.length < 1 && (
+{transacs && transacs.length < 1 && (
           <Center m={3}>
             <Text textAlign="center" color="#657ce0">
               No transactions have been made
@@ -170,7 +195,7 @@ console.log(data);
           maxH="400px"
           overflowY="scroll"
           marginTop={2}
-          marginBottom="20px"
+          marginBottom="2px"
           ml={isDesktop ? '150px' : ''}
           mr={isDesktop ? '150px' : ''}
           minW={isDesktop ? '500px' : ''}
@@ -187,7 +212,7 @@ console.log(data);
               </Tr>
             </Thead>
             <Tbody>
-              {requests.length >= 1 &&
+              {requests && requests.length >= 1 &&
                 requests.map((item, index) => (
                   <Tr key={index}>
                     <Td>{index + 1}</Td>
@@ -204,7 +229,7 @@ console.log(data);
                 ))}
             </Tbody>
           </Table>
-          {requests.length < 1 && (
+          {requests && requests.length < 1 && (
             <Center m={3}>
               <Text textAlign="center" color="#657ce0">
                 No request have been made
