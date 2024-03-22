@@ -197,7 +197,7 @@ if(!logged){
       <title>mylesVTU — cheap data,airtime and hire web developer and graphics designer </title>
         </Head>
       
-       <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
+       <Container>
           
                    
              <Header /> 
