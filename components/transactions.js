@@ -39,6 +39,10 @@ const Transactions = () => {
     else{
       setMode("light");
     }
+
+  },[]);
+
+
 useEffect(() => {
     
     if (!data.profile || data) {
