@@ -108,31 +108,138 @@ export default function Menu() {
           <Box mt={6}>
             <Box maxW="md" mx="auto" p={4}>
               <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
-                  <Box
-                    border={currentMode === "dark" && "0.1em solid #657ce0"}
-                    textAlign="center"
-                    borderRadius="15%"
-                    boxShadow="md"
-                    p={4}
-                    _hover={{ boxShadow: 'xl' }}
-                    width={isDesktop ? "100px" : "100%"}
-                    height={isDesktop ? " 100px" : "100%"}
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    <AiOutlineWifi color="#657ce0" size={24} />
-                    <Text cursor="pointer" color={currentMode === "dark" && "white"} mt={2} fontSize="sm" fontWeight="bold">
-                      Buy Data
-                    </Text>
-                  </Box>
-                </GridItem>
+              <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
+                <Box
+         border={currentMode==="dark" && "0.1em solid #657ce0"}         textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <AiOutlineWifi color="#657ce0" size={24} />
+                  <Text cursor="pointer" color={currentMode ==="dark" && "white"} mt={2} fontSize="sm" fontWeight="bold">
+                    Buy Data
+                  </Text>
+                </Box>
+              </GridItem>
 
-                {/* Rest of the grid items */}
+              <GridItem colSpan={1} onClick={openFund} cursor="pointer">
+                <Box
+                
+                  border={currentMode ==="dark" && "solid 0.1em #547ce0"}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <AiOutlineDollarCircle color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                    Fund
+                  </Text>
+                </Box>
+              </GridItem>
 
-              </Grid>
+              <GridItem colSpan={1}>
+                <Box border={currentMode === "dark" && "solid 0.1em #657ce0" } onClick={openAirtime}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <AiOutlineMobile color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                    Airtime
+                  </Text>
+                </Box>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
+                  
+                  onClick={openAirtime2Cash}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <FaExchangeAlt color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
+                    Airtime 2 Cash
+                  </Text>
+                </Box>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
+                  
+                  onClick={openBulkSMS}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <AiOutlineMessage color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                    Bulk SMS
+                  </Text>
+                </Box>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Box border={currentMode==="dark" && "solid 0.1em #657ce0"} onClick={openHire}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <AiOutlineUser color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                    Hire
+                  </Text>
+                </Box>
+              </GridItem>
+            </Grid>
             </Box>
           </Box>
         )}
