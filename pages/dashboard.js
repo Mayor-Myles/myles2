@@ -56,8 +56,8 @@ export default function Dashboard() {
       <div>
         <Header />
     <Wallet />
-  <Menu />
-    {/*<Transactions />*/}
+    {/* <Menu />
+  <Transactions />*/}
         <NavbarBottom />
       </div>
     </>
