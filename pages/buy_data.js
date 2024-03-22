@@ -271,7 +271,7 @@ console.log(data);
                 </Center>
               )}
               {dataPlansDetails.map((item, index) => (
-                <Box border={currentMode==="dark" && "0.1em solid #657ce0"} onClick={() => {
+                <Box onClick={() => {
                   selectItem(index + 1);
                   getInput('plan', item.product);
                 }}
