@@ -8,6 +8,8 @@ import Head from "next/head";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
+import { Box, Button, Center, ChakraProvider, Text, Container,Spinner,Flex } from '@chakra-ui/react';
+
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(false);
