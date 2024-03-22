@@ -4,7 +4,7 @@ import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center, Spinn
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineMessage, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
-import { FaExchangeAlt } from 'react-icons/fa';
+import { FaExchangeAlt,FaSackDollar } from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
@@ -77,7 +77,7 @@ export default function Menu() {
     router.push('/bulkSMS');
   };
 
-  const openCable = () => {
+  const comingSoon= () => {
     showAlert("We are sorry this service is not available. Check back again later...", "info");
   };
 
@@ -237,6 +237,29 @@ export default function Menu() {
                   <AiOutlineUser color="#657ce0" size={24} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Hire
+                  </Text>
+                </Box>
+              </GridItem>
+
+<GridItem colSpan={1}>
+                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
+                  
+                  onClick={comingSoon}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <FaSackDollar color="#657ce0" size={24} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
+                    Refer and Earn
                   </Text>
                 </Box>
               </GridItem>
