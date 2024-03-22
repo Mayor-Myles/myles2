@@ -152,7 +152,7 @@ if(!logged){
 
   const [progress, setProgress] = useState(0);
 
- /* useEffect(() => {
+  useEffect(() => {
     const incrementProgress = () => {
       if (progress < 100) {
         setProgress(progress + 20); // Adjust the speed of progress here
@@ -173,7 +173,7 @@ if(!logged){
 
     return () => clearInterval(timer);
   }, [progress]);
-*/
+
 /*
 
   if(progress < 100 || !logged){
