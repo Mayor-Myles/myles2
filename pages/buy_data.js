@@ -278,11 +278,11 @@ setLoadingPage(false);
                   key={index}
                   bg={currentMode==="dark"?"black":"white"}
                   color={currentMode==="dark"? "white" : "black"}
-                  p="2"
+                  p="4"
                   borderRadius="md"
                   m="3" 
                   textAlign="center"
-                  width="22"
+                  width="20"
                   boxShadow="md"
                   style={selected === index + 1 ? styles.planSelected : {}}
                 >
