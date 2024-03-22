@@ -31,7 +31,7 @@ const Transactions = () => {
   useEffect(()=>{
 
 
-    const userChoice = window.localStorage.getItem("mode");
+    const userChoice = localStorage.getItem("mode");
 
     if(userChoice === "dark"){
     setMode("dark");
@@ -39,11 +39,11 @@ const Transactions = () => {
     else{
       setMode("light");
     }
-
+window.localStorage.setItem("data",JSON.stringify(data))
   },[])
 
   
-    window.localStorage.setItem("data",JSON.stringify(data));
+    
   const d =JSON.parse(window.localStorage.getItem("data"));
  /* useEffect(() => {  
    // if (!csrf) {
