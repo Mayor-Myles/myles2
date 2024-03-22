@@ -40,7 +40,7 @@ export default function Menu() {
       setMode("light");
     }
 
-  },[]);
+  },[currentMode,setMode]);
 //const switching = props.switching;
 //const setSwitching = props.setSwitching;
  // const switching = useRecoilValue(switchData);
