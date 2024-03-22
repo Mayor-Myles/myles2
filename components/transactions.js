@@ -56,8 +56,8 @@ const Transactions = () => {
   console.log('data.profile.transactions:', data.profile ? data.profile.transactions : null);
 
   if (!data || !data.profile || !data.profile.transactions) {
-    return null;
-  }
+    return <div>No data available</div>;
+        }
 
   const transacs = data.profile.transactions;
   const requests = data.profile.request || [];
