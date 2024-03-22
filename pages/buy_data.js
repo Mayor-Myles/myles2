@@ -231,7 +231,7 @@ console.log(data);
                   <> </> // Empty view when mode is not known
                 ) : (
         <Flex align="center" justify="center" bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh">
-          <Box mt="2.6em" p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
+          <Box p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
