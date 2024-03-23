@@ -33,7 +33,7 @@ export default function Adverts() {
             <Image
               w="100%"
               h="50%"
-              objectFit="contain"
+             
               src={image}
               alt={`Image ${index + 1}`}
             />
