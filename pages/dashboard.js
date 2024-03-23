@@ -9,7 +9,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
 import { Box, Button, Center, ChakraProvider, Text, Container,Spinner,Flex } from '@chakra-ui/react';
-import {Adverts} from "../components/adverts";
+import Adverts from "../components/adverts";
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(false);
@@ -69,7 +69,7 @@ return(<></>)
       <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
         <Header />
     <Wallet />
-    <Adverts/>
+         <Adverts/>
      <Menu />
    <Transactions />
         <NavbarBottom />
