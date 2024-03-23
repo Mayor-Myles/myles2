@@ -53,7 +53,7 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          maxH="6.1em"
+          maxH="6.5em"
           overflow="hidden"
           position="relative"
         >
@@ -66,7 +66,7 @@ export default function Wallet() {
               Phone: +234{profile && profile.phoneNumber}
             </Text>
             
-              <Text fontSize="xs" fontWeight="bold"  color="white" mt={1}>
+              <Text m={2} fontSize="md" fontWeight="bold"  color="white" mt={1}>
                <Center> ₦{profile && profile.balance.toLocaleString()} </Center>
               </Text> 
             
