@@ -9,9 +9,9 @@ SwiperCore.use([Autoplay, EffectFade, Pagination, Navigation]);
 
 export default function Adverts() {
   const images = [
-    /*'/advert1.jpg',
+    '/advert1.jpg',
     '/advert2.jpg',
-    '/advert3.jpg',*/
+    '/advert3.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTKK4-ja1SZ-cmxoYmVvKzXMdhA2Gb6CHRg&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHSgvHNaAzXN5AQzAYR-PgZpoPnJAjwWDWA&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcBfrr3EXfA1KQhBMLImnDWpi2SpUFJENItg&usqp=CAU',
@@ -34,6 +34,6 @@ export default function Adverts() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </Container>
   );
 }
