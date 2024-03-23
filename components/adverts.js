@@ -32,11 +32,11 @@ const Adverts = () => {
   };
 
   return (
-    <Box boxShadow="md" m="1.3em">
+    <Box boxShadow="md" m="1.5em">
       <Slider {...settings}>
         {images.map((image, index) => (
           <Box key={index}>
-            <Image w="100%" h="3.5em" src={image} alt={`Slide ${index}`} />
+            <Image w="100%" h="4em" src={image} alt={`Slide ${index}`} />
           </Box>
         ))}
       </Slider>
