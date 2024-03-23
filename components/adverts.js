@@ -30,8 +30,8 @@ export default function Adverts() {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <Image
-              w="100%"
-              h="1000px"
+              w="1000px"
+              h="60px"
              objectFit="contain"
               src={image}
               alt={`Image ${index + 1}`}
