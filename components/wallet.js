@@ -49,24 +49,30 @@ export default function Wallet() {
           width={{ base: '80%', sm: '60%', md: '40%' }}
           borderRadius="xl"
           boxShadow="lg"
-          p={6}
+          p={3}
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          h="10em" // Adjusted height
+          maxH="5em" // Maximum height
+          overflow="hidden"
+          position="relative"
         >
-          <FiCreditCard size={30} color="white" />
-          <Text fontSize="lg" fontWeight="bold" mt={4}>
-            My Wallet
-          </Text>
-          <Text fontSize="sm" fontWeight="" color="white" mt={2}>
-            Phone: +234{profile && profile.phoneNumber}
-          </Text>
-          <Text fontSize="sm" fontWeight="" color="white" mt={2}>
-            Balance: {showBalance ? `₦${profile && profile.balance.toLocaleString()}` : (
-              <IconButton aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="sm" onClick={toggleBalance} />
+          <Flex direction="column" justify="center" align="center">
+            <FiCreditCard size={20} color="white" />
+            <Text fontSize="md" fontWeight="bold" mt={2}>
+              My Wallet
+            </Text>
+            <Text fontSize="xs" fontWeight="" color="white" mt={1}>
+              Phone: +234{profile && profile.phoneNumber}
+            </Text>
+            {showBalance ? (
+              <Text fontSize="xs" fontWeight="" color="white" mt={1}>
+                Balance: ₦{profile && profile.balance.toLocaleString()}
+              </Text>
+            ) : (
+              <IconButton aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="xs" onClick={toggleBalance} mt={1} />
             )}
-          </Text>
+          </Flex>
         </Box>
       </Flex>
     </ChakraProvider>
