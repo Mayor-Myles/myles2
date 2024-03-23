@@ -36,7 +36,7 @@ const Adverts = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <Box key={index}>
-            <Image w="100%" h="4em" src={image} alt={`Slide ${index}`} />
+            <Image w="100%" h="6em" src={image} alt={`Slide ${index}`} />
           </Box>
         ))}
       </Slider>
