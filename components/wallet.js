@@ -53,12 +53,12 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          maxH="6em"
+          maxH="6.1em"
           overflow="hidden"
           position="relative"
         >
           <Flex direction="column" justify="center" align="center">
-            {showBalance ? (<FiEye onClick={toggleBalance} size={12} color="white" />) :(<FiEyeOff onClick={toggleBalance} size={12} color="white" />)}
+            {showBalance ? (<FiEye onClick={toggleBalance} size={15} color="white" />) :(<FiEyeOff onClick={toggleBalance} size={15} color="white" />)}
             <Text fontSize="sm" fontWeight="bold" mt={2}>
             Hi, {profile && (profile.fullName).substring(0,15)}
             </Text>
@@ -67,7 +67,7 @@ export default function Wallet() {
             </Text>
             
               <Text fontSize="xs"  color="white" mt={1}>
-                My Total Balance: <Text fontWeight="bold"> ₦{profile && profile.balance.toLocaleString()} </Text>
+                My Balance: <Text fontWeight="bold"> ₦{profile && profile.balance.toLocaleString()} </Text>
               </Text> 
             
         
