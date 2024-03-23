@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box, Text, Flex, ChakraProvider } from '@chakra-ui/react';
-import { FiCreditCard } from 'react-icons/fi';
+import React, { useState } from 'react';
+import { Box, Text, Flex, ChakraProvider, IconButton } from '@chakra-ui/react';
+import { FiCreditCard, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, loginStatus } from '../components/recoil';
 import { useEffect } from "react";
@@ -12,6 +12,8 @@ export default function Wallet() {
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
   const profile = data.profile;
+
+  const [showBalance, setShowBalance] = useState(true);
 
   useEffect(() => {
     if (!profile) {
@@ -36,14 +38,6 @@ export default function Wallet() {
     }
   }, [profile]);
 
- /* if (!profile) {
-    return (
-      <>
-        <Text mt={15} textAlign="center"> Wallet Loading...</Text>
-      </>
-    )
-  }*/
-
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
 
   return (
@@ -62,9 +56,15 @@ export default function Wallet() {
           <Text fontSize="lg" fontWeight="bold" mt={4}>
             My Wallet
           </Text>
-          <Text fontSize="md" fontWeight="" color="white" mt={2}>
-            Balance: ₦{profile && profile.balance.toLocaleString()}
-          </Text>
+          {showBalance ? (
+            <Text fontSize="md" fontWeight="" color="white" mt={2}>
+              Balance: ₦{profile && profile.balance.toLocaleString()}
+            </Text>
+          ) : (
+            <Text fontSize="md" fontWeight="" color="white" mt={2}>
+              Balance: <IconButton aria-label="Show Balance" icon={<FiEye />} size="xs" onClick={() => setShowBalance(true)} />
+            </Text>
+          )}
           <Text fontSize="md">Phone: +234{profile && profile.phoneNumber}</Text>
         </Box>
       </Flex>
