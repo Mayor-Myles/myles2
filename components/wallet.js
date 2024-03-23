@@ -58,21 +58,19 @@ export default function Wallet() {
           position="relative"
         >
           <Flex direction="column" justify="center" align="center">
-            <FiCreditCard size={10} color="white" />
+            {showBalance ? (<FiEye onClick={toggleBalance} size={12} color="white" />) :(<FiEyeOff onClick={toggleBalance} size={12} color="white" />)}
             <Text fontSize="sm" fontWeight="bold" mt={2}>
             Hi, {profile && (profile.fullName).substring(0,15)}
             </Text>
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
             </Text>
-            {showBalance ? (
-              <Text fontSize="xs" fontWeight="" color="white" mt={1}>
-                Balance: ₦{profile && profile.balance.toLocaleString()}
-             <Box onClick={toggleBalance} mx={2}><FiEyeOff/></Box>
+            
+              <Text fontSize="xs"  color="white" mt={1}>
+                My Total Balance: <Text fontWeight="bold"> ₦{profile && profile.balance.toLocaleString()} </Text>
               </Text> 
-            ) : (
-              <Box aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="xs" onClick={toggleBalance} mt={1} />
-            )}
+            
+        
           </Flex>
         </Box>
       </Flex>
