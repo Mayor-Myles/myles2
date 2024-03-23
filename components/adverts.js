@@ -10,7 +10,7 @@ SwiperCore.use([Autoplay, EffectFade, Pagination, Navigation]);
 export default function Adverts() {
   const images = [
     
-    '/advert2.jpg',
+    'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/297679841/original/ef10bca92725bb87c3a73549dfba5b0b4a053717/setup-a-converting-ad-for-your-business.png',
     '/advert3.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTKK4-ja1SZ-cmxoYmVvKzXMdhA2Gb6CHRg&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHSgvHNaAzXN5AQzAYR-PgZpoPnJAjwWDWA&usqp=CAU',
@@ -31,8 +31,8 @@ export default function Adverts() {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <Image
-              w="100%"
-              h="50%"
+              w="600px"
+              h="215px"
              
               src={image}
               alt={`Image ${index + 1}`}
