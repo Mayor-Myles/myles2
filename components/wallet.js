@@ -44,7 +44,7 @@ export default function Wallet() {
 
   return (
     <ChakraProvider>
-      <Flex justify="center" align="center" width="100%" mt={15}>
+      <Flex justify="center" align="center" width="100%" mt={10}>
         <Box
           width={{ base: '80%', sm: '60%', md: '40%' }}
           borderRadius="xl"
@@ -53,7 +53,7 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          maxH="6.5em"
+          maxH="6.6em"
           overflow="hidden"
           position="relative"
         >
@@ -66,7 +66,7 @@ export default function Wallet() {
               Phone: +234{profile && profile.phoneNumber}
             </Text>
             
-              <Text m={2} fontSize="md" fontWeight="bold"  color="white" mt={1}>
+              <Text m={4} fontSize="md" fontWeight="bold"  color="white" mt={1}>
                <Center> ₦{profile && profile.balance.toLocaleString()} </Center>
               </Text> 
             
