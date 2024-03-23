@@ -22,7 +22,7 @@ export default function Adverts() {
       <Swiper
         spaceBetween={10}
         slidesPerView={2}
-        autoPlay={1200}
+        autoplay={{delay:1200}}
         pagination={{ clickable: true }}
         effect="slide"
          
