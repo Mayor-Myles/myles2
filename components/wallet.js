@@ -11,7 +11,7 @@ export default function Wallet() {
   const setData = useSetRecoilState(userData);
   const profile = data.profile;
 
-  const [showBalance, setShowBalance] = useState(false);
+  const [showBalance, setShowBalance] = useState(true);
 
   useEffect(() => {
     if (!profile) {
@@ -60,7 +60,7 @@ export default function Wallet() {
           <Flex direction="column" justify="center" align="center">
             <FiCreditCard size={10} color="white" />
             <Text fontSize="sm" fontWeight="bold" mt={2}>
-            {profile && profile.fullName}
+            Hi, {profile && profile.fullName.substring(0,15}
             </Text>
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
