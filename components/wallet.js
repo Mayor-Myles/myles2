@@ -57,10 +57,10 @@ export default function Wallet() {
           overflow="hidden"
           position="relative"
         >
-          <Flex direction="column" justify="center" align="center">
-            <FiCreditCard size={20} color="white" />
-            <Text fontSize="md" fontWeight="bold" mt={2}>
-              My Wallet
+          <Flex direction="row" justify="center" align="center">
+            <FiCreditCard size={10} color="white" />
+            <Text fontSize="sm" fontWeight="bold" mt={2}>
+            {profile && profile.fullname}
             </Text>
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
@@ -70,7 +70,7 @@ export default function Wallet() {
                 Balance: ₦{profile && profile.balance.toLocaleString()}
               </Text>
             ) : (
-              <IconButton aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="xs" onClick={toggleBalance} mt={1} />
+              <Box aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="xs" onClick={toggleBalance} mt={1} />
             )}
           </Flex>
         </Box>
