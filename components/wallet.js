@@ -13,7 +13,7 @@ export default function Wallet() {
   const setData = useSetRecoilState(userData);
   const profile = data.profile;
 
-  const [showBalance, setShowBalance] = useState(true);
+  const [showBalance, setShowBalance] = useState(false);
 
   useEffect(() => {
     if (!profile) {
@@ -42,7 +42,7 @@ export default function Wallet() {
 
   return (
     <ChakraProvider>
-      <Flex h="10%" justify="center" align="center" width="100%" mt={6}>
+      <Flex h="20%" justify="center" align="center" width="100%" mt={15}>
         <Box
           width={{ base: '80%', sm: '60%', md: '40%' }}
           borderRadius="xl" // Use "lg" for rounded corners
@@ -62,7 +62,7 @@ export default function Wallet() {
             </Text>
           ) : (
             <Text fontSize="md" fontWeight="" color="white" mt={2}>
-              Balance: <IconButton aria-label="Show Balance" icon={<FiEye />} size="xs" onClick={() => setShowBalance(true)} />
+              Balance: <IconButton aria-label="Show Balance" icon={<FiEye />} size="lg" onClick={() => setShowBalance(true)} />
             </Text>
           )}
           <Text fontSize="md">Phone: +234{profile && profile.phoneNumber}</Text>
