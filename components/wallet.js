@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Text, Flex, ChakraProvider, IconButton } from '@chakra-ui/react';
+import { Box, Text, Flex, ChakraProvider, IconButton ,Center} from '@chakra-ui/react';
 import { FiCreditCard, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, loginStatus } from '../components/recoil';
@@ -53,7 +53,7 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          maxH="6.3em"
+          maxH="6.1em"
           overflow="hidden"
           position="relative"
         >
@@ -66,8 +66,8 @@ export default function Wallet() {
               Phone: +234{profile && profile.phoneNumber}
             </Text>
             
-              <Text fontSize="xs"  color="white" mt={1}>
-                My Balance: <Text fontWeight="bold"> ₦{profile && profile.balance.toLocaleString()} </Text>
+              <Text fontSize="xs" fontWeight="bold"  color="white" mt={1}>
+               <Center> ₦{profile && profile.balance.toLocaleString()} </Center>
               </Text> 
             
         
