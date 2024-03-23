@@ -19,7 +19,7 @@ const Adverts = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 1200,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -32,7 +32,7 @@ const Adverts = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <Box key={index}>
-            <Image w="100%" h="60px" src={image} alt={`Slide ${index}`} />
+            <Image objectFit="cover" h="60px" src={image} alt={`Slide ${index}`} />
           </Box>
         ))}
       </Slider>
