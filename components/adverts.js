@@ -1,6 +1,6 @@
-import { Image,Flex,Container } from "@chakra-ui/react";
+import { Image, Container } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay, EffectFade, Pagination, Navigation } from 'swiper/core';
+import SwiperCore, { Autoplay, EffectFade, Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -23,14 +23,13 @@ export default function Adverts() {
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
-        
-        pagination={{ clickable: true }}
         autoplay={{ delay: 1200 }}
+        pagination={{ clickable: true }}
         effect="slide"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <Image w="20em" h="5em" src={image} alt={`Image ${index + 1}`} />
+            <Image w="25em" h="5em" src={image} alt={`Image ${index + 1}`} />
           </SwiperSlide>
         ))}
       </Swiper>
