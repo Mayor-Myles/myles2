@@ -17,7 +17,7 @@ export default function Adverts() {
     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/297679841/original/ef10bca92725bb87c3a73549dfba5b0b4a053717/setup-a-converting-ad-for-your-business.png",
     ];
 
-images = images.sort(()=> Math.rand() - 0.5);
+shuffled = images.sort(()=> Math.rand() - 0.5);
   
   return (
     <Container m="2em">
@@ -29,7 +29,7 @@ images = images.sort(()=> Math.rand() - 0.5);
         effect="slide"
          
       >
-        {images.map((image, index) => (
+        {shuffled.map((image, index) => (
           <SwiperSlide key={index}>
             <Image
               w="1000px"
