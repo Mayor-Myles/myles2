@@ -18,11 +18,11 @@ useEffect(()=>{
 
 //set the preffered choice of user on balance show or hide
 const balanceStatus = localStorage.getItem("showBalance");
-    
+    alert(balanceStatus);
   setShowBalance(balanceStatus);
 
 
-},[setShowBalance]);
+},[]);
 
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const balanceStatus = localStorage.getItem("showBalance");
           position="relative"
         >
           <Flex direction="column" justify="center" align="center">
-            {showBalance ? (<FiEye onClick={toggleBalance} size={15} color="white" />) :(<FiEyeOff onClick={toggleBalance} size={15} color="white" />)}
+            {showBalance ? (<FiEyeOff onClick={toggleBalance} size={15} color="white" />) :(<FiEye onClick={toggleBalance} size={15} color="white" />)}
             <Text fontSize="sm" fontWeight="bold" mt={2}>
             Hi, {profile && (profile.fullName).substring(0,15)}
             </Text>
