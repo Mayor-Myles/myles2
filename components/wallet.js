@@ -48,7 +48,7 @@ export default function Wallet() {
 
   return (
     <ChakraProvider>
-      <Flex h="20%" justify="center" align="center" width="100%" mt={6}>
+      <Flex h="10%" justify="center" align="center" width="100%" mt={6}>
         <Box
           width={{ base: '80%', sm: '60%', md: '40%' }}
           borderRadius="xl" // Use "lg" for rounded corners
