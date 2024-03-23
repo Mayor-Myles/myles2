@@ -12,6 +12,8 @@ export default function Adverts() {
 
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3nebAaljSdexHxUX7nIFOEF7UirXmpZ5kCQ&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuGJ0CU-5V0nfEHjkqJiV8PKP7HYyjAWsfNA&usqp=CAU",
+     "https://www.infomazeelite.com/wp-content/uploads/2021/02/Hire-Azure-DevOps-Engineers.png",
+    
     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/297679841/original/ef10bca92725bb87c3a73549dfba5b0b4a053717/setup-a-converting-ad-for-your-business.png",
     ];
 
