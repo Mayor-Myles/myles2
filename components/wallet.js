@@ -53,7 +53,7 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          maxH="5em" // Maximum height
+          maxH="6em"
           overflow="hidden"
           position="relative"
         >
@@ -68,7 +68,7 @@ export default function Wallet() {
             {showBalance ? (
               <Text fontSize="xs" fontWeight="" color="white" mt={1}>
                 Balance: ₦{profile && profile.balance.toLocaleString()}
-              </Text>
+              </Text> <Box onClick={toggleBalance} mx={2}><FiEyeOff/></Box>
             ) : (
               <Box aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="xs" onClick={toggleBalance} mt={1} />
             )}
