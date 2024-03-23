@@ -23,13 +23,19 @@ export default function Adverts() {
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={{ delay: 1200 }}
+        autoplay={{ delay: 2000 }}
         pagination={{ clickable: true }}
         effect="slide"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <Image w="25em" h="5em" src={image} alt={`Image ${index + 1}`} />
+            <Image
+              w="100%"
+              h="100%"
+              objectFit="cover"
+              src={image}
+              alt={`Image ${index + 1}`}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
