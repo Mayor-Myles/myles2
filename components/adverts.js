@@ -27,7 +27,7 @@ const Adverts = () => {
   };
 
   return (
-    <Box m={10} w="100vw">
+    <Box maxH="300px" overflow="hidden" m={10} w="100vw">
       
       <Slider {...settings}>
         {images.map((image, index) => (
