@@ -6,8 +6,8 @@ import { Box, Image } from '@chakra-ui/react';
 
 const Adverts = () => {
   const images = [
-    'image1.jpg',
-    'image2.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0YZlN4HFys6NdcDj1Azbe2lJRgSWs-tRDwQ&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnBRZwcdumfCgnlaCiyPEQfjYRe_XrVkEbLA&usqp=CAU',
     'image3.jpg',
     'image4.jpg'
   ];
@@ -23,7 +23,7 @@ const Adverts = () => {
   };
 
   return (
-    <Box>
+    <Box my={5}>
       
       <Slider {...settings}>
         {images.map((image, index) => (
