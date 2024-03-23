@@ -8,7 +8,7 @@ import { FaExchangeAlt} from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
-import {FaSackDollar,FaPersonCirclePlus} from "react-icons/fa6";
+import {FaSackDollar,FaPersonCirclePlus,FaWallet,FaPhoneVolume,FaWifi} from "react-icons/fa6";
 
 export default function Menu() {
   const data = useRecoilValue(userData);
@@ -124,8 +124,8 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <AiOutlineWifi color="#657ce0" size={24} />
-                  <Text cursor="pointer" color={currentMode ==="dark" && "white"} mt={2} fontSize="sm" fontWeight="bold">
+                  <FaWifi color="#657ce0" size={27} />
+                  <Text cursor="pointer" color={currentMode ==="dark" && "white"} mt={2} fontSize="0.7em" fontWeight="bold">
                     Buy Data
                   </Text>
                 </Box>
@@ -147,15 +147,15 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <AiOutlineDollarCircle color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                  <FaWallet color="#657ce0" size={27} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Fund
                   </Text>
                 </Box>
               </GridItem>
 
               <GridItem colSpan={1}>
-                <Box border={currentMode === "dark" && "solid 0.1em #657ce0" } onClick={openAirtime}
+                <Box border={currentMode === "dark" && "solid 0em #657ce0" } onClick={openAirtime}
                   textAlign="center"
                   borderRadius="15%"
                   boxShadow="sm"
@@ -168,15 +168,15 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <AiOutlineMobile color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                  <FaPhoneVolume color="#657ce0" size={27} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Airtime
                   </Text>
                 </Box>
               </GridItem>
 
               <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
+                <Box border={currentMode==="dark" && "solid 0em #647ce0"}
                   
                   onClick={openAirtime2Cash}
                   textAlign="center"
@@ -191,15 +191,15 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaExchangeAlt color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
+                  <FaExchangeAlt color="#657ce0" size={27} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Airtime 2 Cash
                   </Text>
                 </Box>
               </GridItem>
 
               <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
+                <Box border={currentMode==="dark" && "solid 0em #647ce0"}
                   
                   onClick={openBulkSMS}
                   textAlign="center"
@@ -214,15 +214,15 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <AiOutlineMessage color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                  <FaMessage color="#657ce0" size={27} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Bulk SMS
                   </Text>
                 </Box>
               </GridItem>
 
               <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #657ce0"} onClick={openHire}
+                <Box border={currentMode==="dark" && "solid 0em #657ce0"} onClick={openHire}
                   textAlign="center"
                   borderRadius="15%"
                   boxShadow="sm"
@@ -243,7 +243,7 @@ export default function Menu() {
               </GridItem>
 
 <GridItem colSpan={1}>
-                <Box border={currentMode==="dark" && "solid 0.1em #647ce0"}
+                <Box border={currentMode==="dark" && "solid 0em #647ce0"}
                   
                   onClick={comingSoon}
                   textAlign="center"
