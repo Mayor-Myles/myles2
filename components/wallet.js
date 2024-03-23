@@ -53,7 +53,7 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-          maxH="6.1em"
+          maxH="6.3em"
           overflow="hidden"
           position="relative"
         >
