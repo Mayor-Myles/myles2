@@ -32,7 +32,7 @@ export default function Adverts() {
           <SwiperSlide key={index}>
             <Image
               w="600px"
-              h="30px"
+              h="40px"
              
               src={image}
               alt={`Image ${index + 1}`}
