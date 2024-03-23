@@ -53,17 +53,18 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
+            h="3em"
         >
-          <FiCreditCard size={30} color="white" />
-          <Text fontSize="lg" fontWeight="bold" mt={4}>
+          <FiCreditCard size={15} color="white" />
+          <Text fontSize="sm" fontWeight="bold" mt={2}>
             My Wallet
           </Text>
-          <Text fontSize="md" fontWeight="" color="white" mt={2}>
+          <Text fontSize="sm" fontWeight="" color="white" mt={2}>
             Phone: +234{profile && profile.phoneNumber}
           </Text>
-          <Text fontSize="md" fontWeight="" color="white" mt={2}>
+          <Text fontSize="sm" fontWeight="" color="white" mt={2}>
             Balance: {showBalance ? `₦${profile && profile.balance.toLocaleString()}` : (
-              <IconButton aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="lg" onClick={toggleBalance} />
+              <Box aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="lg" onClick={toggleBalance} />
             )}
           </Text>
         </Box>
