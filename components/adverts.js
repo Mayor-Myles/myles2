@@ -26,7 +26,7 @@ export default function Adverts() {
         autoplay
         pagination={{ clickable: true }}
         effect="slide"
-         centeredSlides={true} 
+         
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
