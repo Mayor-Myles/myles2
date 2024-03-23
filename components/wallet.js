@@ -66,7 +66,7 @@ export default function Wallet() {
               Phone: +234{profile && profile.phoneNumber}
             </Text>
             
-              <Text m={4} fontSize="md" fontWeight="bold"  color="white" mt={1}>
+              <Text m={6} fontSize="md" fontWeight="bold"  color="white" mt={1}>
                <Center> ₦{profile && profile.balance.toLocaleString()} </Center>
               </Text> 
             
