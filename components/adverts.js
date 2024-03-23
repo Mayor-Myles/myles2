@@ -22,7 +22,7 @@ export default function Adverts() {
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={1200}
+        autoPlay={1200}
         pagination={{ clickable: true }}
         effect="slide"
          
@@ -31,7 +31,7 @@ export default function Adverts() {
           <SwiperSlide key={index}>
             <Image
               w="100%"
-              h="65px"
+              h="1000px"
              objectFit="contain"
               src={image}
               alt={`Image ${index + 1}`}
