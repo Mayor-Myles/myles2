@@ -20,7 +20,7 @@ export default function Wallet() {
         url: url,
         type: 'get',
         dataType: 'json',
-        crossDomain: true,
+        //crossDomain: true,
         success: function (r, status, xhr) {
           if (r.data.isLogged) {
             setLogged(r.data.isLogged);
@@ -57,10 +57,10 @@ export default function Wallet() {
           overflow="hidden"
           position="relative"
         >
-          <Flex direction="row" justify="center" align="center">
+          <Flex direction="column" justify="center" align="center">
             <FiCreditCard size={10} color="white" />
             <Text fontSize="sm" fontWeight="bold" mt={2}>
-            {profile && profile.fullname}
+            {profile && profile.fullName}
             </Text>
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
