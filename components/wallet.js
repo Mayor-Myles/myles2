@@ -68,7 +68,8 @@ export default function Wallet() {
             {showBalance ? (
               <Text fontSize="xs" fontWeight="" color="white" mt={1}>
                 Balance: ₦{profile && profile.balance.toLocaleString()}
-              </Text> <Box onClick={toggleBalance} mx={2}><FiEyeOff/></Box>
+             <Box onClick={toggleBalance} mx={2}><FiEyeOff/></Box>
+              </Text> 
             ) : (
               <Box aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="xs" onClick={toggleBalance} mt={1} />
             )}
