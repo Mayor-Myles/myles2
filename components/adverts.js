@@ -20,8 +20,8 @@ export default function Adverts() {
   return (
     <Container m="2em">
       <Swiper
-        spaceBetween={30}
-        slidesPerView={1}
+        spaceBetween={10}
+        slidesPerView={2}
         autoPlay={1200}
         pagination={{ clickable: true }}
         effect="slide"
@@ -32,7 +32,7 @@ export default function Adverts() {
             <Image
               w="1000px"
               h="60px"
-             objectFit="contain"
+             objectFit="cover"
               src={image}
               alt={`Image ${index + 1}`}
             />
