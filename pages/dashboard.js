@@ -9,7 +9,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
 import { Box, Button, Center, ChakraProvider, Text, Container,Spinner,Flex } from '@chakra-ui/react';
-import {Advert} from "../components/adverts";
+import {Adverts} from "../components/adverts";
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(false);
