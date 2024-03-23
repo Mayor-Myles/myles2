@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 SwiperCore.use([Autoplay, EffectFade, Pagination, Navigation]);
 
 export default function Adverts() {
-  const images = [
+  let images = [
 
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5PtfAlT80iIHfS72YxBEMdjFCQF7lvuwNQw&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyzfxtsCPrM6FYeNSfxsXrG21ZcI3BO3c_Ag&usqp=CAU",
@@ -17,6 +17,8 @@ export default function Adverts() {
     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/297679841/original/ef10bca92725bb87c3a73549dfba5b0b4a053717/setup-a-converting-ad-for-your-business.png",
     ];
 
+images = images.sort(()=> Math.rand() - 0.5);
+  
   return (
     <Container m="2em">
       <Swiper
