@@ -69,6 +69,7 @@ return(<></>)
       <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
         <Header />
     <Wallet />
+    <Advert/>
      <Menu />
    <Transactions />
         <NavbarBottom />
