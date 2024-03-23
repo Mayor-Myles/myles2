@@ -19,20 +19,24 @@ const Adverts = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1200,
+    speed: 1500,
     slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
-    autoplaySpeed: 2000 // adjust as needed
+    autoplaySpeed: 2000, // adjust as needed
+    customPaging: function(i) {
+      return (
+        <button style={{background: 'blue'}}>{i + 1}</button>
+      );
+    },
   };
 
   return (
-    <Box maxH="300px" overflow="hidden" m={10} w="100vw">
-      
+    <Box boxShadow="md" maxH="300px" overflow="hidden" m="2em" w="100vw">
       <Slider {...settings}>
         {images.map((image, index) => (
           <Box key={index}>
-            <Image w="60%" h="60px" src={image} alt={`Slide ${index}`} />
+            <Image w="100%" h="auto" src={image} alt={`Slide ${index}`} />
           </Box>
         ))}
       </Slider>
