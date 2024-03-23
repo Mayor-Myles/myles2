@@ -235,8 +235,8 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaPersonCirclePlus color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
+                  <FaPersonCirclePlus color="#657ce0" size={27} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Hire
                   </Text>
                 </Box>
@@ -259,8 +259,8 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <FaSackDollar color="#657ce0" size={27} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
-                    Refer and Earn
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
+                    Refer 
                   </Text>
                 </Box>
               </GridItem>
