@@ -8,7 +8,7 @@ import { FaExchangeAlt} from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
-import {FaSackDollar,FaPersonCirclePlus,FaWallet,FaPhoneVolume,FaWifi} from "react-icons/fa6";
+import {FaSackDollar,FaPersonCirclePlus,FaWallet,FaPhoneVolume,FaWifi,FaMessage} from "react-icons/fa6";
 
 export default function Menu() {
   const data = useRecoilValue(userData);
