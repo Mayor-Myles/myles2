@@ -20,23 +20,23 @@ const Adverts = () => {
     dots: true,
     infinite: true,
     speed: 1500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
     customPaging: function(i) {
       return (
-        <button style={{background: 'blue'}}>{i + 1}</button>
+        <button style={{color: 'blue'}}>{i + 1}</button>
       );
     },
   };
 
   return (
-    <Box boxShadow="md" m="1em">
+    <Box boxShadow="md" m="1.3em">
       <Slider {...settings}>
         {images.map((image, index) => (
           <Box key={index}>
-            <Image w="100%" h="3em" src={image} alt={`Slide ${index}`} />
+            <Image w="100%" h="3.5em" src={image} alt={`Slide ${index}`} />
           </Box>
         ))}
       </Slider>
