@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Text, Flex, ChakraProvider, IconButton } from '@chakra-ui/react';
 import { FiCreditCard, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, loginStatus } from '../components/recoil';
-import { useEffect } from "react";
 import $ from "jquery";
 
 export default function Wallet() {
-
   const data = useRecoilValue(userData);
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
@@ -38,17 +36,21 @@ export default function Wallet() {
     }
   }, [profile]);
 
+  const toggleBalance = () => {
+    setShowBalance(prevState => !prevState);
+  };
+
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
 
   return (
     <ChakraProvider>
-      <Flex h="20%" justify="center" align="center" width="100%" mt={15}>
+      <Flex h="auto" justify="center" align="center" width="100%" mt={15}>
         <Box
           width={{ base: '80%', sm: '60%', md: '40%' }}
-          borderRadius="xl" // Use "lg" for rounded corners
+          borderRadius="xl"
           boxShadow="lg"
           p={6}
-          bgGradient={gradientBackground} // Apply the gradient background
+          bgGradient={gradientBackground}
           color="white"
           textAlign="center"
         >
@@ -56,16 +58,14 @@ export default function Wallet() {
           <Text fontSize="lg" fontWeight="bold" mt={4}>
             My Wallet
           </Text>
-          {showBalance ? (
-            <Text fontSize="md" fontWeight="" color="white" mt={2}>
-              Balance: ₦{profile && profile.balance.toLocaleString()}
-            </Text>
-          ) : (
-            <Text fontSize="md" fontWeight="" color="white" mt={2}>
-              Balance: <IconButton aria-label="Show Balance" icon={<FiEye />} size="lg" onClick={() => setShowBalance(true)} />
-            </Text>
-          )}
-          <Text fontSize="md">Phone: +234{profile && profile.phoneNumber}</Text>
+          <Text fontSize="md" fontWeight="" color="white" mt={2}>
+            Phone: +234{profile && profile.phoneNumber}
+          </Text>
+          <Text fontSize="md" fontWeight="" color="white" mt={2}>
+            Balance: {showBalance ? `₦${profile && profile.balance.toLocaleString()}` : (
+              <IconButton aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="lg" onClick={toggleBalance} />
+            )}
+          </Text>
         </Box>
       </Flex>
     </ChakraProvider>
