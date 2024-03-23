@@ -23,11 +23,10 @@ export default function Adverts() {
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={{ delay: 1000 }}
+        autoplay
         pagination={{ clickable: true }}
         effect="slide"
-          modules={[Autoplay, Pagination, Navigation]}
-        
+         centeredSlides={true} 
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
