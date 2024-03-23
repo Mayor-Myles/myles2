@@ -44,7 +44,7 @@ export default function Wallet() {
 
   return (
     <ChakraProvider>
-      <Flex h="auto" justify="center" align="center" width="100%" mt={15}>
+      <Flex justify="center" align="center" width="100%" mt={15}>
         <Box
           width={{ base: '80%', sm: '60%', md: '40%' }}
           borderRadius="xl"
@@ -53,18 +53,18 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-            h="4em"
+          h="10em" // Adjusted height
         >
-          <FiCreditCard size={15} color="white" />
-          <Text fontSize="md" fontWeight="bold" mt={2}>
+          <FiCreditCard size={30} color="white" />
+          <Text fontSize="lg" fontWeight="bold" mt={4}>
             My Wallet
           </Text>
-          <Text fontSize="md" fontWeight="" color="white" mt={2}>
+          <Text fontSize="sm" fontWeight="" color="white" mt={2}>
             Phone: +234{profile && profile.phoneNumber}
           </Text>
           <Text fontSize="sm" fontWeight="" color="white" mt={2}>
             Balance: {showBalance ? `₦${profile && profile.balance.toLocaleString()}` : (
-              <Box aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="lg" onClick={toggleBalance} />
+              <IconButton aria-label="Toggle Balance" icon={showBalance ? <FiEyeOff /> : <FiEye />} size="sm" onClick={toggleBalance} />
             )}
           </Text>
         </Box>
