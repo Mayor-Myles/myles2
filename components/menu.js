@@ -8,7 +8,7 @@ import { FaExchangeAlt} from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
-import {FaSackDollar} from "react-icons/fa6";
+import {FaSackDollar,FaPersonCirclePlus} from "react-icons/fa6";
 
 export default function Menu() {
   const data = useRecoilValue(userData);
@@ -235,7 +235,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <AiOutlineUser color="#657ce0" size={24} />
+                  <FaPersonCirclePlus color="#657ce0" size={24} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Hire
                   </Text>
@@ -258,8 +258,8 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaSackDollar color="#657ce0" size={24} />
-                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.5em" fontWeight="bold">
+                  <FaSackDollar color="#657ce0" size={27} />
+                  <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
                     Refer and Earn
                   </Text>
                 </Box>
