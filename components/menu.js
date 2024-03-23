@@ -8,7 +8,7 @@ import { FaExchangeAlt} from 'react-icons/fa';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, page, switchData, pageLoading, mode } from '../components/recoil';
 //import Data from '../pages/buy_data';
-import {GiSack} from "react-icons/gi";
+import {FaSackDollar} from "react-icons/fa6";
 
 export default function Menu() {
   const data = useRecoilValue(userData);
@@ -258,7 +258,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <GiSack color="#657ce0" size={24} />
+                  <FaSackDollar color="#657ce0" size={24} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.5em" fontWeight="bold">
                     Refer and Earn
                   </Text>
