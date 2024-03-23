@@ -25,8 +25,9 @@ export default function Adverts() {
         slidesPerView={1}
         autoplay={{ delay: 1000 }}
         pagination={{ clickable: true }}
-        effect="scroll"
-          
+        effect="slide"
+          modules={[Autoplay, Pagination, Navigation]}
+        
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
