@@ -13,7 +13,20 @@ export default function Wallet() {
 
   const [showBalance, setShowBalance] = useState(true);
 
+  
+useEffect(()=>{
+
+//set the preffered choice of user on balance show or hide
+const balanceStatus = localStorage.getItem("showBalance");
+    
+  setShowBalance(balanceStatus);
+
+
+},[setShowBalance]);
+
+
   useEffect(() => {
+
     if (!profile) {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
@@ -38,6 +51,7 @@ export default function Wallet() {
 
   const toggleBalance = () => {
     setShowBalance(prevState => !prevState);
+    localStorage.setItem("showBalance",!prevState);
   };
 
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
@@ -67,7 +81,7 @@ export default function Wallet() {
             </Text>
             
               <Text m={6} fontSize="md" fontWeight="bold"  color="white" mt={1}>
-               <Center> ₦{profile && profile.balance.toLocaleString()} </Center>
+            {showBalance ? ( <Center> ₦{profile && profile.balance.toLocaleString()} </Center>) : (<Center> ***** </Center> )}
               </Text> 
             
         
