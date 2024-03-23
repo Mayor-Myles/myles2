@@ -1,46 +1,39 @@
-import { Image, Container } from "@chakra-ui/react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay, EffectFade, Pagination, Navigation } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { Box, Image } from '@chakra-ui/react';
 
-SwiperCore.use([Autoplay, EffectFade, Pagination, Navigation]);
+const Adverts = () => {
+  const images = [
+    'image1.jpg',
+    'image2.jpg',
+    'image3.jpg',
+    'image4.jpg'
+  ];
 
-export default function Adverts() {
-  let images = [
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000 // adjust as needed
+  };
 
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5PtfAlT80iIHfS72YxBEMdjFCQF7lvuwNQw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyzfxtsCPrM6FYeNSfxsXrG21ZcI3BO3c_Ag&usqp=CAU",
-     "https://www.infomazeelite.com/wp-content/uploads/2021/02/Hire-Azure-DevOps-Engineers.png",
-    
-    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/297679841/original/ef10bca92725bb87c3a73549dfba5b0b4a053717/setup-a-converting-ad-for-your-business.png",
-    ];
-
-shuffled = images.sort(()=> Math.rand() - 0.5);
-  
   return (
-    <Container m="2em">
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={2}
-        autoplay={{delay:1200}}
-        pagination={{ clickable: true }}
-        effect="slide"
-         
-      >
-        {shuffled.map((image, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              w="1000px"
-              h="60px"
-             objectFit="cover"
-              src={image}
-              alt={`Image ${index + 1}`}
-            />
-          </SwiperSlide>
+    <Box>
+      
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <Box key={index}>
+            <Image w="100%" h="60px" src={image} alt={`Slide ${index}`} />
+          </Box>
         ))}
-      </Swiper>
-    </Container>
+      </Slider>
+    </Box>
   );
-}
+};
+
+export default Adverts;
