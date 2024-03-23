@@ -19,7 +19,7 @@ export default function Adverts() {
   ];
 
   return (
-    <Container m="2">
+    <Container m="2em">
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
