@@ -53,13 +53,13 @@ export default function Wallet() {
           bgGradient={gradientBackground}
           color="white"
           textAlign="center"
-            h="3em"
+            h="4em"
         >
           <FiCreditCard size={15} color="white" />
-          <Text fontSize="sm" fontWeight="bold" mt={2}>
+          <Text fontSize="md" fontWeight="bold" mt={2}>
             My Wallet
           </Text>
-          <Text fontSize="sm" fontWeight="" color="white" mt={2}>
+          <Text fontSize="md" fontWeight="" color="white" mt={2}>
             Phone: +234{profile && profile.phoneNumber}
           </Text>
           <Text fontSize="sm" fontWeight="" color="white" mt={2}>
