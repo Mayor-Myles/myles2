@@ -17,7 +17,7 @@ export default function Wallet() {
 useEffect(()=>{
 
 //set the preffered choice of user on balance show or hide
-const balanceStatus = localStorage.getItem("showBalance");
+const balanceStatus = JSON.parse(localStorage.getItem("showBalance"));
     alert("Storage balance is  "+balanceStatus);
 
   if(balanceStatus){
