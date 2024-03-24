@@ -18,7 +18,9 @@ useEffect(()=>{
 
 //set the preffered choice of user on balance show or hide
 const balanceStatus = localStorage.getItem("showBalance");
-    alert(balanceStatus);
+    alert("Storage balance is  "+balanceStatus);
+alert("current show balance is " + showBalance);
+
   if(balanceStatus !== null){
   setShowBalance(balanceStatus);
     }
@@ -54,8 +56,9 @@ const balanceStatus = localStorage.getItem("showBalance");
     alert("Show status orig is "+showBalance);
     localStorage.setItem("showBalance",!showBalance);
     setShowBalance(!showBalance);
-    alert("New show balance is " + showBalance);
-  };
+  }
+
+
 
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
 
