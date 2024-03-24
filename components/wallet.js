@@ -20,12 +20,12 @@ useEffect(()=>{
 const balanceStatus = localStorage.getItem("showBalance");
     alert("Storage balance is  "+balanceStatus);
 
-  if(balanceStatus !== null){
+  if(balanceStatus){
+    alert("we don set am for storage");
   setShowBalance(balanceStatus);
     }
-alert("new show balance is " + showBalance);
 
-},[showBalance,setShowBalance]);
+},[]);
 
 
   useEffect(() => {
