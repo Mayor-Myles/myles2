@@ -265,7 +265,7 @@ export default function Fund() {
               </Container>             
              
               {fundType === "auto" && (
-                <Flex bg={currentMode==="dark" && "black"} color={currentMode === "dark" && "white"} justify="center" align="center" flexDirection="column" mb={2} mt={10}>
+                <Flex bg={currentMode==="dark" && "black"} color={currentMode === "dark" && "white"} justify="center" align="center" flexDirection="column" mb={2} mt={20}>
                   <Box
                     bg={currentMode==="dark" ? "black" : "white"}
 
