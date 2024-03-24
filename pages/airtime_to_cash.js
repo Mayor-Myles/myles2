@@ -169,7 +169,7 @@ function Airtime2Cash() {
         ) : currentMode !== 'light' && currentMode !== 'dark' ? (
           <> </> // Empty view when mode is not known
         ) : (
-          <Container h="100vh" color={currentMode === "dark" && "white"} bg={currentMode == "dark" && "black"} maxW="lg" mt={10}>
+          <Container h="100vh" color={currentMode === "dark" && "white"} bg={currentMode == "dark" && "black"} maxW="lg">
             <Box p={4} borderWidth="0px" borderRadius="lg" shadow="sm">
               <Heading size="sm" mb={4}>
                 Airtime 2 Cash
