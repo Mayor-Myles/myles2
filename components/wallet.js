@@ -23,7 +23,7 @@ const balanceStatus = localStorage.getItem("showBalance");
   setShowBalance(balanceStatus);
     }
 
-},[]);
+},[setShowBalance]);
 
 
   useEffect(() => {
