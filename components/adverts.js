@@ -26,7 +26,7 @@ const Adverts = () => {
     autoplaySpeed: 2000, // adjust as needed
     customPaging: function(i) {
       return (
-        <Box style={ i== currentSlide ? {color: 'blue'} : {color:'black'}}>*</Box>
+        <Box style={{background: 'blue'}}>*</Box>
       );
     },
   };
