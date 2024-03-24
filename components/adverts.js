@@ -6,9 +6,9 @@ import { Box, Image } from '@chakra-ui/react';
 
 const Adverts = () => {
   const images = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwX19JuyuhOmNJat6xrPx-AuakYHf-SbmC_Q&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3tlODApQpYTQnKRMo6sm9jn0I9fsX7atWHA&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNToYlkezrP9Ynd_peA4yVGD5KuNoAXmqmoA&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT0044qtHECQ3kbMaVgEfX0XZzn0ZcOyA-4Q&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaESUG7JhxjsII4jxq8D8wD9JYo-NTSBpKtQ&usqp=CAU',
+    'https://images.rawpixel.com/image_transparent_png_800/cHJpdmF0ZS90ZW1wbGF0ZXMvZmlsZXMvY3JlYXRlX3Rvb2wvMjAyMy0wNy8wMWgxdjV2ajhqZDg2MmdnZTE2bTlwY242ay1sa2JwOWdqMy5wbmc.png',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXAV6d-i8Gt-q4nrgH0dN8qqrP5hsqgTYtg&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQngq62Exu8UgDSYwqju9WVp5xiCKgQQW7n9w&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZPLFxC2VH89nI31zNgZvzYQ0KvbbSjgYiKw&usqp=CAU',
