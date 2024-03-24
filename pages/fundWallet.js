@@ -318,7 +318,7 @@ color={currentMode==="dark" && "white"}
 
    {fundType === "manual" && (
       
-      <Box mt={0}
+      <Box mt={15}
         maxW="lg"
         mx="auto"
         p={6}
