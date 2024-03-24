@@ -79,13 +79,13 @@ const Transactions = () => {
     <ChakraProvider>
       <Flex
         bg={currentMode === 'dark' ? 'black' : ''}
-        mt={2}
+        mt={1}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        
+        <Text size="sm">Transactions</Text>
       </Flex>
       <Box
         mb={0}
@@ -97,7 +97,7 @@ const Transactions = () => {
         maxH="400px"
         overflowY="scroll"
         marginTop={2}
-        marginBottom="2px"
+        marginBottom=""
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
         minW={isDesktop ? '500px' : ''}
