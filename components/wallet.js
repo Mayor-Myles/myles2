@@ -19,13 +19,13 @@ useEffect(()=>{
 //set the preffered choice of user on balance show or hide
 const balanceStatus = localStorage.getItem("showBalance");
     alert("Storage balance is  "+balanceStatus);
-alert("current show balance is " + showBalance);
 
   if(balanceStatus !== null){
   setShowBalance(balanceStatus);
     }
+alert("new show balance is " + showBalance);
 
-},[setShowBalance]);
+},[showBalance,setShowBalance]);
 
 
   useEffect(() => {
