@@ -65,7 +65,7 @@ useEffect(() => {
 
     const arr = numbers.trim().split(",");//getting the total phone numbers we want to send message to.
 
-    
+    alert(arr.len);
     setCost(arr.len*3);
     
   },[numbers,setNumbers]);
