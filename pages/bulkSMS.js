@@ -70,7 +70,7 @@ useEffect(() => {
     
   },[numbers,setNumbers]);
 
-if(currentMode !=="light" || currentMode !=="dark"){
+if(currentMode == null){
 
 return null;
 }
