@@ -9,11 +9,11 @@ const Adverts = () => {
  
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaESUG7JhxjsII4jxq8D8wD9JYo-NTSBpKtQ&usqp=CAU',
     'https://images.rawpixel.com/image_transparent_png_800/cHJpdmF0ZS90ZW1wbGF0ZXMvZmlsZXMvY3JlYXRlX3Rvb2wvMjAyMy0wNy8wMWgxdjV2ajhqZDg2MmdnZTE2bTlwY242ay1sa2JwOWdqMy5wbmc.png',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXAV6d-i8Gt-q4nrgH0dN8qqrP5hsqgTYtg&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0CbX31ttm0AQKwpFvDHeVRP2yPkqRoZFoug&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQngq62Exu8UgDSYwqju9WVp5xiCKgQQW7n9w&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZPLFxC2VH89nI31zNgZvzYQ0KvbbSjgYiKw&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXU9yiuJuCJxXZbnyTP9m2U_vg59OzlUGNg&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGE1FYyS5vkLZ5l20NPxoTg2i2sqGvZp1PlA&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpXcE39N4HX8BKwQD2pCiJ-IePP_SvPY1mJg&usqp=CAU',
   ];
 
   const settings = {
