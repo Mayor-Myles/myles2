@@ -242,7 +242,7 @@ export default function Fund() {
         <ChakraProvider>
   <ToastContainer />        
           {loadingPage ? (
-            <Center h="100vh"><Box position="absolute" top="40%" p={4} shadow="md" bgColor={currentMode === "dark" ? "black" : "white"}><Spinner size="xl" color="#657ce0" /></Box></Center>
+            <Center h="100vh"><Box position="absolute" top="40%" p={4} shadow="sm" bgColor={currentMode === "dark" ? "black" : "white"}><Spinner size="xl" color="#657ce0" /></Box></Center>
           ) : currentMode !== 'light' && currentMode !== 'dark' ? (
               <> </> // Empty view when mode is not known
             ) :  (
@@ -318,7 +318,7 @@ color={currentMode==="dark" && "white"}
 
    {fundType === "manual" && (
       
-      <Box mt={15}
+      <Box mt={0}
         maxW="lg"
         mx="auto"
         p={6}
