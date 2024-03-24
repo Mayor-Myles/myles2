@@ -124,7 +124,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaWifi color="#657ce0" size={27} />
+                  <FaWifi color="mediumseagreen" size={27} />
                   <Text cursor="pointer" color={currentMode ==="dark" && "white"} mt={2} fontSize="0.7em" fontWeight="bold">
                     Buy Data
                   </Text>
