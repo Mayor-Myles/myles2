@@ -6,7 +6,7 @@ import { Box, Image } from '@chakra-ui/react';
 
 const Adverts = () => {
   const images = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbm2QBOQuJp2BoXmzcuC7jzGTJt7FnLpgR6A&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEP2YL-o0FMqCpAXpbXlsLZIIOZpgZqYHxXw&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaESUG7JhxjsII4jxq8D8wD9JYo-NTSBpKtQ&usqp=CAU',
     'https://images.rawpixel.com/image_transparent_png_800/cHJpdmF0ZS90ZW1wbGF0ZXMvZmlsZXMvY3JlYXRlX3Rvb2wvMjAyMy0wNy8wMWgxdjV2ajhqZDg2MmdnZTE2bTlwY242ay1sa2JwOWdqMy5wbmc.png',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXAV6d-i8Gt-q4nrgH0dN8qqrP5hsqgTYtg&usqp=CAU',
