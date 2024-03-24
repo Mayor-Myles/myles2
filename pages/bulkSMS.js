@@ -96,7 +96,7 @@ useEffect(() => {
           </Center>):(
 
 
-    <Container bg={currentMode==="dark" && "black"} color={currentMode=="dark" && "white"}  maxW="xl" centerContent p={4}>
+    <Container h="100vh" bg={currentMode==="dark" && "black"} color={currentMode=="dark" && "white"}  maxW="xl" centerContent p={4}>
       <Box m="auto" textAlign="center">
         <Heading as="h1" mb={6}>
           Send Bulk SMS
