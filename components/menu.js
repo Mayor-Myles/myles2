@@ -124,7 +124,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaWifi color="mediumseagreen" size={27} />
+                  <FaWifi color="dodgerblue" size={27} />
                   <Text cursor="pointer" color={currentMode ==="dark" && "white"} mt={2} fontSize="0.7em" fontWeight="bold">
                     Buy Data
                   </Text>
@@ -147,7 +147,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaWallet color="#657ce0" size={27} />
+                  <FaWallet color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Fund
                   </Text>
@@ -168,7 +168,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaPhoneVolume color="#657ce0" size={27} />
+                  <FaPhoneVolume color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Airtime
                   </Text>
@@ -191,7 +191,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaExchangeAlt color="#657ce0" size={27} />
+                  <FaExchangeAlt color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Airtime 2 Cash
                   </Text>
@@ -214,7 +214,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaMessage color="pink" size={27} />
+                  <FaMessage color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Bulk SMS
                   </Text>
@@ -235,7 +235,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaPersonCirclePlus color="#657ce0" size={27} />
+                  <FaPersonCirclePlus color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Hire
                   </Text>
@@ -258,7 +258,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaSackDollar color="#657ce0" size={27} />
+                  <FaSackDollar color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Refer 
                   </Text>
