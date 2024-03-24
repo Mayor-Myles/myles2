@@ -70,7 +70,11 @@ useEffect(() => {
     
   },[numbers,setNumbers]);
 
+if(currentMode !=="light" || currentMode !=="dark"){
 
+return null;
+}
+  
   return (
     <>
       <Header/>
