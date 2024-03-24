@@ -256,7 +256,7 @@ export default function Fund() {
 
                 </Box>)}
                 <Center>
-                  <Select w="70%" textAlign="center" onChange={(e) => setFundType(e.target.value)} border="2px solid #657ce0" mt="5%">
+                  <Select w="70%" textAlign="center" onChange={(e) => setFundType(e.target.value)} border="1px solid #657ce0" mt="5%">
                     <option value="">Choose Funding Type</option>
                     <option value="auto">Automatic Funding</option>
                     <option value="manual">Manual Funding</option>
@@ -265,7 +265,7 @@ export default function Fund() {
               </Container>             
              
               {fundType === "auto" && (
-                <Flex bg={currentMode==="dark" && "black"} color={currentMode === "dark" && "white"} justify="center" align="center" flexDirection="column" mb={2} mt={20}>
+                <Flex bg={currentMode==="dark" && "black"} color={currentMode === "dark" && "white"} justify="center" align="center" flexDirection="column" mb={2} mt="5em">
                   <Box
                     bg={currentMode==="dark" ? "black" : "white"}
 
@@ -282,8 +282,8 @@ color={currentMode==="dark" && "white"}
                       fontSize="lg"
                       fontWeight="bold"
                       textAlign="center"
-                      border="2px solid #657ce0"
-                      outline="2px"
+                      border="1px solid #657ce0"
+                      outline="none"
                       bg="none"
                       color={currentMode === "dark" ? "white" : "black"}
                     />                        
