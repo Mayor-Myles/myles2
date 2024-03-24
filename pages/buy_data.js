@@ -220,7 +220,7 @@ setLoadingPage(false);
               borderWidth=",0px"
         borderColor="#657ce0"
               borderRadius="md"
-              boxShadow="lg"
+              boxShadow="sm"
               textAlign="center"
 
             >
