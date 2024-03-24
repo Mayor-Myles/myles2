@@ -18,11 +18,12 @@ useEffect(()=>{
 
 //set the preffered choice of user on balance show or hide
 const balanceStatus = localStorage.getItem("showBalance");
-    if(balanceStatus !== null){
+   // alert(balanceStatus);
+  if(balanceStatus !== null){
   setShowBalance(balanceStatus);
     }
 
-},[]);
+},[showBalance]);
 
 
   useEffect(() => {
@@ -50,8 +51,9 @@ const balanceStatus = localStorage.getItem("showBalance");
   }, [profile]);
 
   const toggleBalance = () => {
+    localStorage.setItem("showBalance",!showBalance);
     setShowBalance(prevState => !prevState);
-    localStorage.setItem("showBalance",!prevState);
+    
   };
 
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
