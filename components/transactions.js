@@ -85,9 +85,7 @@ const Transactions = () => {
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Heading color={currentMode === 'dark' ? 'white' : ''} as="h4" size="sm">
-          Transaction History
-        </Heading>
+        
       </Flex>
       <Box
         mb={0}
