@@ -10,10 +10,10 @@ const Adverts = () => {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3tlODApQpYTQnKRMo6sm9jn0I9fsX7atWHA&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNToYlkezrP9Ynd_peA4yVGD5KuNoAXmqmoA&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXAV6d-i8Gt-q4nrgH0dN8qqrP5hsqgTYtg&usqp=CAU',
-    '',
-    '',
-    '',
-    '',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQngq62Exu8UgDSYwqju9WVp5xiCKgQQW7n9w&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZPLFxC2VH89nI31zNgZvzYQ0KvbbSjgYiKw&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXU9yiuJuCJxXZbnyTP9m2U_vg59OzlUGNg&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGE1FYyS5vkLZ5l20NPxoTg2i2sqGvZp1PlA&usqp=CAU',
   ];
 
   const settings = {
