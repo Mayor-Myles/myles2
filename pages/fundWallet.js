@@ -249,7 +249,7 @@ export default function Fund() {
             <Flex color={currentMode==="dark" &&"white"} bg={currentMode === "dark" ? "black" :"white"} justify="center" align="center" mb={0} flexDirection="column">
 <Wallet />
               <Container mb="0.1em" maxW="lg">
-                {fundType === "" && (<Box bg={currentMode === "dark" && "black"} p={3} shadow="md" mt={10}><Text>
+                {fundType === "" && (<Box bg={currentMode === "dark" && "black"} p={3} shadow="" mt={10}><Text>
                   <br /> There is <b>Manual</b> & <b>Automatic</b> funding. <br /> <br />
                   <b>Manual funding</b> is <span style={{ color: "#657ce0" }}>free</span> but may take some time to reflect. <br /><br />
                   <b>Automatic funding</b> attracts a merchant fee but it reflects instantly.</Text>
