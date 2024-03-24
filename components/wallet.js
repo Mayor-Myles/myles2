@@ -55,7 +55,7 @@ export default function Wallet() {
 
   return (
     <ChakraProvider>
-      <Flex justify="center" align="center" width="100%" mt={10}>
+      <Flex justify="center" align="center" width="100%" mt={2}>
         <Box
           width={{ base: '80%', sm: '60%', md: '40%' }}
           borderRadius="xl"
