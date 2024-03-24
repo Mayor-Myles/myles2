@@ -237,7 +237,7 @@ export default function Menu() {
                 >
                   <FaPersonCirclePlus color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
-                    Hire
+                    Hire Me
                   </Text>
                 </Box>
               </GridItem>
