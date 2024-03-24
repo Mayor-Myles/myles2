@@ -165,7 +165,7 @@ function Airtime2Cash() {
       <Header />
       <ChakraProvider theme={theme}>
         {loadingPage ? (
-          <Container bg={currentMode === "dark" && "black"} h="100vh" maxW="lg" height="100vh"><Center><Flex justifyContent="center" alignItems="center" p="1em" shadow="md"><Spinner position="absolute" top="40%" color="#657ce0" size="xl" /></Flex></Center></Container>
+          <Container bg={currentMode === "dark" && "black"} h="100vh" maxW="lg" height="100vh"><Center><Flex justifyContent="center" alignItems="center" p="1em" shadow="sm"><Spinner position="absolute" top="40%" color="#657ce0" size="xl" /></Flex></Center></Container>
         ) : currentMode !== 'light' && currentMode !== 'dark' ? (
           <> </> // Empty view when mode is not known
         ) : (
@@ -235,9 +235,9 @@ function Airtime2Cash() {
             <ToastContainer />
           </Container>
         )}
-<NavbarBottom />
+
       </ChakraProvider>
-      
+      <NavbarBottom />
     </>
   );
 }
