@@ -24,11 +24,11 @@ const Adverts = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
-    /*customPaging: function(i) {
+    customPaging: function(i) {
       return (
-        <button style={{color: 'blue'}}>{i + 1}</button>
+        <Box style={ i== currentSlide ? {color: 'blue'} : {color:'black'}}>*</Box>
       );
-    },*/
+    },
   };
 
   return (
