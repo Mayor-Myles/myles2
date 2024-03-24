@@ -51,9 +51,10 @@ const balanceStatus = localStorage.getItem("showBalance");
   }, [profile]);
 
   const toggleBalance = () => {
+    alert("Show status orig is "+showBalance);
     localStorage.setItem("showBalance",!showBalance);
     setShowBalance(!showBalance);
-    
+    alert("New show balance is " + showBalance);
   };
 
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
