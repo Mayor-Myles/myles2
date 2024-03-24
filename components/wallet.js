@@ -13,23 +13,15 @@ export default function Wallet() {
 
   const [showBalance, setShowBalance] = useState(true);
 
-  
-useEffect(()=>{
-
-//set the preffered choice of user on balance show or hide
-const balanceStatus = JSON.parse(localStorage.getItem("showBalance"));
-    alert("Storage balance is  "+balanceStatus);
-
-  if(balanceStatus){
-    alert("we don set am for storage");
-  setShowBalance(balanceStatus);
+  useEffect(() => {
+    // Retrieve showBalance value from local storage and convert it to boolean
+    const balanceStatus = localStorage.getItem("showBalance");
+    if (balanceStatus !== null) {
+      setShowBalance(JSON.parse(balanceStatus));
     }
-
-},[]);
-
+  }, []);
 
   useEffect(() => {
-
     if (!profile) {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
@@ -53,12 +45,11 @@ const balanceStatus = JSON.parse(localStorage.getItem("showBalance"));
   }, [profile]);
 
   const toggleBalance = () => {
-    alert("Show status orig is "+showBalance);
-    localStorage.setItem("showBalance",!showBalance);
-    setShowBalance(!showBalance);
+    const newShowBalance = !showBalance;
+    setShowBalance(newShowBalance);
+    // Store the updated showBalance value in local storage
+    localStorage.setItem("showBalance", JSON.stringify(newShowBalance));
   }
-
-
 
   const gradientBackground = 'linear(to-r, #0052D4, #4364F7)'; // Replace with your desired gradient colors
 
