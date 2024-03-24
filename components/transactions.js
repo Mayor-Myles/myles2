@@ -79,7 +79,7 @@ const Transactions = () => {
     <ChakraProvider>
       <Flex
         bg={currentMode === 'dark' ? 'black' : ''}
-        mt={8}
+        mt={2}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
         alignItems="center"
