@@ -265,7 +265,7 @@ export default function Fund() {
               </Container>             
              
               {fundType === "auto" && (
-                <Flex bg={currentMode==="dark" && "black"} color={currentMode === "dark" && "white"} justify="center" align="center" flexDirection="column" mb={2} mt="5em">
+                <Flex bg={currentMode==="dark" && "black"} color={currentMode === "dark" && "white"} justify="center" align="center" flexDirection="column" mb={2} mt="em">
                   <Box
                     bg={currentMode==="dark" ? "black" : "white"}
 
@@ -300,7 +300,7 @@ color={currentMode==="dark" && "white"}
 
                   <Center><Box shadow="md" p={3} mt={4}>Total Due:<Text size="xl" color="#657ce0" fontWeight="bold">₦{toPay}</Text> </Box></Center>
 
-                  <Center mt={4} mb={4}>
+                  <Center mt={6} mb={4}>
                     <Button
                       size="lg"
                       bgColor="#0052D4"
