@@ -163,7 +163,7 @@ const Airtime = () => {
       <ChakraProvider>
         
         
-        {loadingPage ? (<Container h="100vh" bg={currentMode === "dark" && "black"}><Center><Box position="absolute" top="40%" shadow="md"><Spinner size="xl" color="#657ce0" /></Box></Center></Container>) : currentMode !== 'light' && currentMode !== 'dark' ? (
+        {loadingPage ? (<Container h="100vh" bg={currentMode === "dark" && "black"}><Center><Box position="absolute" top="40%" shadow="sm"><Spinner size="xl" color="#657ce0" /></Box></Center></Container>) : currentMode !== 'light' && currentMode !== 'dark' ? (
           <> </> // Empty view when mode is not known
         ) : (
 
