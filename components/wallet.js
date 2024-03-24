@@ -52,7 +52,7 @@ const balanceStatus = localStorage.getItem("showBalance");
 
   const toggleBalance = () => {
     localStorage.setItem("showBalance",!showBalance);
-    setShowBalance(prevState => !prevState);
+    setShowBalance(!showBalance);
     
   };
 
