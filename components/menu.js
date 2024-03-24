@@ -214,7 +214,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaMessage color="#657ce0" size={27} />
+                  <FaMessage color="pink" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Bulk SMS
                   </Text>
@@ -281,7 +281,7 @@ export default function Menu() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <FaLaptop color="#657ce0" size={27} />
+                  <FaLaptop color="dodgerblue" size={27} />
                   <Text color={currentMode === "dark" && "white"} cursor="pointer" mt={2} fontSize="0.7em" fontWeight="bold">
                     Tv
                   </Text>
