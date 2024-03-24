@@ -256,7 +256,7 @@ export default function Fund() {
 
                 </Box>)}
                 <Center>
-                  <Select w="70%" textAlign="center" onChange={(e) => setFundType(e.target.value)} border="1px solid #657ce0" mt="5%">
+                  <Select _hover={{border:"1px solid #657ce0"}} w="70%" textAlign="center" onChange={(e) => setFundType(e.target.value)} border="1px solid #657ce0" mt="5%">
                     <option value="">Choose Funding Type</option>
                     <option value="auto">Automatic Funding</option>
                     <option value="manual">Manual Funding</option>
