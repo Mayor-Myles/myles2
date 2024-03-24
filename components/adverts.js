@@ -24,11 +24,11 @@ const Adverts = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
-    customPaging: function(i) {
+  /*  customPaging: function(i) {
       return (
         <Box style={{background: 'blue'}}>*</Box>
       );
-    },
+    },*/
   };
 
   return (
