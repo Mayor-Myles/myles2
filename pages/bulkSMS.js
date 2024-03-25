@@ -21,6 +21,7 @@ import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { pageLoading, thisPage, mode } from "../components/recoil";
+import $ from 'jquery'; // Import jQuery
 
 const SendBulkSMS = () => {
   const [cost, setCost] = useState(0);
@@ -68,31 +69,29 @@ const SendBulkSMS = () => {
   }, [numbers, setNumbers]);
 
   const handleSend = () => {
-    // AJAX POST request
-    fetch('https://mylesvtu.com.ng/app/store/sendBulkSMS', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+    // jQuery AJAX POST request
+    $.ajax({
+      url: 'https://mylesvtu.com.ng/app/store/sendBulkSMS',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
         numbers: numbers,
         message: message,
         sender: sender // Using sender state here
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle response data
+      }),
+      success: function(data) {
+        // Handle success response
         console.log(data);
         // Show toast notification with response message
         toast(data.msg, { type: "info" });
-      })
-      .catch(error => {
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
         // Handle errors
-        console.error('Error:', error);
+        console.error('Error:', errorThrown);
         // Show toast notification for error
         toast("Error sending bulk SMS!", { type: "error" });
-      });
+      }
+    });
   };
 
   if (currentMode == null) {
