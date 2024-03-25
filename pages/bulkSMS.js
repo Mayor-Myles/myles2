@@ -64,11 +64,17 @@ useEffect(() => {
 //const n = numbers.trim().length;total phone numbers for messages to be sent to
 
     const arr = numbers.trim().split(",");//getting the total phone numbers we want to send message to.
-      
-alert(numbers);
-
-    alert(arr.len);
-    setCost(arr.len*3);
+    const totalRecipients = arr.length;
+    const charsPerPage = 150;
+    const msgChars = message.length;
+    const costPerPage = 3;
+    let pages = floor(msgChars/charsPerPage);
+    if(pages < 1){
+      pages = 1;
+     }
+    const totalCost = totalRecipients * costPerPage * pages;
+     
+    setCost(totalCost);
     
   },[numbers,setNumbers]);
 
