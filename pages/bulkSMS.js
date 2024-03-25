@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaUser, FaMobile, FaMoneyBillAlt } from 'react-icons/fa';
 import {
   Box,
@@ -10,93 +10,109 @@ import {
   Textarea,
   Button,
   ChakraProvider,
-Flex,
-  Text,Center,Spinner
+  Flex,
+  Text,
+  Center,
+  Spinner
 } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css';
 import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
-import $ from 'jquery';
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { pageLoading,thisPage,mode } from "../components/recoil";
+import { pageLoading, thisPage, mode } from "../components/recoil";
 
 const SendBulkSMS = () => {
-  
-const[cost,setCost] =  useState(0);
-
-  const[numbers,setNumbers] = useState("");
-
-  const[message,setMessage] = useState("");
-const currentMode = useRecoilValue(mode);
+  const [cost, setCost] = useState(0);
+  const [numbers, setNumbers] = useState("");
+  const [message, setMessage] = useState("");
+  const [sender, setSender] = useState(""); // State for sender name
+  const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
   const [spin, setSpin] = useState(true);
   const [selected, setSelected] = useState(null);
   const [network, setNetwork] = useState('mtn');
-const loadingPage = useRecoilValue(pageLoading);
-const setLoadingPage = useSetRecoilState(pageLoading);
+  const loadingPage = useRecoilValue(pageLoading);
+  const setLoadingPage = useSetRecoilState(pageLoading);
   const currentPage = useRecoilValue(thisPage);
-const setCurrentPage = useSetRecoilState(thisPage);
+  const setCurrentPage = useSetRecoilState(thisPage);
 
+  useEffect(() => {
+    const userChoice = window.localStorage.getItem("mode");
 
+    if (userChoice === "dark") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
 
-  
-  
-useEffect(() => {
-  
-  const userChoice = window.localStorage.getItem("mode");
+    setCurrentPage("bulkSMS");
+    setLoadingPage(false);
 
-  if(userChoice === "dark"){
-  setMode("dark");
-  }
-  else{
-    setMode("light");
-  }
+  }, []);
 
-  setCurrentPage("bulkSMS");
-  setLoadingPage(false);
-
-},[]);
-
-  useEffect(()  => {
-
-//const n = numbers.trim().length;total phone numbers for messages to be sent to
-
-    const arr = numbers.trim().split(",");//getting the total phone numbers we want to send message to.
+  useEffect(() => {
+    const arr = numbers.trim().split(",");
     const totalRecipients = arr.length;
     const charsPerPage = 150;
     const msgChars = message.length;
     const costPerPage = 3;
-    let pages = Math.floor(msgChars/charsPerPage);
-    if(pages < 1){
+    let pages = Math.floor(msgChars / charsPerPage);
+    if (pages < 1) {
       pages = 1;
-     }
+    }
     const totalCost = totalRecipients * costPerPage * pages;
-     
+
     setCost(totalCost);
-    
-  },[numbers,setNumbers]);
 
-if(currentMode == null){
+  }, [numbers, setNumbers]);
 
-return null;
-}
-  
+  const handleSend = () => {
+    // AJAX POST request
+    fetch('https://mylesvtu.com.ng/app/store/sendBulkSMS', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        numbers: numbers,
+        message: message,
+        sender: sender // Using sender state here
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle response data
+        console.log(data);
+        // Show toast notification with response message
+        toast(data.msg, { type: "info" });
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Error:', error);
+        // Show toast notification for error
+        toast("Error sending bulk SMS!", { type: "error" });
+      });
+  };
+
+  if (currentMode == null) {
+    return null;
+  }
+
   return (
     <>
-      <Header/>
-   <ChakraProvider>
-     {loadingPage ?(
-<Center bg={currentMode ==="dark" && "black"} mt="" height="100vh">
+      <Header />
+      <ChakraProvider>
+        {loadingPage ? (
+          <Center bg={currentMode === "dark" && "black"} mt="" height="100vh">
             <Box
               position="absolute"
               top="40%"
-             bg={currentMode==="dark" && "black"}
+              bg={currentMode === "dark" && "black"}
               p={4}
               maxW="md"
               borderWidth=",0px"
-        borderColor="#657ce0"
+              borderColor="#657ce0"
               borderRadius="md"
               boxShadow="lg"
               textAlign="center"
@@ -105,48 +121,46 @@ return null;
               <Spinner color="#657ce0" size="lg" />
               <p></p>
             </Box>
-          </Center>):(
+          </Center>) : (
 
+            <Container bg={currentMode === "dark" && "black"} color={currentMode == "dark" && "white"} maxW="xl" centerContent p={4}>
+              <Box m="auto" textAlign="center" mt="4em">
+                <Heading as="h1" mb={6}>
+                  Send Bulk SMS
+                </Heading>
+              </Box>
 
-    <Container bg={currentMode==="dark" && "black"} color={currentMode=="dark" && "white"}  maxW="xl" centerContent p={4}>
-      <Box m="auto" textAlign="center" mt="4em">
-        <Heading as="h1" mb={6}>
-          Send Bulk SMS
-        </Heading>
-      </Box>
+              <Box width={{ base: '100%', md: '50%' }} mx="auto">
+                <InputGroup mb={4}>
+                  <InputLeftElement pointerEvents="none" children={<FaUser color="#657ce0" />} />
+                  <Input type="text" placeholder="Sender Name" onChange={(e) => setSender(e.target.value)} />
+                </InputGroup>
+                <Box mt={5}>
+                  <Text my={3} color="red" size="md"> Enter phone numbers and separate it with comma. </Text>
 
-      <Box width={{ base: '100%', md: '50%' }} mx="auto">
-        <InputGroup mb={4}>
-          <InputLeftElement pointerEvents="none" children={<FaUser color="#657ce0" />} />
-          <Input type="text" placeholder="Sender Name" />
-        </InputGroup>
-<Box mt={5}>
-  <Text my={3} color="red" size="md"> Enter phone numbers and separate it with comma. </Text> 
-  
-</Box>
-        <Textarea onChange={(e)=>setNumbers(e.target.value)} mb={4} placeholder="08147823198,07033445578,09163526373" />
+                </Box>
+                <Textarea onChange={(e) => setNumbers(e.target.value)} mb={4} placeholder="08147823198,07033445578,09163526373" />
 
-        <Textarea onChange={(e)=> setMessage(e.target.value)} placeholder="Type your message...." />
+                <Textarea onChange={(e) => setMessage(e.target.value)} placeholder="Type your message...." />
 
-        <Box mb={4} textAlign="center">
-          
-          <Box mt={2} fontWeight="bold">
-            Amount to be Charged: ₦{cost}
-          </Box>
-        </Box>
+                <Box mb={4} textAlign="center">
 
-        <Button colorScheme="blue" size="lg" width="100%">
-          Send
-        </Button>
-      </Box>
-    </Container>)}
-  
-    </ChakraProvider>
-      <NavbarBottom/>
+                  <Box mt={2} fontWeight="bold">
+                    Amount to be Charged: ₦{cost}
+                  </Box>
+                </Box>
+
+                <Button colorScheme="blue" size="lg" width="100%" onClick={handleSend}>
+                  Send
+                </Button>
+              </Box>
+            </Container>)}
+
+      </ChakraProvider>
+      <NavbarBottom />
+      <ToastContainer /> {/* ToastContainer to display toast notifications */}
     </>
-      );
-    
-
+  );
 };
 
 export default SendBulkSMS;
