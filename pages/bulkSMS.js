@@ -73,7 +73,7 @@ const SendBulkSMS = () => {
     $.ajax({
       url: 'https://mylesvtu.com.ng/app/store/sendBulkSMS',
       type: 'POST',
-      contentType: 'application/json',
+      dataType: 'json',
       data: JSON.stringify({
         numbers: numbers,
         message: message,
