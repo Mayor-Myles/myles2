@@ -68,7 +68,7 @@ useEffect(() => {
     const charsPerPage = 150;
     const msgChars = message.length;
     const costPerPage = 3;
-    let pages = floor(msgChars/charsPerPage);
+    let pages = Math.floor(msgChars/charsPerPage);
     if(pages < 1){
       pages = 1;
      }
