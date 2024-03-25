@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaUser, FaMobile, FaMoneyBillAlt } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import {
   Box,
   Container,
@@ -10,8 +10,6 @@ import {
   Textarea,
   Button,
   ChakraProvider,
-  Flex,
-  Text,
   Center,
   Spinner
 } from '@chakra-ui/react';
@@ -28,11 +26,9 @@ const SendBulkSMS = () => {
   const [numbers, setNumbers] = useState("");
   const [message, setMessage] = useState("");
   const [sender, setSender] = useState(""); // State for sender name
+  const [loading, setLoading] = useState(false); // Loading state for the button
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-  const [spin, setSpin] = useState(true);
-  const [selected, setSelected] = useState(null);
-  const [network, setNetwork] = useState('mtn');
   const loadingPage = useRecoilValue(pageLoading);
   const setLoadingPage = useSetRecoilState(pageLoading);
   const currentPage = useRecoilValue(thisPage);
@@ -69,6 +65,15 @@ const SendBulkSMS = () => {
   }, [numbers, setNumbers]);
 
   const handleSend = () => {
+    // Check if all input fields are filled
+    if (!sender || !numbers || !message) {
+      toast("Please fill in all fields.", { type: "error" });
+      return;
+    }
+
+    // Set loading state to true
+    setLoading(true);
+
     // jQuery AJAX POST request
     $.ajax({
       url: 'https://mylesvtu.com.ng/app/store/sendBulkSMS',
@@ -79,8 +84,7 @@ const SendBulkSMS = () => {
         message: message,
         sender: sender // Using sender state here
       }),
-
-      crossDomain:true,
+      crossDomain: true,
       success: function(data) {
         // Handle success response
         console.log(data);
@@ -92,6 +96,10 @@ const SendBulkSMS = () => {
         console.error('Error:', errorThrown);
         // Show toast notification for error
         toast("Error sending bulk SMS!", { type: "error" });
+      },
+      complete: function() {
+        // Set loading state back to false
+        setLoading(false);
       }
     });
   };
@@ -151,8 +159,8 @@ const SendBulkSMS = () => {
                   </Box>
                 </Box>
 
-                <Button colorScheme="blue" size="lg" width="100%" onClick={handleSend}>
-                  Send
+                <Button colorScheme="blue" size="lg" width="100%" onClick={handleSend} isLoading={loading}>
+                  {loading ? "Sending..." : "Send"}
                 </Button>
               </Box>
             </Container>)}
