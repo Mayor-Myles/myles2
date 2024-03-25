@@ -79,6 +79,8 @@ const SendBulkSMS = () => {
         message: message,
         sender: sender // Using sender state here
       }),
+
+      crossDomain:true,
       success: function(data) {
         // Handle success response
         console.log(data);
