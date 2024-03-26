@@ -90,9 +90,9 @@ const SendBulkSMS = () => {
       crossDomain: true,
       success: function(data) {
         // Handle success response
-        console.log(data);
+        //console.log(data);
         // Show toast notification with response message
-        toast.info(data.msg);
+      data.msg === "success" &&  toast.info("Message has been sent to all recipients.");
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // Handle errors
