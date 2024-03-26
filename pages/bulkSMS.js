@@ -67,7 +67,7 @@ const SendBulkSMS = () => {
   const handleSend = () => {
     // Check if all input fields are filled
     if (!sender || !numbers || !message) {
-      toast("Please fill in all fields.", { type: "error" });
+      toast.error("Please fill in all fields.");
       return;
     }
 
@@ -89,13 +89,13 @@ const SendBulkSMS = () => {
         // Handle success response
         console.log(data);
         // Show toast notification with response message
-        toast(data.msg, { type: "info" });
+        toast.info(data.msg);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // Handle errors
         console.error('Error:', errorThrown);
         // Show toast notification for error
-        toast("Error sending bulk SMS!", { type: "error" });
+        toast.error("Error sending bulk SMS!");
       },
       complete: function() {
         // Set loading state back to false
