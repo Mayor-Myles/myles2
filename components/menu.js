@@ -107,7 +107,7 @@ export default function Menu() {
             </Box>
           </Center>
         ) : (
-          <Box  mt={6}>
+          <Box justifyContent="center" alignItems="center"  mt={6}>
             <Box boxShadow="sm" borderRadius="xl" maxW="md" mx="2em" p={2}>
               <Grid templateColumns="repeat(4, 1fr)" gap={6}>
               <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
