@@ -12,7 +12,8 @@ import {
   ChakraProvider,
   Center,
   Spinner,
-  useColorMode
+  useColorMode,
+  Text
 } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css';
@@ -169,7 +170,7 @@ const SendBulkSMS = () => {
 
       </ChakraProvider>
       <NavbarBottom />
-      <ToastContainer /> {/* ToastContainer to display toast notifications */}
+      <ToastContainer autoClose={2000} /> {/* ToastContainer to display toast notifications */}
     </>
   );
 };
