@@ -92,7 +92,7 @@ const Transactions = () => {
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Text fontWeight="bold" size="sm">Transactions</Text>
+        <Text fontWeight="bold" fontSize="0.8em"> Transactions</Text>
       </Flex>
       <Box
         mb={0}
@@ -101,7 +101,7 @@ const Transactions = () => {
         boxShadow="lg"
         bg={currentMode === 'dark' ? 'black' : ''}
         color={currentMode === 'dark' ? 'white' : ''}
-        marginTop={2}
+        marginTop={1}
         marginBottom=""
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
@@ -115,16 +115,16 @@ const Transactions = () => {
             bg={currentMode === 'dark' ? 'gray.800' : 'white'}
             color={currentMode === 'dark' ? 'white' : 'black'}
             p={4}
-            mb={2} // Reduced space between first transaction and the transaction text
+            mb={4}
             alignItems="center"
             cursor="pointer"
             onClick={() => handleTransactionClick(item)}
           >
             <Box
-              w="16px"
-              h="16px"
+              w="12px"
+              h="12px"
               borderRadius="full"
-              bg="blue.700"
+              bg="blue.200"
               mr={4}
               flexShrink={0}
             />
@@ -146,7 +146,7 @@ const Transactions = () => {
       </Box>
       <Modal isOpen={isOpen} onClose={onClose} size="lg">
         <ModalOverlay />
-        <ModalContent bg={currentMode === 'dark' ? 'gray.800' : 'white'} color={currentMode === 'dark' ? 'white' : 'black'}>
+        <ModalContent>
           <ModalHeader>Transaction Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
