@@ -4,15 +4,9 @@ import {
   Flex,
   Box,
   Heading,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
+  Text,
   Tag,
   Center,
-  Text,
   Spinner,
   useMediaQuery,
 } from '@chakra-ui/react';
@@ -73,7 +67,6 @@ const Transactions = () => {
   }
 
   const transacs = data.profile.transactions;
-  const requests = data.profile.request || [];
 
   return (
     <ChakraProvider>
@@ -94,42 +87,41 @@ const Transactions = () => {
         boxShadow="lg"
         bg={currentMode === 'dark' ? 'black' : ''}
         color={currentMode === 'dark' ? 'white' : ''}
-        maxH="400px"
-        overflowY="scroll"
-        marginTop={0}
+        marginTop={2}
         marginBottom=""
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
         minW={isDesktop ? '500px' : ''}
       >
-        <Table variant="simple" colorScheme="gray" size="sm">
-          <Thead>
-            <Tr>
-              <Th>S/N</Th>
-              <Th>Transaction ID</Th>
-              <Th>Description</Th>
-              <Th>Amount(₦)</Th>
-              <Th>Order date</Th>
-              <Th>Status</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {transacs.map((item, index) => (
-              <Tr key={index}>
-                <Td>{index + 1}</Td>
-                <Td>{item.tid}</Td>
-                <Td>{item.details}</Td>
-                <Td>{item.amount}</Td>
-                <Td>{item.date}</Td>
-                <Td>
-                  <Tag size="sm" variant="solid" colorScheme="green">
-                    Success
-                  </Tag>
-                </Td>
-              </Tr>
-            ))}
-          </Tbody>
-        </Table>
+        {transacs.map((item, index) => (
+          <Flex
+            key={index}
+            borderRadius="lg"
+            boxShadow="md"
+            bg={currentMode === 'dark' ? 'gray.700' : 'white'}
+            color={currentMode === 'dark' ? 'white' : 'black'}
+            p={4}
+            mb={4}
+            alignItems="center"
+          >
+            <Box
+              w="30px"
+              h="30px"
+              borderRadius="full"
+              bg="blue.500"
+              mr={4}
+            />
+            <Box flex="1">
+              <Heading as="h4" size="sm" mb={2}>{item.details}</Heading>
+              <Text>Transaction ID: {item.tid}</Text>
+              <Text>Amount(₦): {item.amount}</Text>
+              <Text>Order date: {item.date}</Text>
+              <Tag size="sm" variant="solid" colorScheme="green">
+                Success
+              </Tag>
+            </Box>
+          </Flex>
+        ))}
         {transacs.length < 1 && (
           <Center m={3}>
             <Text textAlign="center" color="#657ce0">
@@ -137,72 +129,6 @@ const Transactions = () => {
             </Text>
           </Center>
         )}
-      </Box>
-
-      <Box bg={currentMode === 'dark' ? 'black' : ''} mb="0em">
-        <Flex
-          mt={0}
-          as={isDesktop ? 'center' : ''}
-          justifyContent="center"
-          alignItems="center"
-          flexDirection={isDesktop ? 'row' : 'column'}
-        >
-          <Heading as="h4" size="sm">
-            Request History
-          </Heading>
-        </Flex>
-
-        <Box
-          mb={20}
-          p={4}
-          borderRadius="lg"
-          boxShadow="lg"
-          bg={currentMode === 'dark' ? 'black' : ''}
-          color={currentMode === 'dark' ? 'white' : ''}
-          maxH="400px"
-          overflowY="scroll"
-          marginTop={2}
-          marginBottom="2px"
-          ml={isDesktop ? '150px' : ''}
-          mr={isDesktop ? '150px' : ''}
-          minW={isDesktop ? '500px' : ''}
-        >
-          <Table variant="simple" colorScheme="gray" size="sm">
-            <Thead>
-              <Tr>
-                <Th>S/N</Th>
-                <Th>Request ID</Th>
-                <Th>Description</Th>
-                <Th>Whatsapp</Th>
-                <Th>Order Date</Th>
-                <Th>Status</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {requests.map((item, index) => (
-                <Tr key={index}>
-                  <Td>{index + 1}</Td>
-                  <Td>{item.rid}</Td>
-                  <Td>{item.description}</Td>
-                  <Td>{item.phoneNo}</Td>
-                  <Td>{item.date}</Td>
-                  <Td>
-                    <Tag size="sm" variant="solid" colorScheme="green">
-                      Success
-                    </Tag>
-                  </Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
-          {requests.length < 1 && (
-            <Center m={3}>
-              <Text textAlign="center" color="#657ce0">
-                No request have been made
-              </Text>
-            </Center>
-          )}
-        </Box>
       </Box>
     </ChakraProvider>
   );
