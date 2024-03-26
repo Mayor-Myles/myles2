@@ -105,17 +105,18 @@ const Transactions = () => {
             alignItems="center"
           >
             <Box
-              w="30px"
-              h="30px"
+              w="20px"
+              h="20px"
               borderRadius="full"
               bg="blue.500"
               mr={4}
+              flexShrink={0}
             />
             <Box flex="1">
-              <Heading as="h4" size="sm" mb={2}>{item.details}</Heading>
-              <Text>Transaction ID: {item.tid}</Text>
-              <Text>Amount(₦): {item.amount}</Text>
-              <Text>Order date: {item.date}</Text>
+              <Heading as="h4" size="sm" mb={1}>{item.details}</Heading>
+              <Text fontSize="sm" mb={1}>Transaction ID: {item.tid}</Text>
+              <Text fontSize="sm" mb={1}>Amount(₦): {item.amount}</Text>
+              <Text fontSize="sm" mb={1}>Order date: {item.date}</Text>
               <Tag size="sm" variant="solid" colorScheme="green">
                 Success
               </Tag>
