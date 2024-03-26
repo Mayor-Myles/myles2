@@ -5,10 +5,17 @@ import {
   Box,
   Heading,
   Text,
-  Tag,
   Center,
   Spinner,
   useMediaQuery,
+  useDisclosure,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
 } from '@chakra-ui/react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, mode } from '../components/recoil';
@@ -20,6 +27,8 @@ const Transactions = () => {
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   useEffect(() => {
     const userChoice = localStorage.getItem('mode');
@@ -49,6 +58,11 @@ const Transactions = () => {
 
     fetchData();
   }, [data, setData]);
+
+  const handleTransactionClick = (transaction) => {
+    setSelectedTransaction(transaction);
+    onOpen();
+  };
 
   if (loading) {
     return (
@@ -98,17 +112,19 @@ const Transactions = () => {
             key={index}
             borderRadius="lg"
             boxShadow="md"
-            bg={currentMode === 'dark' ? 'gray.700' : 'white'}
+            bg={currentMode === 'dark' ? 'gray.800' : 'white'}
             color={currentMode === 'dark' ? 'white' : 'black'}
             p={4}
             mb={4}
             alignItems="center"
+            cursor="pointer"
+            onClick={() => handleTransactionClick(item)}
           >
             <Box
-              w="20px"
-              h="20px"
+              w="16px"
+              h="16px"
               borderRadius="full"
-              bg="blue.500"
+              bg="blue.700"
               mr={4}
               flexShrink={0}
             />
@@ -117,9 +133,6 @@ const Transactions = () => {
               <Text fontSize="sm" mb={1}>Transaction ID: {item.tid}</Text>
               <Text fontSize="sm" mb={1}>Amount(₦): {item.amount}</Text>
               <Text fontSize="sm" mb={1}>Order date: {item.date}</Text>
-              <Tag size="sm" variant="solid" colorScheme="green">
-                Success
-              </Tag>
             </Box>
           </Flex>
         ))}
@@ -131,6 +144,24 @@ const Transactions = () => {
           </Center>
         )}
       </Box>
+      <Modal isOpen={isOpen} onClose={onClose} size="lg">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Transaction Details</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            {selectedTransaction && (
+              <>
+                <Text mb={2}><strong>Transaction ID:</strong> {selectedTransaction.tid}</Text>
+                <Text mb={2}><strong>Description:</strong> {selectedTransaction.details}</Text>
+                <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
+                <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
+                {/* Add more details here if needed */}
+              </>
+            )}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </ChakraProvider>
   );
 };
