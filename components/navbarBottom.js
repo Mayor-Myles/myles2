@@ -167,14 +167,14 @@ setLoadingPage(true)
         </Box>
         <Box textAlign="center" onClick={openSupport}>
           <Icon as={AiOutlineWhatsApp} boxSize={20} />
-          <Text fontSize="sm">Support</Text>
+          <Text fontSize="0.8em">Support</Text>
         </Box>
       { isLogged ?  (<Box textAlign="center" onClick={logout}>
           <Icon as={AiOutlineLogout} boxSize={20} color="red" />
-          <Text fontSize="sm">Logout</Text>
+          <Text fontSize="0.8em">Logout</Text>
         </Box>) : (<Box textAlign="center" onClick={login}>
         <Icon as={AiOutlinePoweroff} boxSize={20} />
-        <Text fontSize="sm">Login</Text>
+        <Text fontSize="0.8em">Login</Text>
       </Box>)}
       </Flex>
     </>
