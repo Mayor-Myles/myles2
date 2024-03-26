@@ -135,7 +135,7 @@ const SendBulkSMS = () => {
             </Box>
           </Center>) : (
 
-            <Container bg={colorMode === "dark" && "black"} color={colorMode == "dark" && "white"} maxW="xl" centerContent p={4}>
+            <Container bg={currentMode === "dark" && "black"} color={currentMode == "dark" && "white"} maxW="xl" centerContent p={4}>
               <Box m="auto" textAlign="center" mt="4em">
                 <Heading as="h1" mb={6} color={colorMode === "dark" ? "white" : "black"}>
                   Send Bulk SMS
