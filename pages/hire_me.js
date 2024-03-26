@@ -154,7 +154,7 @@ return(<></>);
  <Header />
       <Container h="100vh" bg={currentMode ==="dark" && "black"} color={currentMode=="dark" && "white" }>
 
-        {loadingPage ? ( <ChakraProvider> <Center h="100vh"><Box position="absolute" top="40%" p={4} shadow="md" bgColor={currentMode === "dark" ? "black" : "white"}><Spinner size="xl" color="#657ce0" /></Box></Center></ChakraProvider>) : ( 
+        {loadingPage ? ( <ChakraProvider> <Center h="100vh"><Box position="absolute" top="40%" p={4} shadow="sm" bgColor={currentMode === "dark" ? "black" : "white"}><Spinner size="xl" color="#657ce0" /></Box></Center></ChakraProvider>) : ( 
         <ChakraProvider>
           <Box p={4} maxWidth="500px" mx="auto">
             <Heading align="center" my={10} as="h2" size="lg" mb={4}>
