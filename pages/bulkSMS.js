@@ -145,7 +145,7 @@ const SendBulkSMS = () => {
                   <Input type="text" placeholder="Sender Name" onChange={(e) => setSender(e.target.value)} />
                 </InputGroup>
                 <Box mt={5}>
-                  <Text my={3} color="red" size="md"> Enter phone numbers and separate it with comma. </Text>
+                  <Text my={3} color="red" fontSize="md"> Enter phone numbers and separate it with comma. </Text>
 
                 </Box>
                 <Textarea onChange={(e) => setNumbers(e.target.value)} mb={4} placeholder="08147823198,07033445578,09163526373" />
