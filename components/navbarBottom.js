@@ -140,7 +140,7 @@ setLoadingPage(true)
       {showSupport && <Support show={{ showSupport, setShowSupport }} idleTime={{ idleTime, setIdleTime }} />}
       <Flex
         zIndex={9999}
-        mt={1}
+        mt={0}
         bg={currentMode==="dark" ? "black" :"white"}
         color={currentMode ==="dark" && "white"}
         p={5}
@@ -153,7 +153,7 @@ setLoadingPage(true)
       >
         <Box onClick={() => { goHome(); highlights(1); }} textAlign="center">
           <Icon as={AiOutlineHome} boxSize={20} color={color === 1 && '#657ce0'} />
-          <Text fontSize="sm" color={color === 1 && '#657ce0'}>
+          <Text fontSize="1em" color={color === 1 && '#657ce0'}>
             Home
           </Text>
         </Box>
@@ -163,7 +163,7 @@ setLoadingPage(true)
         </Box>*/}
         <Box onClick={openProfile} textAlign="center">
           <Icon as={AiOutlineUser} boxSize={20} />
-          <Text fontSize="sm">Profile</Text>
+          <Text fontSize="1em">Profile</Text>
         </Box>
         <Box textAlign="center" onClick={openSupport}>
           <Icon as={AiOutlineWhatsApp} boxSize={20} />
