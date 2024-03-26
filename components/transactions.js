@@ -92,7 +92,7 @@ const Transactions = () => {
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Text fontWeight="bold" size="sm"> Transactions</Text>
+        <Text fontWeight="bold" size="sm">Transactions</Text>
       </Flex>
       <Box
         mb={0}
@@ -101,7 +101,7 @@ const Transactions = () => {
         boxShadow="lg"
         bg={currentMode === 'dark' ? 'black' : ''}
         color={currentMode === 'dark' ? 'white' : ''}
-        marginTop={1}
+        marginTop={2}
         marginBottom=""
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
@@ -115,7 +115,7 @@ const Transactions = () => {
             bg={currentMode === 'dark' ? 'gray.800' : 'white'}
             color={currentMode === 'dark' ? 'white' : 'black'}
             p={4}
-            mb={4}
+            mb={2} // Reduced space between first transaction and the transaction text
             alignItems="center"
             cursor="pointer"
             onClick={() => handleTransactionClick(item)}
@@ -146,7 +146,7 @@ const Transactions = () => {
       </Box>
       <Modal isOpen={isOpen} onClose={onClose} size="lg">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg={currentMode === 'dark' ? 'gray.800' : 'white'} color={currentMode === 'dark' ? 'white' : 'black'}>
           <ModalHeader>Transaction Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
