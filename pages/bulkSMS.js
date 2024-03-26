@@ -11,7 +11,8 @@ import {
   Button,
   ChakraProvider,
   Center,
-  Spinner
+  Spinner,
+  Text
 } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css';
