@@ -12,7 +12,7 @@ import {
   ChakraProvider,
   Center,
   Spinner,
-  Text
+  useColorMode
 } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,6 +28,7 @@ const SendBulkSMS = () => {
   const [message, setMessage] = useState("");
   const [sender, setSender] = useState(""); // State for sender name
   const [loading, setLoading] = useState(false); // Loading state for the button
+  const { colorMode } = useColorMode();
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
   const loadingPage = useRecoilValue(pageLoading);
@@ -114,11 +115,11 @@ const SendBulkSMS = () => {
       <Header />
       <ChakraProvider>
         {loadingPage ? (
-          <Center bg={currentMode === "dark" && "black"} mt="" height="100vh">
+          <Center bg={colorMode === "dark" && "black"} mt="" height="100vh">
             <Box
               position="absolute"
               top="40%"
-              bg={currentMode === "dark" && "black"}
+              bg={colorMode === "dark" && "black"}
               p={4}
               maxW="md"
               borderWidth=",0px"
@@ -133,9 +134,9 @@ const SendBulkSMS = () => {
             </Box>
           </Center>) : (
 
-            <Container bg={currentMode === "dark" && "black"} color={currentMode == "dark" && "white"} maxW="xl" centerContent p={4}>
+            <Container bg={colorMode === "dark" && "black"} color={colorMode == "dark" && "white"} maxW="xl" centerContent p={4}>
               <Box m="auto" textAlign="center" mt="4em">
-                <Heading as="h1" mb={6}>
+                <Heading as="h1" mb={6} color={colorMode === "dark" ? "white" : "black"}>
                   Send Bulk SMS
                 </Heading>
               </Box>
@@ -146,7 +147,7 @@ const SendBulkSMS = () => {
                   <Input type="text" placeholder="Sender Name" onChange={(e) => setSender(e.target.value)} />
                 </InputGroup>
                 <Box mt={5}>
-                  <Text my={3} color="red" fontSize="md"> Enter phone numbers and separate it with comma. </Text>
+                  <Text my={3} color="red" fontSize="md"> Enter phone numbers and separate them with commas. </Text>
 
                 </Box>
                 <Textarea onChange={(e) => setNumbers(e.target.value)} mb={4} placeholder="08147823198,07033445578,09163526373" />
