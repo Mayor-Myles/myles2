@@ -92,7 +92,7 @@ const Transactions = () => {
         alignItems="center"
         flexDirection={isDesktop ? 'row' : 'column'}
       >
-        <Text fontWeight="bold" size="sm">Transactions</Text>
+        <Text fontWeight="bold" size="sm"> Transactions</Text>
       </Flex>
       <Box
         mb={0}
@@ -101,7 +101,7 @@ const Transactions = () => {
         boxShadow="lg"
         bg={currentMode === 'dark' ? 'black' : ''}
         color={currentMode === 'dark' ? 'white' : ''}
-        marginTop={2}
+        marginTop={1}
         marginBottom=""
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
