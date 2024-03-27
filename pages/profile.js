@@ -196,7 +196,7 @@ setLoadingPage(false);
         <p></p>
       </Box>
     </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
-          <Box zIndex={-1} borderWidth="1px" borderRadius="lg" p={6}>
+          <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
             <VStack spacing={4} align="stretch">
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
@@ -241,7 +241,7 @@ setLoadingPage(false);
         </Container>
         </Container>
       </ChakraProvider>
-      
+      <Adverts/>
       <NavbarBottom />
       <ToastContainer />
     </>
