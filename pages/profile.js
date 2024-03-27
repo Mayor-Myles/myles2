@@ -201,10 +201,11 @@ setLoadingPage(false);
     </Center></ChakraProvider>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
 
       <Flex mt={10} justifyContent="center" alignItems="center">
-      <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
-  <Heading m={5} size="md" justify="center" align="center">
+     <Heading m={5} size="md" justify="center" align="center">
           My Profile
         </Heading>
+              <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
+  
             <VStack spacing={4} align="stretch">
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
