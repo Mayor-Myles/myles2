@@ -161,7 +161,7 @@ const Transactions = () => {
                 <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
                 {/* Add more details here if needed */}
          <Center>  <Box shadow="md">
-<Button p={4} color="white" bg="#657ce0" size="xl" borderRadius="md">Report this Transaction</Button>
+<Button mt={10} p={4} color="white" bg="#657ce0" size="xl" borderRadius="md">Report this Transaction</Button>
                  </Box></Center>
                  </>
                  
