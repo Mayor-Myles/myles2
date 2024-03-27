@@ -32,12 +32,12 @@ const Adverts = () => {
   };
 
   return (
-    <Box mx={{base:"3em",md:"3em"}}
+    <Box mx={{base:"5em",md:"3em"}}
       boxShadow="md" m="1.8em">
       <Slider {...settings}>
         {images.map((image, index) => (
           <Flex alignItems="center" justify="center" key={index}>
-            <Image h="5em" src={image} alt={`Slide ${index}`} />
+            <Image w="100vw" h="5em" src={image} alt={`Slide ${index}`} />
           </Flex>
         ))}
       </Slider>
