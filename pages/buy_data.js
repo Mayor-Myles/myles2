@@ -230,8 +230,8 @@ setLoadingPage(false);
           </Center>): currentMode !== 'light' && currentMode !== 'dark' ? (
                   <> </> // Empty view when mode is not known
                 ) : (
-        <Flex alignItems="center" justifyContent="center" bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"}>
-          <Box mt="2.9em" p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
+        <Flex maxH="100%" alignItems="center" justifyContent="center" bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"}>
+          <Box mt="2.9em" p="6" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
