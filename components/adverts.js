@@ -32,7 +32,7 @@ const Adverts = () => {
   };
 
   return (
-    <Box mx="4em"
+    <Box mx="7em"
       boxShadow="md" m="1.8em">
       <Slider {...settings}>
         {images.map((image, index) => (
