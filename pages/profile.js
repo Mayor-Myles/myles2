@@ -154,6 +154,7 @@ export default function Profile() {
             <Heading size="md" justify="center" align="center" mb={4}>
               My Profile
             </Heading>
+    {profile &&(
             <Box w="100%" maxW="md">
               <VStack spacing={4} align="stretch">
                 <InputGroup>
@@ -195,7 +196,7 @@ export default function Profile() {
                   {btnLoading ? <Spinner color="white" size="sm" /> : 'Update'}
                 </Button>
               </VStack>
-            </Box>
+            </Box>)}
           </Flex>
         </Container>
       </ChakraProvider>
