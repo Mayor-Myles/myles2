@@ -199,7 +199,7 @@ setLoadingPage(false);
       </Box>
     </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
 
-      <Flex mt={10} justifyContent="center" alignItems="center">
+      <Flex flexDirection="column" mt={10} justifyContent="center" alignItems="center">
      <Heading m={5} size="md" justify="center" align="center">
           My Profile
         </Heading>
