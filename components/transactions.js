@@ -84,7 +84,7 @@ const Transactions = () => {
 
   return (
     <ChakraProvider>
-    <Center bg={currentMode == "dark" && "black"}>
+    <Box bg={currentMode == "dark" && "black"}>
       <Flex
         bg={currentMode === 'dark' ? 'black' : ''}
         mt={2}
@@ -165,7 +165,7 @@ const Transactions = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
-        </Center>
+        </Box>
     </ChakraProvider>
   );
 };
