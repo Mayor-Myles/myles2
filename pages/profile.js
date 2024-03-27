@@ -181,7 +181,6 @@ setLoadingPage(false);
         <Container maxW="md" p={4}>
              {loadingPage ? (
 
-<ChakraProvider>
       <Center mt={5} height="100vh">
       <Box
         p={4}
@@ -198,7 +197,7 @@ setLoadingPage(false);
         <Spinner color="#657ce0" size="xl" />
       
       </Box>
-    </Center></ChakraProvider>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
+    </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
 
       <Flex mt={10} justifyContent="center" alignItems="center">
      <Heading m={5} size="md" justify="center" align="center">
