@@ -174,12 +174,12 @@ setLoadingPage(false);
         </Head>
       <Header />
       <ChakraProvider>
-        <Container h="100vh" color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"}>
+        <Container  color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"}>
        {!loadingPage && ( <Heading mx={5} size="md" justify="center" align="center">
           My Profile
         </Heading>)}
 
-        <Container maxW="md" p={4}>
+        <Container maxW="lg" p={4}>
              {loadingPage ? (
       <Center mt={5} height="">
       <Box
@@ -237,11 +237,13 @@ setLoadingPage(false);
                 {btnLoading ? <FallingLines color="white" width="50" visible={true} ariaLabel="falling-lines-loading" /> : 'Update'}
               </Button>
             </VStack>
-          </Box>)}
+          </Box>)} 
+<Adverts/>
+
         </Container>
         </Container>
       </ChakraProvider>
-      <Adverts/>
+      
       <NavbarBottom />
       <ToastContainer />
     </>
