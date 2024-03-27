@@ -13,6 +13,7 @@ import {
   Icon,
   Center,
   Spinner,
+  Flex,
 } from '@chakra-ui/react';
 import { FaUser, FaEnvelope, FaLock, FaPhone } from 'react-icons/fa';
 import Header from '../components/header';
@@ -122,7 +123,7 @@ setLoadingPage(false);
   if (!data || !profile) {
     return (
       <Center color={currentMode === "dark" && "white"} bg={currentMode == "dark" && "black"} display="flex" justifyContent="center" alignItems="center" h="100vh">
-        <FallingLines color="#657ce0" width="50" visible={true} ariaLabel="falling-lines-loading" />
+      <Spinner size="lg" color="blue" speed="0.3s"/>
       </Center>
     );
   }
