@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Text, Flex, ChakraProvider, IconButton ,Center} from '@chakra-ui/react';
+import { Box, Text, Flex, ChakraProvider, IconButton, Center } from '@chakra-ui/react';
 import { FiCreditCard, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, loginStatus } from '../components/recoil';
@@ -68,20 +68,21 @@ export default function Wallet() {
           overflow="hidden"
           position="relative"
         >
+          {showBalance ? (
+            <FiEyeOff onClick={toggleBalance} size={15} color="white" style={{ position: "absolute", top: 4, right: 4 }} />
+          ) : (
+            <FiEye onClick={toggleBalance} size={15} color="white" style={{ position: "absolute", top: 4, right: 4 }} />
+          )}
           <Flex direction="column" justify="center" align="center">
-            {showBalance ? (<FiEyeOff onClick={toggleBalance} size={15} color="white" />) :(<FiEye onClick={toggleBalance} size={15} color="white" />)}
             <Text fontSize="sm" fontWeight="bold" mt={2}>
-            Hi, {profile && (profile.fullName).substring(0,15)}
+              Hi, {profile && (profile.fullName).substring(0, 15)}
             </Text>
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
             </Text>
-            
-              <Text m={6} fontSize="md" fontWeight="bold"  color="white" mt={1}>
-            {showBalance ? ( <Center> ₦{profile && profile.balance.toLocaleString()} </Center>) : (<Center> ***** </Center> )}
-              </Text> 
-            
-        
+            <Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
+              {showBalance ? (`₦${profile && profile.balance.toLocaleString()}`) : '*****'}
+            </Text>
           </Flex>
         </Box>
       </Flex>
