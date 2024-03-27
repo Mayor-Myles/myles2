@@ -20,7 +20,7 @@ const Adverts = () => {
     dots: false,
     infinite: true,
     speed: 1500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
@@ -32,7 +32,7 @@ const Adverts = () => {
   };
 
   return (
-    <Box mx="7em"
+    <Box
       boxShadow="md" m="1.8em">
       <Slider {...settings}>
         {images.map((image, index) => (
