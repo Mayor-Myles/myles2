@@ -39,14 +39,14 @@ export default function Profile() {
 
   useEffect(() => {
   
-  const userChoice = localStorage.getItem("mode");
-toast.error(userChoice);
+  const userChoice = window.localStorage.getItem("mode");
+
   if(userChoice === "dark"){
   setMode("dark");
   }
   else{
     setMode("light");
-    localStorage.setItem("mode","light");
+    window.localStorage.setItem("mode","light");
   }
 
 },[]);
