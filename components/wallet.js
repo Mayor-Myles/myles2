@@ -69,9 +69,9 @@ export default function Wallet() {
           position="relative"
         >
           {showBalance ? (
-            <FiEyeOff onClick={toggleBalance} size={15} color="white" style={{ position: "absolute", top: 4, right: 4 }} />
+            <FiEyeOff onClick={toggleBalance} size={17} m={4} color="white" style={{ position: "absolute", top: 4, right: 4 }} />
           ) : (
-            <FiEye onClick={toggleBalance} size={15} color="white" style={{ position: "absolute", top: 4, right: 4 }} />
+            <FiEye onClick={toggleBalance} size={17} m={4} color="white" style={{ position: "absolute", top: 4, right: 4 }} />
           )}
           <Flex direction="column" justify="center" align="center">
             <Text fontSize="sm" fontWeight="bold" mt={2}>
