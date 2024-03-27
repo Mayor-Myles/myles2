@@ -41,12 +41,15 @@ export default function Profile() {
   
   const userChoice = window.localStorage.getItem("mode");
 toast.success(userChoice);
-  if(userChoice === "dark"){
+  if(userChoice == "dark"){
+    window.localStorage.setItem("mode","dark");
   setMode("dark");
   }
   else{
+
+window.localStorage.setItem("mode","light");
     setMode("light");
-    window.localStorage.setItem("mode","light");
+    
   }
 
 },[]);
