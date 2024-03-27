@@ -196,7 +196,7 @@ setLoadingPage(false);
         <p></p>
       </Box>
     </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
-          <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
+          <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6} m={0}>
             <VStack spacing={4} align="stretch">
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
@@ -233,7 +233,7 @@ setLoadingPage(false);
                 <Input name="phoneNumber" onChange={getInput} type="tel" placeholder={profile.phoneNumber || 'Phone Number'} />
               </InputGroup>
 
-              <Button onClick={update} colorScheme="blue" type="submit">
+              <Button mt={4} onClick={update} colorScheme="blue" type="submit">
                 {btnLoading ? <FallingLines color="white" width="50" visible={true} ariaLabel="falling-lines-loading" /> : 'Update'}
               </Button>
             </VStack>
