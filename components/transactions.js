@@ -97,8 +97,7 @@ const Transactions = () => {
       </Flex>
       <Box
         justifyContent="center"
-alignItems="center"
-display="flex"
+        alignItems="center"
         mb={0}
         p={3}
         borderRadius="lg"
