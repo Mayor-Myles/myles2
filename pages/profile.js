@@ -202,7 +202,7 @@ setLoadingPage(false);
 
       <Flex mt={10} justifyContent="center" alignItems="center">
       <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
-  <Heading mx={5} size="md" justify="center" align="center">
+  <Heading m={5} size="md" justify="center" align="center">
           My Profile
         </Heading>
             <VStack spacing={4} align="stretch">
