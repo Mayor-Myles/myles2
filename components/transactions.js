@@ -147,7 +147,7 @@ const Transactions = () => {
           </Center>
         )}
       </Box>
-      <Modal bg={currentMode=="dark" && "black" m={2} isOpen={isOpen} onClose={onClose} size="lg">
+      <Modal bg={currentMode=="dark" && "black"} m={2} isOpen={isOpen} onClose={onClose} size="lg">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Transaction Details</ModalHeader>
@@ -160,10 +160,11 @@ const Transactions = () => {
                 <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
                 <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
                 {/* Add more details here if needed */}
-              </>
-                 <Box shadow="md">
+           <Box shadow="md">
 <Button bg="#657ce0" size="xl" borderRadius="xl">Report this Transaction</Button>
                  </Box>
+                 </>
+                 
             )}
           </ModalBody>
         </ModalContent>
