@@ -147,6 +147,7 @@ const Transactions = () => {
           </Center>
         )}
       </Box>
+        <Modal bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"}>
       <Modal isOpen={isOpen} onClose={onClose}>
   <ModalOverlay />
   <ModalContent>
@@ -154,14 +155,14 @@ const Transactions = () => {
     <ModalCloseButton bg="black" color="white" />
     <ModalBody>
       {selectedTransaction && (
-        <Box bg={currentMode === "dark" && "blue.500"} color={currentMode === "dark" && "white"}>
+        <Box>
           <Text mb={2}><strong>Transaction ID:</strong> {selectedTransaction.tid}</Text>
           <Text mb={2}><strong>Description:</strong> {selectedTransaction.details}</Text>
           <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
           <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
           {/* Add more details here if needed */}
           <Center>
-            <a href={`https://wa.me/+2347014443158/?text=Hello, I have a problem with this transaction. The service is ${selectedTransaction.details}. Transaction ID is ${selectedTransaction.tid}. The amount is ${selectedTransaction.amount}₦ on date ${selectedTransaction.date}`}>
+            <a href={`https://wa.me/+2347014443158/?text=Hello, I have a problem with this transaction. The service is ${selectedTransaction.details}. Transaction ID is ${selectedTransaction.tid}. The amount is ₦${selectedTransaction.amount} on date ${selectedTransaction.date}`}>
               <Box shadow="md">
                 <Button mt={10} p={4} color="white" bg="#657ce0" size="xl" borderRadius="md">Report this Transaction</Button>
               </Box>
@@ -172,7 +173,7 @@ const Transactions = () => {
     </ModalBody>
   </ModalContent>
 </Modal>
-
+          </Box>
         </Box>
     </ChakraProvider>
   );
