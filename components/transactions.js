@@ -84,6 +84,7 @@ const Transactions = () => {
 
   return (
     <ChakraProvider>
+    <Center bg={currentMode == "dark" && "black"}>
       <Flex
         bg={currentMode === 'dark' ? 'black' : ''}
         mt={2}
@@ -95,6 +96,9 @@ const Transactions = () => {
         <Text fontWeight="bold" fontSize="0.8em"> Transactions</Text>
       </Flex>
       <Box
+        justifyContent="center"
+alignItems="center"
+display="flex"
         mb={0}
         p={3}
         borderRadius="lg"
@@ -162,6 +166,7 @@ const Transactions = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
+        </Center>
     </ChakraProvider>
   );
 };
