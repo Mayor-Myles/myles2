@@ -39,7 +39,7 @@ const Adverts = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <Flex key={index}>
-            <Image w="100vw" h={{base:"4em",lg:"5em"}} src={image} alt={`Slide ${index}`} />
+            <Image w="100vw" h="4em" src={image} alt={`Slide ${index}`} />
           </Flex>
         ))}
       </Slider>
