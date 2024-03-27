@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
 import Head from "next/head";
-
+import Adverts from "../components/advert";
 import {
   useRecoilValue,
   useSetRecoilState,
@@ -52,7 +52,7 @@ window.localStorage.setItem("mode","light");
     
   }
 
-},[]);
+},[setMode,mode]);
   
 
   const showAlert = (message, type) => {
@@ -154,6 +154,7 @@ window.localStorage.setItem("mode","light");
         <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
       </Head>
       <Header />
+    <Adverts/>
       <ChakraProvider>
         <Container color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"} minH="100vh" pt={4}>
           <Flex flexDirection="column" justifyContent="center" alignItems="center">
