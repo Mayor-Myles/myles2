@@ -22,7 +22,7 @@ const Adverts = () => {
     dots: false,
     infinite: true,
     speed: 1800,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
