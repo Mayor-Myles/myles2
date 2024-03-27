@@ -148,7 +148,7 @@ const Transactions = () => {
         )}
       </Box>
       <Modal  m={2} isOpen={isOpen} onClose={onClose} size="lg">
-        <ModalOverlay bg={currentMode=="dark" && "black"} color={currentMode =="dark" && "white"}>
+        <ModalOverlay bg={currentMode=="blue.500" && "black"} color={currentMode =="dark" && "white"}>
         <ModalContent>
           <ModalHeader>Transaction Details</ModalHeader>
           <ModalCloseButton bg="black" color="white" />
