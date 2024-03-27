@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
 import Head from "next/head";
-import Adverts from "../components/advert";
+//import Adverts from "../components/advert";
 import {
   useRecoilValue,
   useSetRecoilState,
