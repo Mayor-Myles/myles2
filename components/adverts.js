@@ -14,7 +14,7 @@ const Adverts = () => {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0CbX31ttm0AQKwpFvDHeVRP2yPkqRoZFoug&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtG53-MHyiD-w6OKl9YbEiWuEgZqsnf5BQw&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9H3y0pSExhpF40cFiRRofGwGYJFbRyhiEtQ&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXU9yiuJuCJxXZbnyTP9m2U_vg59OzlUGNg&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGAKsrhRw12-j0F5vUYxryPXfmNGHySgPkaA&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpXcE39N4HX8BKwQD2pCiJ-IePP_SvPY1mJg&usqp=CAU',
   ];
 
@@ -22,7 +22,7 @@ const Adverts = () => {
     dots: false,
     infinite: true,
     speed: 1500,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
@@ -39,7 +39,7 @@ const Adverts = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <Flex key={index}>
-            <Image w="100vw" h="5em" src={image} alt={`Slide ${index}`} />
+            <Image w="100vw" h={{base:"4em",lg:"5em"}} src={image} alt={`Slide ${index}`} />
           </Flex>
         ))}
       </Slider>
