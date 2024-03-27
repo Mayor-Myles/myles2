@@ -152,8 +152,8 @@ setLoadingPage(true)
         boxShadow="0px -4px 10px rgba(0, 0, 0, 0.1)"
       >
         <Box onClick={() => { goHome(); highlights(1); }} textAlign="center">
-          <Icon as={AiOutlineHome} boxSize={20} color={currentPage === "home" && 'blue'} />
-          <Text fontSize="0.8em" color={currentPage === "home" && 'blue'}>
+          <Icon as={AiOutlineHome} boxSize={20} color={currentPage === "home" && 'dodgerblue'} />
+          <Text fontSize="0.8em" color={currentPage === "home" && 'dodgerblue'}>
             Home
           </Text>
         </Box>
@@ -162,9 +162,9 @@ setLoadingPage(true)
           <Text fontSize="sm" color={color === 2 && '#657ce0'}>Fund</Text>
         </Box>*/}
         <Box onClick={openProfile} textAlign="center">
-          <Icon as={AiOutlineUser} boxSize={20} color={currentPage === "profile" && 'blue'}/>
+          <Icon as={AiOutlineUser} boxSize={20} color={currentPage === "profile" && 'dodgerblue'}/>
             
-          <Text color={currentPage === "profile" && 'blue'}
+          <Text color={currentPage === "profile" && 'dodgerblue'}
          fontSize="0.8em">Profile</Text>
         </Box>
         <Box textAlign="center" onClick={openSupport}>
