@@ -181,19 +181,23 @@ setLoadingPage(false);
 
         <Container maxW="md" p={4}>
              {loadingPage ? (
-      <Center mt={5} height="">
+
+
+      <Center mt={5} height="100vh">
       <Box
         p={4}
         maxW="md"
         borderWidth=",0px"
   borderColor="#657ce0"
         borderRadius="md"
-        boxShadow="lg"
+        boxShadow="sm"
         textAlign="center"
+          position="absolute"
+            top="40%"
         
       >
         <Spinner color="#657ce0" size="lg" />
-        <p></p>
+      
       </Box>
     </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
           <Box zIndex={-1} borderWidth="1px" borderRadius="lg" p={6}>
