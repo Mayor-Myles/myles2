@@ -107,8 +107,8 @@ export default function Menu() {
             </Box>
           </Center>
         ) : (
-          <Box justifyContent="center" alignItems="center"  mt={6}>
-            <Box justifyContent="center" alignItems="center" boxShadow="sm" borderRadius="xl" maxW={{base:"md",md:"100%","lg":"100%","xl":"100%"}} mx="2em" p={2}>
+          <Box bg={currentMode == "dark" && "black"}  mt={6}>
+            <Box boxShadow="sm" borderRadius="lg" maxW={{base:"md",md:"100%","lg":"100%","xl":"100%"}} mx="2em" p={2}>
               <Grid templateColumns="repeat(4, 1fr)" gap={6}>
               <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
                 <Box
