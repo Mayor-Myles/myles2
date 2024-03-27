@@ -21,8 +21,8 @@ const Adverts = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1500,
-    slidesToShow: 2,
+    speed: 1800,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000, // adjust as needed
