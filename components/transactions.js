@@ -147,31 +147,32 @@ const Transactions = () => {
           </Center>
         )}
       </Box>
-      <Modal  m={2} isOpen={isOpen} onClose={onClose} size="lg">
-        <ModalOverlay />
-   <ModalContent>
-          <ModalHeader>Transaction Details</ModalHeader>
-          <ModalCloseButton bg="black" color="white" />
-          <ModalBody>
-            {selectedTransaction && (
-              <Box bg={currentMode=="blue.500" && "black"} color={currentMode =="dark" && "white"}>
-     >
-                <Text mb={2}><strong>Transaction ID:</strong> {selectedTransaction.tid}</Text>
-                <Text mb={2}><strong>Description:</strong> {selectedTransaction.details}</Text>
-                <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
-                <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
-                {/* Add more details here if needed */}
-         <Center>  <a href="https://wa.me/+2347014443158/?text=Hello, i have q problem with this transaction. The service is {details} Transaction id is {selectedTransaction.tid} on date {date}">
-<Box shadow="md">
-<Button mt={10} p={4} color="white" bg="#657ce0" size="xl" borderRadius="md">Report this Transaction</Button>
-                 </Box></a></Center>
-                 </Box>
-                 
-            )}
-          </ModalBody>
-        </ModalContent>
-        </ModalOverlay>
-      </Modal>
+      <Modal isOpen={isOpen} onClose={onClose}>
+  <ModalOverlay />
+  <ModalContent>
+    <ModalHeader>Transaction Details</ModalHeader>
+    <ModalCloseButton bg="black" color="white" />
+    <ModalBody>
+      {selectedTransaction && (
+        <Box bg={currentMode === "blue.500" && "black"} color={currentMode === "dark" && "white"}>
+          <Text mb={2}><strong>Transaction ID:</strong> {selectedTransaction.tid}</Text>
+          <Text mb={2}><strong>Description:</strong> {selectedTransaction.details}</Text>
+          <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
+          <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
+          {/* Add more details here if needed */}
+          <Center>
+            <a href={`https://wa.me/+2347014443158/?text=Hello, I have a problem with this transaction. The service is ${selectedTransaction.details}. Transaction ID is ${selectedTransaction.tid}. The amount is ${selectedTransaction.amount}₦ on date ${selectedTransaction.date}`}>
+              <Box shadow="md">
+                <Button mt={10} p={4} color="white" bg="#657ce0" size="xl" borderRadius="md">Report this Transaction</Button>
+              </Box>
+            </a>
+          </Center>
+        </Box>
+      )}
+    </ModalBody>
+  </ModalContent>
+</Modal>
+
         </Box>
     </ChakraProvider>
   );
