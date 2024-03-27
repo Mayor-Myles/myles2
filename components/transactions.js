@@ -154,7 +154,7 @@ const Transactions = () => {
     <ModalCloseButton bg="black" color="white" />
     <ModalBody>
       {selectedTransaction && (
-        <Box bg={currentMode === "blue.500" && "black"} color={currentMode === "dark" && "white"}>
+        <Box bg={currentMode === "dark" && "blue.500"} color={currentMode === "dark" && "white"}>
           <Text mb={2}><strong>Transaction ID:</strong> {selectedTransaction.tid}</Text>
           <Text mb={2}><strong>Description:</strong> {selectedTransaction.details}</Text>
           <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
