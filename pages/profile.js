@@ -38,16 +38,18 @@ export default function Profile() {
   const setMode = useSetRecoilState(mode);
 
   useEffect(() => {
-    const userChoice = window.localStorage.getItem("mode");
-    if (userChoice === "null") {
-      return;
-    }
-    if (userChoice === "dark") {
-      setMode("dark");
-    } else {
-      setMode("light");
-    }
-  }, []);
+  
+  const userChoice = window.localStorage.getItem("mode");
+
+  if(userChoice === "dark"){
+  setMode("dark");
+  }
+  else{
+    setMode("light");
+  }
+
+},[]);
+  
 
   const showAlert = (message, type) => {
     toast[type](`📑 ${message}`, {
