@@ -174,7 +174,7 @@ setLoadingPage(false);
         </Head>
       <Header />
       <ChakraProvider>
-        <Container color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"}>
+        <Container h="100vh" color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"}>
        {!loadingPage && ( <Heading mx={5} size="md" justify="center" align="center">
           My Profile
         </Heading>)}
