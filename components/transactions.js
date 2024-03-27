@@ -160,9 +160,9 @@ const Transactions = () => {
                 <Text mb={2}><strong>Amount(₦):</strong> {selectedTransaction.amount}</Text>
                 <Text mb={2}><strong>Order Date:</strong> {selectedTransaction.date}</Text>
                 {/* Add more details here if needed */}
-           <Box shadow="md">
-<Button bg="#657ce0" size="xl" borderRadius="xl">Report this Transaction</Button>
-                 </Box>
+         <Center>  <Box shadow="md">
+<Button p={4} color="white" bg="#657ce0" size="xl" borderRadius="md">Report this Transaction</Button>
+                 </Box></Center>
                  </>
                  
             )}
