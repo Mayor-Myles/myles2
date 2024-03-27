@@ -200,7 +200,9 @@ setLoadingPage(false);
       
       </Box>
     </Center>) : currentMode !=="dark" && currentMode !== "light" ? (<></>) : (  
-          <Box zIndex={-1} borderWidth="1px" borderRadius="lg" p={6}>
+
+      <Flex alignItems="center">
+      <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
             <VStack spacing={4} align="stretch">
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
@@ -241,7 +243,7 @@ setLoadingPage(false);
                 {btnLoading ? <FallingLines color="white" width="50" visible={true} ariaLabel="falling-lines-loading" /> : 'Update'}
               </Button>
             </VStack>
-          </Box>)}
+          </Box></Flex>)}
         </Container>
         </Container>
       </ChakraProvider>
