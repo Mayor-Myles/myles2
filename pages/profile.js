@@ -40,7 +40,7 @@ export default function Profile() {
   useEffect(() => {
   
   const userChoice = window.localStorage.getItem("mode");
-
+toast.success(userChoice);
   if(userChoice === "dark"){
   setMode("dark");
   }
