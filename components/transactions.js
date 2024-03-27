@@ -147,11 +147,11 @@ const Transactions = () => {
           </Center>
         )}
       </Box>
-      <Modal bg={currentMode=="dark" && "black"} m={2} isOpen={isOpen} onClose={onClose} size="lg">
-        <ModalOverlay />
+      <Modal  m={2} isOpen={isOpen} onClose={onClose} size="lg">
+        <ModalOverlay bg={currentMode=="dark" && "black"} color={currentMode =="dark" && "white"}>
         <ModalContent>
           <ModalHeader>Transaction Details</ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton bg="black" color="white" />
           <ModalBody>
             {selectedTransaction && (
               <>
@@ -168,6 +168,7 @@ const Transactions = () => {
             )}
           </ModalBody>
         </ModalContent>
+        </ModalOverlay>
       </Modal>
         </Box>
     </ChakraProvider>
