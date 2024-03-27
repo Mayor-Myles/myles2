@@ -176,9 +176,7 @@ setLoadingPage(false);
       <Header />
       <ChakraProvider>
         <Container color={currentMode == "dark" && "white"} bg={currentMode === "dark" && "black"}>
-       {!loadingPage && ( <Heading mx={5} size="md" justify="center" align="center">
-          My Profile
-        </Heading>)}
+       
 
         <Container maxW="md" p={4}>
              {loadingPage ? (
@@ -204,6 +202,9 @@ setLoadingPage(false);
 
       <Flex mt={10} justifyContent="center" alignItems="center">
       <Box zIndex={-1} borderWidth="0px" borderRadius="lg" p={6}>
+  <Heading mx={5} size="md" justify="center" align="center">
+          My Profile
+        </Heading>
             <VStack spacing={4} align="stretch">
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
@@ -240,7 +241,7 @@ setLoadingPage(false);
                 <Input name="phoneNumber" onChange={getInput} type="tel" placeholder={profile.phoneNumber || 'Phone Number'} />
               </InputGroup>
 
-              <Button onClick={update} colorScheme="blue" type="submit">
+              <Button mt={5} onClick={update} colorScheme="blue" type="submit">
                 {btnLoading ? <FallingLines color="white" width="50" visible={true} ariaLabel="falling-lines-loading" /> : 'Update'}
               </Button>
             </VStack>
