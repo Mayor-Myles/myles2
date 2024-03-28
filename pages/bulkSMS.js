@@ -117,7 +117,7 @@ const SendBulkSMS = () => {
               <Spinner color="#657ce0" size="lg" />
             </Box>
           </Center>) : (
-            <Container bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} maxW="100vw" centerContent p={4} m={0}>
+            <Container h="100%" bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} maxW="100vw" centerContent p={4} m={0}>
               <VStack spacing={6} align="stretch">
                 <Text fontWeight="bold" size="md" mb={2} color={currentMode === "dark" ? "white" : "black"} textAlign="center">
                   Send Bulk SMS
