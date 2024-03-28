@@ -128,7 +128,7 @@ const SendBulkSMS = () => {
               m={0}
               p={0}
             >
-              <VStack spacing={6} align="stretch">
+              <VStack m={10} spacing={6} align="stretch">
                 <Text fontWeight="bold" size="md" mb={2} color={currentMode === "dark" ? "white" : "black"} textAlign="center">
                   Send Bulk SMS
                 </Text>
@@ -142,7 +142,7 @@ const SendBulkSMS = () => {
                   </FormControl>
                 </Box>
                 <Box>
-                  <Text mt={3} mb={2} color="red" fontSize="md" textAlign="left">Enter phone numbers and separate them with commas.</Text>
+                  <Text mt={3} mb={2} color="dodgerblue" fontSize="md" textAlign="left">Enter phone numbers and separate them with commas.</Text>
                   <Textarea onChange={(e) => setNumbers(e.target.value)} placeholder="08147823198,07033445578,09163526373" />
                 </Box>
                 <Box>
