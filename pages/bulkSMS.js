@@ -114,7 +114,7 @@ const SendBulkSMS = () => {
   return (
     <>
       <Header />
-      <ChakraProvider>
+      <ChakraProvider bg="black">
         {loadingPage ? (
           <Center bg={currentMode === "dark" && "black"} mt="" height="100vh">
             <Box
