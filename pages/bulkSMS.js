@@ -117,7 +117,17 @@ const SendBulkSMS = () => {
               <Spinner color="#657ce0" size="lg" />
             </Box>
           </Center>) : (
-            <Container h="100%" bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} maxW="100vw" centerContent p={4} m={0}>
+            <Box
+              h="100vh"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              bg={currentMode === "dark" && "black"}
+              color={currentMode === "dark" && "white"}
+              m={0}
+              p={0}
+            >
               <VStack spacing={6} align="stretch">
                 <Text fontWeight="bold" size="md" mb={2} color={currentMode === "dark" ? "white" : "black"} textAlign="center">
                   Send Bulk SMS
@@ -147,7 +157,8 @@ const SendBulkSMS = () => {
                   </Button>
                 </Box>
               </VStack>
-            </Container>)}
+            </Box>
+          )}
       </ChakraProvider>
       <NavbarBottom />
       <ToastContainer autoClose={2000} />
