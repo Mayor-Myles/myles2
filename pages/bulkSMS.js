@@ -13,7 +13,12 @@ import {
   Center,
   Spinner,
   useColorMode,
-  Text
+  Text,
+  VStack,
+  FormControl,
+  FormLabel,
+  FormHelperText,
+  FormErrorMessage
 } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -113,31 +118,35 @@ const SendBulkSMS = () => {
             </Box>
           </Center>) : (
             <Container bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} maxW="100vw" centerContent p={4}>
-              <Box m="auto" textAlign="center" mt="4em">
-                <Heading as="h1" mb={6} color={currentMode === "dark" ? "white" : "black"}>
+              <VStack spacing={6} align="stretch">
+                <Heading as="h1" mb={6} color={currentMode === "dark" ? "white" : "black"} textAlign="center">
                   Send Bulk SMS
                 </Heading>
-              </Box>
-
-              <Box width={{ base: '100%', md: '50%' }} mx="auto">
-                <InputGroup mb={4}>
-                  <InputLeftElement pointerEvents="none" children={<FaUser color="#657ce0" />} />
-                  <Input type="text" placeholder="Sender Name" onChange={(e) => setSender(e.target.value)} />
-                </InputGroup>
-                <Box mt={5}>
-                  <Text my={3} color="red" fontSize="md"> Enter phone numbers and separate them with commas. </Text>
+                <Box>
+                  <FormControl>
+                    <FormLabel fontSize="lg" color={currentMode === "dark" ? "white" : "black"}>Sender Name</FormLabel>
+                    <InputGroup>
+                      <InputLeftElement pointerEvents="none" children={<FaUser color="#657ce0" />} />
+                      <Input type="text" placeholder="Sender Name" onChange={(e) => setSender(e.target.value)} />
+                    </InputGroup>
+                  </FormControl>
                 </Box>
-                <Textarea onChange={(e) => setNumbers(e.target.value)} mb={4} placeholder="08147823198,07033445578,09163526373" />
-                <Textarea onChange={(e) => setMessage(e.target.value)} placeholder="Type your message...." />
-                <Box mb={4} textAlign="center">
-                  <Box mt={2} fontWeight="bold">
-                    Amount to be Charged: ₦{cost}
-                  </Box>
+                <Box>
+                  <Text mt={3} mb={2} color="red" fontSize="md" textAlign="left">Enter phone numbers and separate them with commas.</Text>
+                  <Textarea onChange={(e) => setNumbers(e.target.value)} placeholder="08147823198,07033445578,09163526373" />
                 </Box>
-                <Button mb={4} colorScheme="blue" size="lg" width="100%" onClick={handleSend} isLoading={loading}>
-                  {loading ? "Sending..." : "Send"}
-                </Button>
-              </Box>
+                <Box>
+                  <Textarea onChange={(e) => setMessage(e.target.value)} placeholder="Type your message...." />
+                </Box>
+                <Box>
+                  <Text fontSize="lg" fontWeight="bold" color={currentMode === "dark" ? "white" : "black"} textAlign="center">Amount to be Charged: ₦{cost}</Text>
+                </Box>
+                <Box>
+                  <Button colorScheme="blue" size="lg" width="100%" onClick={handleSend} isLoading={loading}>
+                    {loading ? "Sending..." : "Send"}
+                  </Button>
+                </Box>
+              </VStack>
             </Container>)}
       </ChakraProvider>
       <NavbarBottom />
