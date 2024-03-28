@@ -15,20 +15,20 @@ import {
   useColorMode,
   Text
 } from '@chakra-ui/react';
-import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { pageLoading, thisPage, mode } from "../components/recoil";
-import $ from 'jquery'; // Import jQuery
+import $ from 'jquery';
 
 const SendBulkSMS = () => {
   const [cost, setCost] = useState(0);
   const [numbers, setNumbers] = useState("");
   const [message, setMessage] = useState("");
-  const [sender, setSender] = useState(""); // State for sender name
-  const [loading, setLoading] = useState(false); // Loading state for the button
+  const [sender, setSender] = useState("");
+  const [loading, setLoading] = useState(false);
   const { colorMode } = useColorMode();
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
@@ -39,16 +39,9 @@ const SendBulkSMS = () => {
 
   useEffect(() => {
     const userChoice = window.localStorage.getItem("mode");
-
-    if (userChoice === "dark") {
-      setMode("dark");
-    } else {
-      setMode("light");
-    }
-
+    setMode(userChoice === "dark" ? "dark" : "light");
     setCurrentPage("bulkSMS");
     setLoadingPage(false);
-
   }, []);
 
   useEffect(() => {
@@ -62,22 +55,15 @@ const SendBulkSMS = () => {
       pages = 1;
     }
     const totalCost = totalRecipients * costPerPage * pages;
-
     setCost(totalCost);
-
-  }, [numbers, setNumbers]);
+  }, [numbers, message]);
 
   const handleSend = () => {
-    // Check if all input fields are filled
     if (!sender || !numbers || !message) {
       toast.error("Please fill in all fields.");
       return;
     }
-
-    // Set loading state to true
     setLoading(true);
-
-    // jQuery AJAX POST request
     $.ajax({
       url: 'https://mylesvtu.com.ng/app/store/sendBulkSMS',
       type: 'POST',
@@ -85,23 +71,17 @@ const SendBulkSMS = () => {
       data: JSON.stringify({
         numbers: numbers,
         message: message,
-        sender: sender // Using sender state here
+        sender: sender
       }),
       crossDomain: true,
       success: function(data) {
-        // Handle success response
-        //console.log(data);
-        // Show toast notification with response message
-      data.msg === "success" &&  toast.info("Message has been sent to all recipients.");
+        data.msg === "success" &&  toast.info("Message has been sent to all recipients.");
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        // Handle errors
         console.error('Error:', errorThrown);
-        // Show toast notification for error
         toast.error("Error sending bulk SMS!");
       },
       complete: function() {
-        // Set loading state back to false
         setLoading(false);
       }
     });
@@ -114,7 +94,7 @@ const SendBulkSMS = () => {
   return (
     <>
       <Header />
-      <ChakraProvider bg="black">
+      <ChakraProvider>
         {loadingPage ? (
           <Center bg={currentMode === "dark" && "black"} mt="" height="100vh">
             <Box
@@ -128,14 +108,11 @@ const SendBulkSMS = () => {
               borderRadius="md"
               boxShadow="sm"
               textAlign="center"
-
             >
               <Spinner color="#657ce0" size="lg" />
-              <p></p>
             </Box>
           </Center>) : (
-
-            <Container h={{md:"100vh"}} bg={currentMode === "dark" && "black"} color={currentMode == "dark" && "white"} maxW="xl" centerContent p={4}>
+            <Container bg={currentMode === "dark" && "black"} color={currentMode === "dark" && "white"} maxW="100vw" centerContent p={4}>
               <Box m="auto" textAlign="center" mt="4em">
                 <Heading as="h1" mb={6} color={currentMode === "dark" ? "white" : "black"}>
                   Send Bulk SMS
@@ -149,28 +126,22 @@ const SendBulkSMS = () => {
                 </InputGroup>
                 <Box mt={5}>
                   <Text my={3} color="red" fontSize="md"> Enter phone numbers and separate them with commas. </Text>
-
                 </Box>
                 <Textarea onChange={(e) => setNumbers(e.target.value)} mb={4} placeholder="08147823198,07033445578,09163526373" />
-
                 <Textarea onChange={(e) => setMessage(e.target.value)} placeholder="Type your message...." />
-
                 <Box mb={4} textAlign="center">
-
                   <Box mt={2} fontWeight="bold">
                     Amount to be Charged: ₦{cost}
                   </Box>
                 </Box>
-
                 <Button mb={4} colorScheme="blue" size="lg" width="100%" onClick={handleSend} isLoading={loading}>
                   {loading ? "Sending..." : "Send"}
                 </Button>
               </Box>
             </Container>)}
-
       </ChakraProvider>
       <NavbarBottom />
-      <ToastContainer autoClose={2000} /> {/* ToastContainer to display toast notifications */}
+      <ToastContainer autoClose={2000} />
     </>
   );
 };
