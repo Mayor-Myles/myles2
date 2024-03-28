@@ -162,7 +162,7 @@ const SendBulkSMS = () => {
                   </Box>
                 </Box>
 
-                <Buttonmb={4} colorScheme="blue" size="lg" width="100%" onClick={handleSend} isLoading={loading}>
+                <Button mb={4} colorScheme="blue" size="lg" width="100%" onClick={handleSend} isLoading={loading}>
                   {loading ? "Sending..." : "Send"}
                 </Button>
               </Box>
