@@ -232,7 +232,7 @@ setLoadingPage(false);
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw">       
         <Box alignItems="center" justifyContent="center" flexDirection="column">
-          <Box mt="" p="4" borderRadius="sm" boxShadow="md" textAlign="center" bg="" width="100%" maxWidth="500px">
+          <Box mx="10" boxShadow="md" textAlign="center">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
