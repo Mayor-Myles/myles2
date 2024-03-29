@@ -138,7 +138,7 @@ setLoadingPage(false);
         setBtnLoading(false);
       },
       error: function () {
-        showAlert("Internet connection seems to be los olos or the Server cannot be reached. Please Try again.", "info");
+        showAlert("Internet connection seems to be Lost or the Server cannot be reached. Please Try again.", "info");
         setBtnLoading(false);
       }
     });
@@ -306,7 +306,7 @@ const dataPlansDetail = [
                   key={index}
                   bg={currentMode==="dark"?"black":"white"}
                   color={currentMode==="dark"? "white" : "black"}
-                  p="4"
+                  p="6"
                   borderRadius="lg"
                   m="2" 
                   textAlign="center"
