@@ -176,7 +176,7 @@ setLoadingPage(false);
     } else {
     dataPlansDetails = etisalat;
   }
-const dataPlansDetails = [
+const dataPlansDetail = [
   {
     product: "1gb",
     price: 500,
