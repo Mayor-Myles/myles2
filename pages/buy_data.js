@@ -328,7 +328,7 @@ setLoadingPage(false);
               Buy
             </Button>
           </Box>
-        </Flex>
+        </Box>
         </Container>)}
       </ChakraProvider>
       <ToastContainer />
