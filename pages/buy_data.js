@@ -271,7 +271,7 @@ setLoadingPage(false);
                   </Box>
                 </Center>
               )*/}
-              {dataPlansDetails.map((item, index) => (
+              {dataPlansDetail.map((item, index) => (
                 <Box onClick={() => {
                   selectItem(index + 1);
                   getInput('plan', item.product);
