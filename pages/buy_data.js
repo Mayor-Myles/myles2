@@ -271,14 +271,14 @@ const dataPlansDetail = [
               mb="4"
               size="lg"
               border="1px solid dodgerblue"
-                mx={5}
+                
             />
             <Select onChange={(e) => chooseNetwork(e.target.value)}
               borderRadius="lg"
               mb="4"
               size="lg"
              border="1px solid dodgerblue"
-               mx={5}
+               
             >
               <option value="mtn">MTN</option>
               <option value="airtel">Airtel</option>
