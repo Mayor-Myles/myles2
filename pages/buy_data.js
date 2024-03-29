@@ -230,7 +230,7 @@ setLoadingPage(false);
           </Center>): currentMode !== 'light' && currentMode !== 'dark' ? (
                   <> </> // Empty view when mode is not known
                 ) : (
-         <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"         
+         <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  w="100vw">       
         <Flex alignItems="center" justifyContent="center">
           <Box mt="2.75em" p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
