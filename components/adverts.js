@@ -34,11 +34,11 @@ const Adverts = () => {
   };
 
   return (
-    <Box maxW={{md:"60vw"}}
+    <Box maxW={{md:"50vw"}}
       boxShadow="md" m="1.8em">
       <Slider {...settings}>
         {images.map((image, index) => (
-          <Flex key={index}>
+          <Flex maxW={{md:"50vw"}} key={index}>
             <Image w="100vw" h="4em" src={image} alt={`Slide ${index}`} />
           </Flex>
         ))}
