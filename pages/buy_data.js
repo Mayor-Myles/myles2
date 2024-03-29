@@ -259,7 +259,7 @@ const dataPlansDetail = [
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw" m={0}>       
         <Box h="80vh" p={1} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-          <Box boxShadow="md" textAlign="center" maxW="600px">
+          <Box boxShadow="md" textAlign="center" maxW="500px">
  <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
