@@ -328,7 +328,7 @@ setLoadingPage(false);
               Buy
             </Button>
           </Box>
-        </Flex><Container/>)}
+        </Flex></Container>)}
       </ChakraProvider>
       <ToastContainer />
       {currentMode === "light" || currentMode ==="dark" ?(<NavbarBottom />) :(<></>)}
