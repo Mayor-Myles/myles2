@@ -34,7 +34,7 @@ const Adverts = () => {
   };
 
   return (
-    <Box
+    <Box maxW={{md:"60vw"}}
       boxShadow="md" m="1.8em">
       <Slider {...settings}>
         {images.map((image, index) => (
