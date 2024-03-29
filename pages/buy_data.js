@@ -259,7 +259,7 @@ const dataPlansDetail = [
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw" m={0}>       
         <Box h="80vh" p={1} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-          <Box boxShadow="md" textAlign="center" maxW="500px">
+          <Box boxShadow="md" textAlign="center" maxW="550px">
  <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
@@ -308,7 +308,7 @@ const dataPlansDetail = [
                   color={currentMode==="dark"? "white" : "black"}
                   p="4"
                   borderRadius="lg"
-                  m="4" 
+                  m="2" 
                   textAlign="center"
                   width="22"
                   boxShadow="md"
@@ -323,10 +323,10 @@ const dataPlansDetail = [
                     mx="auto"
                     boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
                   />
-                  <Heading as="h5" fontSize="17px" size="sm" mb="2" fontWeight="bold" fontFamily="sans-serif">
+                  <Heading as="h5" fontSize="15px" size="sm" mb="2" fontWeight="bold" fontFamily="sans-serif">
                     {item.product}
                   </Heading>
-                  <Heading as="h4" size="sm" fontWeight="normal" fontSize="14px" fontFamily="sans-serif">
+                  <Heading as="h5" size="sm" fontWeight="normal" fontSize="12px" fontFamily="sans-serif">
                     ₦{item.price}
                   </Heading>
                 </Box>
