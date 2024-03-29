@@ -117,7 +117,7 @@ const SendBulkSMS = () => {
               <Spinner color="#657ce0" size="lg" />
             </Box>
           </Center>) : (
-                <Container w="100vw" h="100vh" bg={currentMode === "dark" && "black"}
+                <Container maxW="100vw" h="100vh" bg={currentMode === "dark" && "black"}
               color={currentMode === "dark" && "white"}
             >
             <Box
