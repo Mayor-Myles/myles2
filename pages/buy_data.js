@@ -258,7 +258,7 @@ const dataPlansDetail = [
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw" m={0}>       
         <Box alignItems="center" justifyContent="center" flexDirection="column">
-          <Box p={{ base: 5, sm: 10, md: 15, lg: 20, xl: 20 }} h="80vh" boxShadow="md" textAlign="center">
+          <Box p={{ base: 5, sm: "2em", md: "3em", lg: "4em", xl: "5em" }} h="80vh" boxShadow="md" textAlign="center">
  <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
