@@ -5,7 +5,7 @@ import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import $ from 'jquery';
 import { FallingLines } from 'react-loader-spinner';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner,Container } from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner,Container,useTheme } from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -31,7 +31,7 @@ const setLoadingPage = useSetRecoilState(pageLoading);
 const setCurrentPage = useSetRecoilState(thisPage);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-
+const theme = useTheme();
 useEffect(() => {
   
   const userChoice = window.localStorage.getItem("mode");
@@ -258,7 +258,13 @@ const dataPlansDetail = [
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw" m={0}>       
         <Box alignItems="center" justifyContent="center" flexDirection="column">
-          <Box p={{ sm: "0.5em", md: "3em", lg: "4em", xl: "5em" }} h="80vh" boxShadow="md" textAlign="center">
+          <Box p={{
+  base: theme.space[5],
+  sm: theme.space[10],
+  md: theme.space[15],
+  lg: theme.space[20],
+  xl: theme.space[20],
+}} h="80vh" boxShadow="md" textAlign="center">
  <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
