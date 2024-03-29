@@ -5,7 +5,7 @@ import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import $ from 'jquery';
 import { FallingLines } from 'react-loader-spinner';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner } from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner,Container } from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -328,7 +328,7 @@ setLoadingPage(false);
               Buy
             </Button>
           </Box>
-        </Flex>)}
+        </Flex><Container/>)}
       </ChakraProvider>
       <ToastContainer />
       {currentMode === "light" || currentMode ==="dark" ?(<NavbarBottom />) :(<></>)}
