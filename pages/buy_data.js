@@ -5,7 +5,7 @@ import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import $ from 'jquery';
 import { FallingLines } from 'react-loader-spinner';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner,Container,useBreakpointValue } from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner,Container } from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -31,7 +31,7 @@ const setLoadingPage = useSetRecoilState(pageLoading);
 const setCurrentPage = useSetRecoilState(thisPage);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-const boxPadding = useBreakpointValue({ base: 20, sm: 30, md: 40, lg: 50 });
+//const boxPadding = useBreakpointValue({ base: 20, sm: 30, md: 40, lg: 50 });
 
 useEffect(() => {
   
@@ -259,7 +259,7 @@ const dataPlansDetail = [
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw" m={0}>       
         <Box alignItems="center" justifyContent="center" flexDirection="column">
-          <Box p={boxPadding} h="80vh" boxShadow="md" textAlign="center">
+          <Box p={[20,30,40,50]} h="80vh" boxShadow="md" textAlign="center">
  <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
