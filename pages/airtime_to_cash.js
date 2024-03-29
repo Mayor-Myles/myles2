@@ -179,7 +179,7 @@ function Airtime2Cash() {
               </Container>
               <VStack spacing={4}>
                 <FormControl id="amount">
-                  <FormLabel>Enter the amount you wish to convert to cash:</FormLabel>
+                  <FormLabel>Enter the amount to convert</FormLabel>
                   <InputGroup>
                     <Input
                       type="number"
@@ -226,6 +226,7 @@ function Airtime2Cash() {
                     colorScheme="blue"
                     onClick={convert}
                     isLoading={btnLoading}
+size="lg"
                   >
                     Convert
                   </Button>
