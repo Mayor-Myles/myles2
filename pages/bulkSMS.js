@@ -117,14 +117,15 @@ const SendBulkSMS = () => {
               <Spinner color="#657ce0" size="lg" />
             </Box>
           </Center>) : (
+                <Container h="100vh" bg={currentMode === "dark" && "black"}
+              color={currentMode === "dark" && "white"}
+            >
             <Box
               h="80vh"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               alignItems="center"
-              bg={currentMode === "dark" && "black"}
-              color={currentMode === "dark" && "white"}
               m={0}
               p={0}
             >
@@ -158,6 +159,7 @@ const SendBulkSMS = () => {
                 </Box>
               </VStack>
             </Box>
+  </Container>
           )}
       </ChakraProvider>
       <NavbarBottom />
