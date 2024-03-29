@@ -230,9 +230,9 @@ setLoadingPage(false);
           </Center>): currentMode !== 'light' && currentMode !== 'dark' ? (
                   <> </> // Empty view when mode is not known
                 ) : (
-         <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  w="100vw">       
+         <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw">       
         <Box alignItems="center" justifyContent="center" flexDirection="column">
-          <Box mt="2.75em" p="4" borderRadius="sm" boxShadow="sm" textAlign="center" bg="" width="100%" maxWidth="500px">
+          <Box mt="" p="4" borderRadius="sm" boxShadow="md" textAlign="center" bg="" width="100%" maxWidth="500px">
             <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
