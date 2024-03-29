@@ -176,6 +176,32 @@ setLoadingPage(false);
     } else {
     dataPlansDetails = etisalat;
   }
+const dataPlansDetails = [
+  {
+    product: "1gb",
+    price: 500,
+  },
+  {
+    product: "2gb",
+    price: 750,
+  },
+  {
+    product: "3gb",
+    price: 1000,
+  },
+  {
+    product: "4gb",
+    price: 1500,
+  },
+  {
+    product: "5gb",
+    price: 2000,
+  },
+  {
+    product: "6gb",
+    price: 2500,
+  },
+];
 
   return (
     <>
