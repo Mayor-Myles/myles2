@@ -176,6 +176,32 @@ setLoadingPage(false);
     } else {
     dataPlansDetails = etisalat;
   }
+const dataPlansDetail = [
+  {
+    product: "1gb",
+    price: 500,
+  },
+  {
+    product: "2gb",
+    price: 750,
+  },
+  {
+    product: "3gb",
+    price: 1000,
+  },
+  {
+    product: "4gb",
+    price: 1500,
+  },
+  {
+    product: "5gb",
+    price: 2000,
+  },
+  {
+    product: "Data Plan 6",
+    price: 2500,
+  },
+];
 
   return (
     <>
@@ -271,7 +297,7 @@ setLoadingPage(false);
                   </Box>
                 </Center>
               )}
-              {dataPlansDetails.map((item, index) => (
+              {dataPlansDetail.map((item, index) => (
                 <Box onClick={() => {
                   selectItem(index + 1);
                   getInput('plan', item.product);
