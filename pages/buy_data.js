@@ -258,8 +258,8 @@ const dataPlansDetail = [
                   <> </> // Empty view when mode is not known
                 ) : (
          <Container bg={currentMode === "dark" && "black"} color={currentMode ==="dark"&&"white"} h="100vh"  maxW="100vw" m={0}>       
-        <Box alignItems="center" justifyContent="center" flexDirection="column">
-          <Box p={[5,20,40,50]} h="80vh" boxShadow="md" textAlign="center" maxW="400px">
+        <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
+          <Box p={[2,2,2,2]} h="80vh" boxShadow="md" textAlign="center" maxW="600px">
  <Heading as="h1" size="md" fontFamily="sans-serif" mb="4">
               Buy Data
             </Heading>
