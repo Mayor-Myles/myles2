@@ -268,7 +268,7 @@ const dataPlansDetail = [
               type="tel"
               placeholder="Enter 11 digits number"
               borderRadius="md"
-              mb="4"
+              mb="7"
               size="lg"
               border="1px solid dodgerblue"
                 
