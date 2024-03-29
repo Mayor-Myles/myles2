@@ -175,7 +175,7 @@ function Airtime2Cash() {
                 Airtime 2 Cash
               </Heading>
               <Container boxShadow={0} mb={4}>
-                Fill the form below appropriately. Only reply a message from <Text fontWeight="bold" fontSize="lg">07014443158</Text> about this transaction.. Be warned!!! Payment for MTN is {networkCharges && (`${networkCharges.mtn * 100}% Glo is ${networkCharges.glo * 100}% and Airtel is ${networkCharges.airtel * 100}%`)}
+                 Only reply a message from <Text color="dodgerblue" fontWeight="bold" fontSize="md">07014443158</Text> about this transaction.. Be warned!!! Payment for MTN is {networkCharges && (`${networkCharges.mtn * 100}% Glo is ${networkCharges.glo * 100}% and Airtel is ${networkCharges.airtel * 100}%`)}
               </Container>
               <VStack spacing={4}>
                 <FormControl id="amount">
