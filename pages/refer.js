@@ -37,12 +37,13 @@ const Refer = () => {
     if (userChoice === "dark" || userChoice === "light") {
       setMode(userChoice);
     }
-  }, [setMode]);
+  }, [mode,setMode]);
 
-  useEffect(() => {
+  useEffect(()=>{
+    setCurrentPage("refer");
     setLoadingPage(false);
-  }, [])
-
+  },[]);
+  
   const handleCopy = () => {
     navigator.clipboard.writeText('Your referral link here');
     setCopied(true);
