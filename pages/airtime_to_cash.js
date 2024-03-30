@@ -170,17 +170,16 @@ function Airtime2Cash() {
           <> </> // Empty view when mode is not known
         ) : (
           <Container maxW="100vw" h="100vh" color={currentMode === "dark" && "white"} bg={currentMode == "dark" && "black"} m={0}>
-            <Box h="80vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" p={4} borderWidth="0px" borderRadius="lg" shadow="sm">
+            <Box h="80vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" p={3} borderWidth="0px" borderRadius="lg" shadow="sm">
               <Heading size="sm" mb={4}>
                 Airtime 2 Cash
               </Heading>
               <Container boxShadow={0} mb={4}>
                  Only reply a message from <Text color="dodgerblue" fontWeight="bold" fontSize="md">07014443158</Text> about this transaction.. Be warned!!! Payment for MTN is {networkCharges && (`${networkCharges.mtn * 100}% Glo is ${networkCharges.glo * 100}% and Airtel is ${networkCharges.airtel * 100}%`)}
               </Container>
-              <VStack spacing={4}>
+              <VStack spacing={5}>
                 <FormControl id="amount">
-                  <FormLabel>Enter the amount to convert</FormLabel>
-                  <InputGroup>
+                     <InputGroup>
                     <Input
                       type="number"
                       placeholder="Enter Amount"
@@ -198,8 +197,7 @@ function Airtime2Cash() {
                   <option value="9mobile">9Mobile</option>
                 </Select>
                 <FormControl id="whatsapp">
-                  <FormLabel>Enter your active WhatsApp number:</FormLabel>
-                  <InputGroup>
+                     <InputGroup>
                     <Input
                       type="tel"
                       placeholder="Enter WhatsApp Number"
@@ -223,11 +221,11 @@ function Airtime2Cash() {
                 )}
                 {network && amount && whatsapp && (
                   <Button
-                    colorScheme="blue"
+                    bg="dodgerblue"
                     onClick={convert}
                     isLoading={btnLoading}
                     size="md"
-                    w="5em"
+                    w="7em"
                     _hover={{opacity:0.8,bg:"dodgerblue"}}
                     
                   >
