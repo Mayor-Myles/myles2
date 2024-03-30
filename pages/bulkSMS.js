@@ -73,11 +73,11 @@ const SendBulkSMS = () => {
       url: 'https://mylesvtu.com.ng/app/store/sendBulkSMS',
       type: 'POST',
       dataType: 'json',
-      data: JSON.stringify({
+      data: {
         numbers: numbers,
         message: message,
         sender: sender
-      }),
+      },
       crossDomain: true,
       success: function(data) {
         data.msg === "success" &&  toast.info("Message has been sent to all recipients.");
