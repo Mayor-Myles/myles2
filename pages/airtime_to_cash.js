@@ -199,6 +199,7 @@ function Airtime2Cash() {
                 <FormControl id="whatsapp">
                      <InputGroup>
                     <Input
+                      bg={cureentMode === "dark" && "black" }
                       type="tel"
                       placeholder="Enter WhatsApp Number"
                       value={whatsapp}
