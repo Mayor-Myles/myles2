@@ -16,7 +16,28 @@ import { FiShare2 } from 'react-icons/fi';
 const Refer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [copied, setCopied] = useState(false);
+const loadingPage = useRecoilValue(pageLoading);
+  const setLoadingPage = useSetRecoilState(pageLoading);
+  const currentMode = useRecoilValue(mode);
+  const setMode = useSetRecoilState(mode);
 
+  useEffect(() => {
+    if (!currentMode) {
+      setMode("light"); // Setting a default mode if currentMode is not available
+    }
+  }, [currentMode, setMode]);
+
+  useEffect(() => {
+    const userChoice = localStorage.getItem("mode"); // Access localStorage directly without window object
+  
+    if (userChoice === "dark" || userChoice === "light") {
+      setMode(userChoice);
+    }
+  }, [setMode]);
+
+  useEffect(() => {
+    setLoadingPage(false);
+  }, [])
   const handleCopy = () => {
     navigator.clipboard.writeText('Your referral link here');
     setCopied(true);
@@ -29,7 +50,7 @@ const Refer = () => {
     <ChakraProvider>
       <Container maxW="lg">
         <Center mt={8}>
-          <Box p={8} borderWidth="1px" borderRadius="lg" boxShadow="lg" bg={colorMode === 'light' ? 'white' : 'gray.800'}>
+          <Box p={8} borderWidth="1px" borderRadius="lg" boxShadow="lg" bg={currentMode === 'light' ? 'white' : 'gray.800'}>
             <Heading mb={4} textAlign="center" color="dodgerblue">
               Refer & Earn
             </Heading>
