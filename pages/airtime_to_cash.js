@@ -227,7 +227,8 @@ function Airtime2Cash() {
                     onClick={convert}
                     isLoading={btnLoading}
                     size="md"
-                      maxW="4em"
+                    maxW="10em"
+                    
                   >
                     Convert
                   </Button>
