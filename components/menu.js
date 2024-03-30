@@ -78,6 +78,12 @@ export default function Menu() {
     router.push('/bulkSMS');
   };
 
+const refer = () => {
+    setLoadingPage(true);
+    router.push('/refer');
+  };
+
+
   const comingSoon= () => {
     showAlert("We are sorry this service is not available. Check back again later...", "info");
   };
@@ -245,7 +251,7 @@ export default function Menu() {
 <GridItem colSpan={1}>
                 <Box border={currentMode==="dark" && "solid 0em #647ce0"}
                   
-                  onClick={comingSoon}
+                  onClick={refer}
                   textAlign="center"
                   borderRadius="15%"
                   boxShadow="sm"
