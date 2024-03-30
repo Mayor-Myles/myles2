@@ -24,6 +24,8 @@ const Refer = () => {
   const setLoadingPage = useSetRecoilState(pageLoading);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
+const currentPage = useRecoilValue(thisPage);
+const setCurrentPage = useSetRecoilState(thisPage);
 
   useEffect(() => {
     if (!currentMode) {
