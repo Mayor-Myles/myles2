@@ -11,7 +11,7 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react';
-import { FiShare2 } from 'react-icons/fi';
+import { FiShare2 ,FiSun,FiMoon} from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { pageLoading,thisPage,mode } from "../components/recoil";
 
