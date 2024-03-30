@@ -91,12 +91,12 @@ const Refer = () => {
               )}
               <Button
                 mt={4}
-                colorScheme="dodgerblue"
+                color="dodgerblue"
                 variant="solid"
                 w="full"
-                onClick={() => alert('Redirect to share options')}
+                onClick={handleCopy}
               >
-                Share Now
+                Copy Referral code
               </Button>
             </Box>
     </Box>
