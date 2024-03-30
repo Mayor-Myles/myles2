@@ -69,7 +69,7 @@ const Refer = () => {
         <Header /> {/* Include Header component */}
         {loadingPage ? (
           <Container h="100vh" maxW="100vw" bg={currentMode === "dark" && "black"}>
-            <Box shadow="sm" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
+            <Box h="80vh" shadow="sm" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
               <Spinner size="xl" color="blue" />
             </Box>
           </Container>
