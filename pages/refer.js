@@ -70,7 +70,7 @@ const Refer = () => {
         {loadingPage ? (
           <Container h="100vh" maxW="100vw" bg={currentMode === "dark" && "black"}>
             <Box h="80vh" shadow="sm" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
-              <Spinner size="xl" color="blue" />
+              <Spinner size="xl" color="dodgerblue" />
             </Box>
           </Container>
         ) : (
