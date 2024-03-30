@@ -225,7 +225,7 @@ function Airtime2Cash() {
                     onClick={convert}
                     isLoading={btnLoading}
                     size="md"
-                    w="200px"
+                    w="20em"
                     _hover={{opacity:0.8,bg:"dodgerblue"}}
                     color="white"
                   >
