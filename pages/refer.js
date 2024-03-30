@@ -59,7 +59,7 @@ const Refer = () => {
     
         <Container bg={currentMode == "dark" && "black" } h="100vh" maxW="100vw">
           <Box display="flex" justifyContent="center" alignItems="center">
-            <Box h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={currentMode === 'light' ? 'white' : 'gray.800'}>
+            <Box maxW="550px" h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={currentMode === 'light' ? 'white' : 'gray.800'}>
               <Heading mb={4} textAlign="center" color="dodgerblue">
                 Refer & Earn!
               </Heading>
