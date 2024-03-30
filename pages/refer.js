@@ -52,25 +52,27 @@ const Refer = () => {
   };
 
   return (
+    <>
     <ChakraProvider>
+  
       <Header /> {/* Include Header component */}
-      <Box minHeight="100vh"> {/* Make the screen full height */}
-        <Container maxW="lg">
+      <Box h="100vh"> {/* Make the screen full height */}
+        <Container bg={currentMode == "dark" && "black" } h="100vh" maxW="100vw">
           <Center mt={8}>
-            <Box p={8} borderWidth="1px" borderRadius="lg" boxShadow="lg" bg={currentMode === 'light' ? 'white' : 'gray.800'}>
+            <Box p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={currentMode === 'light' ? 'white' : 'gray.800'}>
               <Heading mb={4} textAlign="center" color="dodgerblue">
-                Refer & Earn
+                Bring a client & Earn
               </Heading>
               <Text textAlign="center" mb={4}>
-                Share your referral link with friends and earn rewards!
+                Bring us a client for <b>Graphics Design</b> or <b>Website development</b> project and get paid immediately your refferal pays us!!! There is no limit to the number of clients you can bring. The more you bring the more you earn. All you need to do is to tell your refferal to use our <b>"Hire Me"</b> menu and then input your referral code. Contact us for more information... 
               </Text>
               <Flex justifyContent="center" alignItems="center" mb={4}>
                 <Box flex="1">
                   <Text textAlign="center" fontWeight="bold" color="gray.600">
-                    Your Referral Link
+                    Your Referral Code
                   </Text>
                   <Text textAlign="center" mt={2} color="gray.500">
-                    Your referral link here
+                    AXDQNY23
                   </Text>
                 </Box>
                 <IconButton
@@ -78,7 +80,7 @@ const Refer = () => {
                   aria-label="Copy Referral Link"
                   ml={2}
                   onClick={handleCopy}
-                  colorScheme="dodgerblue"
+                  colorScheme="blue"
                   variant="ghost"
                 />
               </Flex>
@@ -100,17 +102,10 @@ const Refer = () => {
           </Center>
         </Container>
       </Box>
-      <NavbarBottom /> {/* Include NavbarBottom component */}
-      <IconButton
-        icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
-        aria-label="Toggle Dark Mode"
-        position="fixed"
-        bottom="4"
-        right="4"
-        onClick={toggleColorMode}
-        colorScheme="dodgerblue"
-      />
+       {/* Include NavbarBottom component */}
     </ChakraProvider>
+<NavbarBottom />
+    </>
   );
 };
 
