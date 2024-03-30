@@ -9,7 +9,7 @@ import {
   Heading,
   IconButton,
   Text,
-  useColorMode,
+  useColorMode,Spinner
 } from '@chakra-ui/react';
 import { FiShare2, FiSun, FiMoon } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -37,6 +37,8 @@ const setCurrentPage = useSetRecoilState(thisPage);
     const userChoice = localStorage.getItem("mode"); // Access localStorage directly without window object
 
     if (userChoice === "dark" || userChoice === "light") {
+     const userChoice = localStorage.setItem("mode",userChoice); // Access localStorage directly without window object
+
       setMode(userChoice);
     }
   }, [mode,setMode]);
@@ -53,13 +55,20 @@ const setCurrentPage = useSetRecoilState(thisPage);
       setCopied(false);
     }, 2000);
   };
-
+if(!currentMode){
+return null;
+}
   return (
     <>
     <ChakraProvider>
   
       <Header /> {/* Include Header component */}
-    
+  {loadingPage ? (
+    <Container h="100vh" maxW="100vw" bg={currentMode==="dark" && "black"}>
+<Box display="flex" justify="center" align="center">
+<Spinner size="xl" color="blue" />
+    </Box></Container>
+    ) :(
         <Container bg={currentMode == "dark" && "black" } h="100vh" maxW="100vw">
           <Box display="flex" justifyContent="center" alignItems="center">
             <Box maxW="550px" h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={currentMode === 'light' ? 'white' : 'black'}>
@@ -104,7 +113,7 @@ const setCurrentPage = useSetRecoilState(thisPage);
               </Button>
             </Box>
     </Box>
-        </Container>
+        </Container>)}
       
            </ChakraProvider>
 <NavbarBottom />
