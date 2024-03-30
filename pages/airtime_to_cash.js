@@ -226,7 +226,7 @@ function Airtime2Cash() {
                     colorScheme="blue"
                     onClick={convert}
                     isLoading={btnLoading}
-                    size="mg"
+                    size="md"
                       maxW="4em"
                   >
                     Convert
