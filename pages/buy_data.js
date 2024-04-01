@@ -285,9 +285,9 @@ const dataPlansDetail = [
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex  justify="center" mb="4" flexWrap="wrap">
+            <Flex flexDirection="row"  justifyContent="center" alignItems="center" mb="4" flexWrap="wrap">
                {!data.dataBundle && (
-  <Center m={10}>
+  
     <Box h="100vh">
       {dataPlansDetail.map((item, index) => (
         <Box
@@ -334,7 +334,7 @@ const dataPlansDetail = [
         </Box>
       ))}
     </Box>
-  </Center>
+
 )}
 
               {dataPlansDetails.map((item, index) => (
