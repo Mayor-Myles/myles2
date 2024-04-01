@@ -284,7 +284,7 @@ const dataPlansDetail = [
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex flexDirection="row" flexWrap="wrap"  mb="4">
+            <Flex flexDirection="" flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
   <Flex justifyContent="center" alignItems="center" flexFlow="row wrap">
     <Rings
