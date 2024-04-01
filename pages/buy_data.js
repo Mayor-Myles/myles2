@@ -286,7 +286,7 @@ const dataPlansDetail = [
             </Select>
             <Flex flexDirection="row" flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
-  <Flex flexFlow="row wrap">
+  <Flex justifyContent="center" alignItems="center" flexFlow="row wrap">
     <Rings
   visible={true}
   height="100"
