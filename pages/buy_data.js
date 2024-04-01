@@ -285,7 +285,7 @@ const dataPlansDetail = [
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex flexWrap="wrap"  mb="4">
+            <Flex flexDirection="row" flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
   
     
@@ -299,7 +299,7 @@ const dataPlansDetail = [
           m="2"
           textAlign="center"
           width="22"
-          boxShadow="md"
+          boxShadow="sm"
         >
           <Box
             bg="#657ce0"
