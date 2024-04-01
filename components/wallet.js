@@ -76,13 +76,13 @@ export default function Wallet() {
           )}
           <Flex direction="column" justify="center" align="center">
             <Text fontSize="sm" fontWeight="bold" mt={2}>
-              Hi, {profile && (profile.fullName).substring(0, 15)}
+              Hi, {profile ? (profile.fullName).substring(0, 15) : "User"}
             </Text>
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
             </Text>
 <Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
-  {showBalance ? (`₦${profile ? profile.balance.toLocaleString() : (<Center><Spinner size="sm"/></Center>)}`) : '*****'}
+  {showBalance ? (`₦${profile && profile.balance.toLocaleString()}`) : '*****'}
 </Text>
 
 
