@@ -288,7 +288,7 @@ const dataPlansDetail = [
             <Flex flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
   
-    <Box m={10} display="flex" flexWrap="wrap" flexDirection=""  justifyContent="center" alignItems="center">
+    
       {dataPlansDetail.map((item, index) => (
         <Box
           key={index}
@@ -329,11 +329,11 @@ const dataPlansDetail = [
           >
             ₦{item.price}
           </Heading>*/}
-<Center m={10}><Spinner size="md" color="#657ce0"/></Center>
+<Spinner size="md" color="#657ce0"/>
         
         </Box>
       ))}
-    </Box>
+    
 
 )}
 
