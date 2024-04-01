@@ -287,21 +287,56 @@ const dataPlansDetail = [
             </Select>
             <Flex  justify="center" mb="4" flexWrap="wrap">
                {!data.dataBundle && (
-                <Center m={10}>
-                  <Box h="100vh">
-                    <Rings
-                      height="80"
-                      width="80"
-                      color="#657ce0"
-                      radius="6"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                      visible={true}
-                      ariaLabel="rings-loading"
-                    />
-                  </Box>
-                </Center>
-              )}
+  <Center m={10}>
+    <Box h="100vh">
+      {dataPlansDetail.map((item, index) => (
+        <Box
+          key={index}
+          bg={currentMode === "dark" ? "black" : "white"}
+          color={currentMode === "dark" ? "white" : "black"}
+          p="6"
+          borderRadius="lg"
+          m="2"
+          textAlign="center"
+          width="22"
+          boxShadow="md"
+        >
+          <Box
+            bg="#657ce0"
+            width="25px"
+            height="2px"
+            borderRadius="2%"
+            mb="4"
+            mx="auto"
+            boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
+          />
+                           {/* <Heading
+            as="h5"
+            fontSize="15px"
+            size="sm"
+            mb="2"
+            fontWeight="bold"
+            fontFamily="sans-serif"
+          >
+            {item.product}
+          </Heading>
+          <Heading
+            as="h5"
+            size="sm"
+            fontWeight="normal"
+            fontSize="12px"
+            fontFamily="sans-serif"
+          >
+            ₦{item.price}
+          </Heading>*/}
+<Center><Spinner size="md" color="#657ce0"/></Center>
+        
+        </Box>
+      ))}
+    </Box>
+  </Center>
+)}
+
               {dataPlansDetails.map((item, index) => (
                 <Box onClick={() => {
                   selectItem(index + 1);
