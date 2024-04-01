@@ -81,9 +81,10 @@ export default function Wallet() {
             <Text fontSize="xs" fontWeight="" color="white" mt={1}>
               Phone: +234{profile && profile.phoneNumber}
             </Text>
-            <Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
-  {showBalance ? (`₦${profile ? profile.balance.toLocaleString() : (<Center><Spinner size="sm"/></Center>)}) : '*****'}
+<Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
+  {showBalance ? (`₦${profile ? profile.balance.toLocaleString() : (<Center><Spinner size="sm"/></Center>)}`) : '*****'}
 </Text>
+
 
           </Flex>
         </Box>
