@@ -286,7 +286,7 @@ const dataPlansDetail = [
             </Select>
             <Flex flexDirection="row" flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
-  <Center m={10}>
+  <Flex flexFlow="row wrap">
     <Rings
   visible={true}
   height="100"
@@ -296,7 +296,7 @@ const dataPlansDetail = [
   wrapperStyle={{}}
   wrapperClass=""
   />
-    </Center>
+    </Flex>
 )}
 
               {dataPlansDetails.map((item, index) => (
