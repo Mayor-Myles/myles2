@@ -286,7 +286,7 @@ const dataPlansDetail = [
               <option value="glo">Glo</option>
             </Select>
             <Flex  justify="center" mb="4" flexWrap="wrap">
-              {/*!data.dataBundle && (
+               {!data.dataBundle && (
                 <Center m={10}>
                   <Box h="100vh">
                     <Rings
@@ -301,8 +301,8 @@ const dataPlansDetail = [
                     />
                   </Box>
                 </Center>
-              )*/}
-              {dataPlansDetail.map((item, index) => (
+              )}
+              {dataPlansDetails.map((item, index) => (
                 <Box onClick={() => {
                   selectItem(index + 1);
                   getInput('plan', item.product);
