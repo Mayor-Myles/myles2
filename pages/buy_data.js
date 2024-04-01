@@ -284,9 +284,9 @@ const dataPlansDetail = [
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex flexDirection="" flexWrap="wrap"  mb="4">
-               {!data.dataBundle && (
-  <Flex m={15} justifyContent="center" alignItems="center" flexFlow="row wrap">
+
+                       {!data.dataBundle && (
+  <Flex m={5} justifyContent="center" alignItems="center" flexFlow="row wrap">
     <Rings
   visible={true}
   height="100"
@@ -297,7 +297,9 @@ const dataPlansDetail = [
   wrapperClass=""
   />
     </Flex>
-)}
+)}      
+            <Flex flexDirection="" flexWrap="wrap"  mb="4">
+ 
 
               {dataPlansDetails.map((item, index) => (
                 <Box onClick={() => {
