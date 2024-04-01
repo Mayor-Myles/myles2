@@ -285,10 +285,10 @@ const dataPlansDetail = [
               <option value="9mobile">9Mobile</option>
               <option value="glo">Glo</option>
             </Select>
-            <Flex flexDirection="row"  justifyContent="center" alignItems="center" mb="4" flexWrap="wrap">
+            <Flex  mb="4" flexWrap="wrap">
                {!data.dataBundle && (
   
-    <Box>
+    <Box  flexWrap="wrap" flexDirection="row"  justifyContent="center" alignItems="center">
       {dataPlansDetail.map((item, index) => (
         <Box
           key={index}
