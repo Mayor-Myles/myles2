@@ -84,7 +84,7 @@ export default function Wallet() {
             {!profile ? (<Text><Center><Spinner color="blue" size="sm"/></Center></Text>) :(
 <Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
   {showBalance ? (`₦${profile && profile.balance.toLocaleString()}`) : '*****'}
-</Text>)
+</Text>)}
 
 
           </Flex>
