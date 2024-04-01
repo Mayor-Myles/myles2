@@ -288,7 +288,7 @@ const dataPlansDetail = [
             <Flex  mb="4" flexWrap="wrap">
                {!data.dataBundle && (
   
-    <Box display="flex" flexWrap="wrap" flexDirection="row"  justifyContent="center" alignItems="center">
+    <Box display="flex" flexWrap="" flexDirection=""  justifyContent="center" alignItems="center">
       {dataPlansDetail.map((item, index) => (
         <Box
           key={index}
