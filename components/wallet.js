@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Box, Text, Flex, ChakraProvider, IconButton, Center,Spinner } from '@chakra-ui/react';
 import { FiCreditCard, FiEye, FiEyeOff } from 'react-icons/fi';
@@ -81,7 +82,7 @@ export default function Wallet() {
               Phone: +234{profile && profile.phoneNumber}
             </Text>
             <Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
-              {showBalance ? (`₦${profile ? profile.balance.toLocaleString()`} : (<Center><Spinner size="sm"/></Center>)) : '*****'}
+              {showBalance ? (`₦${profile ? profile.balance.toLocaleString()}` : (<Center><Spinner size="sm"/></Center>)) : '*****'}
             </Text>
           </Flex>
         </Box>
