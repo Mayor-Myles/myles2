@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NavbarBottom from "../components/navbarBottom";
 import Header from '../components/header';
 import $ from 'jquery';
-import { FallingLines } from 'react-loader-spinner';
+import { FallingLines,Rings } from 'react-loader-spinner';
 import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center,Spinner,Container } from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
@@ -288,53 +288,16 @@ const dataPlansDetail = [
             <Flex flexDirection="row" flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
   
+    <Rings
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="rings-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
     
-      {dataPlansDetail.map((item, index) => (
-        <Box
-          key={index}
-          bg={currentMode === "dark" ? "black" : "white"}
-          color={currentMode === "dark" ? "white" : "black"}
-          p="6"
-          borderRadius="lg"
-          m="2"
-          textAlign="center"
-          width="22"
-          boxShadow="sm"
-        >
-          <Box
-            bg="#657ce0"
-            width="25px"
-            height="2px"
-            borderRadius="2%"
-            mb="4"
-            mx="auto"
-            boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
-          />
-                           {/* <Heading
-            as="h5"
-            fontSize="15px"
-            size="sm"
-            mb="2"
-            fontWeight="bold"
-            fontFamily="sans-serif"
-          >
-            {item.product}
-          </Heading>
-          <Heading
-            as="h5"
-            size="sm"
-            fontWeight="normal"
-            fontSize="12px"
-            fontFamily="sans-serif"
-          >
-            ₦{item.price}
-          </Heading>*/}
-<Spinner size="md" color="#657ce0"/>
-        
-        </Box>
-      ))}
-    
-
 )}
 
               {dataPlansDetails.map((item, index) => (
@@ -360,7 +323,7 @@ const dataPlansDetail = [
                     borderRadius="2%"
                     mb="4"
                     mx="auto"
-                    boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
+                    boxShadow="sm"
                   />
                   <Heading as="h5" fontSize="15px" size="sm" mb="2" fontWeight="bold" fontFamily="sans-serif">
                     {item.product}
