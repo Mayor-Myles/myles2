@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Text, Flex, ChakraProvider, IconButton, Center } from '@chakra-ui/react';
+import { Box, Text, Flex, ChakraProvider, IconButton, Center,Spinner } from '@chakra-ui/react';
 import { FiCreditCard, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData, loginStatus } from '../components/recoil';
@@ -81,7 +81,7 @@ export default function Wallet() {
               Phone: +234{profile && profile.phoneNumber}
             </Text>
             <Text position="absolute" top={4} left={4} fontSize="md" fontWeight="bold" color="white">
-              {showBalance ? (`₦${profile ? profile.balance.toLocaleString() : "Loading..."}`) : '*****'}
+              {showBalance ? (`₦${profile ? profile.balance.toLocaleString() : (<Center><Spinner size="sm"/></Center>)) : '*****'}
             </Text>
           </Flex>
         </Box>
