@@ -286,17 +286,17 @@ const dataPlansDetail = [
             </Select>
             <Flex flexDirection="row" flexWrap="wrap"  mb="4">
                {!data.dataBundle && (
-  
+  <Center>
     <Rings
   visible={true}
-  height="80"
-  width="80"
+  height="100"
+  width="100"
   color="#657ce0"
   ariaLabel="rings-loading"
   wrapperStyle={{}}
   wrapperClass=""
   />
-    
+    </Center>
 )}
 
               {dataPlansDetails.map((item, index) => (
