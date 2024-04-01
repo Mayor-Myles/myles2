@@ -10,7 +10,6 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userData,csrfToken,pageLoading,thisPage,mode } from "../components/recoil";
-import { Rings } from "react-loader-spinner";
 import Head from "next/head";
 
 
