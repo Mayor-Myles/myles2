@@ -34,14 +34,16 @@ const Refer = () => {
     if (!currentMode) {
       setMode("light");
     }
-  }, [currentMode, setMode]);
+  }, [currentMode]);
 
   useEffect(() => {
     const userChoice = localStorage.getItem("mode");
 
     if (userChoice === "dark" || userChoice === "light") {
+      
       setMode(userChoice);
     } else {
+      localStorage.setitem("mode",userChoice);     
       setMode("light");
     }
   }, [setMode]);
