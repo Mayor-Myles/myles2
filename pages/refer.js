@@ -14,9 +14,10 @@ import {
 } from '@chakra-ui/react';
 import { FiShare2, FiSun, FiMoon } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { pageLoading, thisPage, mode,userData } from "../components/recoil";
+import { pageLoading, thisPage, mode, userData } from "../components/recoil";
 import Header from "../components/header.js"; // Import Header component
 import NavbarBottom from "../components/navbarBottom.js"; // Import NavbarBottom component
+import Head from 'next/head'; // Import Head component for meta tags
 
 const Refer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -27,9 +28,8 @@ const Refer = () => {
   const setMode = useSetRecoilState(mode);
   const currentPage = useRecoilValue(thisPage);
   const setCurrentPage = useSetRecoilState(thisPage);
-const data = useRecoilValue(userData);
+  const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
-
 
   useEffect(() => {
     if (!currentMode) {
@@ -65,31 +65,45 @@ const data = useRecoilValue(userData);
   if (!currentMode) {
     return null;
   }
-useEffect(() => {
-  
-    
-      const url = 'https://mylesvtu.com.ng/app/store/welcome';
-      $.ajax({
-        url: url,
-        type: 'get',
-        dataType: 'json',
-       // crossDomain: true,
-        success: function (r, status, xhr) {
-          if (r.data.isLogged) {
-            setLogged(r.data.isLogged);
-            const profile = r.data.profile;
-            const dataBundle = r.data.dataBundle;
-            setData({ profile: profile});
-          }
-        },
-        error: function () {
-         // showAlert('Server is down', 'warning');
-        },
-      });
-    
+
+  useEffect(() => {
+    const url = 'https://mylesvtu.com.ng/app/store/welcome';
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json',
+      success: function (r, status, xhr) {
+        if (r.data.isLogged) {
+          setLogged(r.data.isLogged);
+          const profile = r.data.profile;
+          const dataBundle = r.data.dataBundle;
+          setData({ profile: profile });
+        }
+      },
+      error: function () {
+        // showAlert('Server is down', 'warning');
+      },
+    });
   }, []);
+
   return (
     <>
+      <Head>
+        <title>Refer & Earn | MylesVTU</title>
+        <meta name="description" content="Refer clients for cheap data plans, airtime, web development, and graphic design services at MylesVTU and earn rewards. Unlimited earning potential. Learn more!" />
+        <meta name="keywords" content="refer and earn, referral program, rewards program, cheap data plans, airtime, web development, graphic design, earn money, earn rewards, MylesVTU" />
+        <meta name="author" content="MylesVTU" />
+        <meta property="og:title" content="Refer & Earn | MylesVTU" />
+        <meta property="og:description" content="Refer clients for cheap data plans, airtime, web development, and graphic design services at MylesVTU and earn rewards. Unlimited earning potential. Learn more!" />
+        <meta property="og:url" content="https://mylesvtu.com.ng/refer-and-earn" />
+        <meta property="og:image" content="https://mylesvtu.com.ng/images/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Refer & Earn | MylesVTU" />
+        <meta name="twitter:description" content="Refer clients for cheap data plans, airtime, web development, and graphic design services at MylesVTU and earn rewards. Unlimited earning potential. Learn more!" />
+        <meta name="twitter:url" content="https://mylesvtu.com.ng/refer-and-earn" />
+        <meta name="twitter:image" content="https://mylesvtu.com.ng/images/twitter-image.jpg" />
+        <link rel="canonical" href="https://mylesvtu.com.ng/refer-and-earn" />
+      </Head>
       <ChakraProvider>
         <Header /> {/* Include Header component */}
         {loadingPage ? (
@@ -106,7 +120,7 @@ useEffect(() => {
                   Refer & Earn!
                 </Heading>
                 <Text color={currentMode == "dark" && "white"} textAlign="center" mb={4}>
-                  Bring us a client for <b>Graphics Design</b> or <b>Website development</b> project and get paid immediately your referral pays us!!! There is no limit to the number of clients you can bring. The more you bring the more you earn. All you need to do is to tell your referral to use our <b>"Hire Me"</b> menu and then input your referral code. Contact us for more information...
+                  Bring us a client for <b>cheap data plans</b>, <b>airtime</b>, <b>web development</b>, or <b>graphic design</b> services and get rewarded immediately when your referral pays us! There's no limit to the number of clients you can bring. The more you bring, the more you earn. Just ask your referral to use our <b>"Hire Me"</b> menu and input your referral code. Contact us for more information.
                 </Text>
                 <Flex justifyContent="center" alignItems="center" mb={4}>
                   <Box flex="1">
@@ -114,7 +128,7 @@ useEffect(() => {
                       Your Referral Code
                     </Text>
                     <Text textAlign="center" mt={2} color="gray.500">
-          {profile ? profile.refferalCode :"AXDQNY23"}
+                      {profile ? profile.refferalCode : "AXDQNY23"}
                     </Text>
                   </Box>
                   <IconButton
