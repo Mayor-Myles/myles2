@@ -62,7 +62,29 @@ const Refer = () => {
   if (!currentMode) {
     return null;
   }
-
+useEffect(() => {
+  
+    if (!profile) {
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
+      $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+       // crossDomain: true,
+        success: function (r, status, xhr) {
+          if (r.data.isLogged) {
+            setLogged(r.data.isLogged);
+            const profile = r.data.profile;
+            const dataBundle = r.data.dataBundle;
+            setData({ profile: profile});
+          }
+        },
+        error: function () {
+         // showAlert('Server is down', 'warning');
+        },
+      });
+    }
+  }, [profile]);
   return (
     <>
       <ChakraProvider>
