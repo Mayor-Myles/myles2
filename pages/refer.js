@@ -111,7 +111,7 @@ useEffect(() => {
                       Your Referral Code
                     </Text>
                     <Text textAlign="center" mt={2} color="gray.500">
-          {profile ? profile.data.refferalCode :"AXDQNY23"}
+          {profile ? profile.refferalCode :"AXDQNY23"}
                     </Text>
                   </Box>
                   <IconButton
