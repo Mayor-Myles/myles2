@@ -14,12 +14,12 @@ import {
 import { FiShare2 } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { pageLoading, thisPage, mode, userData } from "../components/recoil";
-import Header from "../components/header.js"; // Import Header component
-import NavbarBottom from "../components/navbarBottom.js"; // Import NavbarBottom component
-import Head from 'next/head'; // Import Head component for meta tags
+import Header from "../components/header.js";
+import NavbarBottom from "../components/navbarBottom.js";
+import Head from 'next/head';
 
 const Refer = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const [copied, setCopied] = useState(false);
   const loadingPage = useRecoilValue(pageLoading);
   const setLoadingPage = useSetRecoilState(pageLoading);
@@ -32,7 +32,7 @@ const Refer = () => {
 
   useEffect(() => {
     if (!currentMode) {
-      setMode("light"); // Setting a default mode if currentMode is not available
+      setMode("light");
     }
   }, [currentMode, setMode]);
 
@@ -40,18 +40,16 @@ const Refer = () => {
     const userChoice = localStorage.getItem("mode");
 
     if (userChoice === "dark" || userChoice === "light") {
-      localStorage.setItem("mode", userChoice); // Access localStorage directly without window object
       setMode(userChoice);
     } else {
-      localStorage.setItem("mode", "light"); // Set default mode if no mode is found in localStorage
       setMode("light");
     }
-  }, [currentMode, setMode]);
+  }, [setMode]);
 
   useEffect(() => {
     setCurrentPage("refer");
     setLoadingPage(false);
-  }, []);
+  }, [setCurrentPage, setLoadingPage]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('Your referral link here');
@@ -61,29 +59,20 @@ const Refer = () => {
     }, 2000);
   };
 
-  if (!currentMode) {
-    return null;
-  }
-
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
-    $.ajax({
-      url: url,
-      type: 'get',
-      dataType: 'json',
-      success: function (r, status, xhr) {
-        if (r.data.isLogged) {
-          setLogged(r.data.isLogged);
-          const profile = r.data.profile;
-          const dataBundle = r.data.dataBundle;
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (data.isLogged) {
+          const profile = data.profile;
           setData({ profile: profile });
         }
-      },
-      error: function () {
-        // showAlert('Server is down', 'warning');
-      },
-    });
-  }, []);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, [setData]);
 
   return (
     <>
@@ -104,21 +93,21 @@ const Refer = () => {
         <link rel="canonical" href="https://mylesvtu.com.ng/refer-and-earn" />
       </Head>
       <ChakraProvider>
-        <Header /> {/* Include Header component */}
+        <Header />
         {loadingPage ? (
-          <Container h="100vh" maxW="100vw" bg={currentMode === "dark" && "black"}>
+          <Container h="100vh" maxW="100vw" bg={colorMode === "dark" && "black"}>
             <Box h="80vh" shadow="sm" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
               <Spinner size="xl" color="dodgerblue" />
             </Box>
           </Container>
         ) : (
-          <Container bg={currentMode == "dark" && "black"} h="100vh" maxW="100vw">
+          <Container bg={colorMode === "dark" && "black"} h="100vh" maxW="100vw">
             <Box display="flex" justifyContent="center" alignItems="center">
-              <Box maxW="550px" h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={currentMode === 'light' ? 'white' : 'black'}>
+              <Box maxW="550px" h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={colorMode === 'light' ? 'white' : 'black'}>
                 <Heading mb={4} textAlign="center" color="dodgerblue">
                   Refer & Earn!
                 </Heading>
-                <Text color={currentMode == "dark" && "white"} textAlign="center" mb={4}>
+                <Text color={colorMode === "dark" && "white"} textAlign="center" mb={4}>
                   Bring us a client for <b>cheap data plans</b>, <b>airtime</b>, <b>web development</b>, or <b>graphic design</b> services and get rewarded immediately when your referral pays us! There's no limit to the number of clients you can bring. The more you bring, the more you earn. Just ask your referral to use our <b>"Hire Me"</b> menu and input your referral code. Contact us for more information.
                 </Text>
                 <Flex justifyContent="center" alignItems="center" mb={4}>
@@ -127,7 +116,7 @@ const Refer = () => {
                       Your Referral Code
                     </Text>
                     <Text textAlign="center" mt={2} color="gray.500">
-                      {data.profile ? data.profile.refferalCode : "AXDQNY23"}
+                      {data.profile ? data.profile.referralCode : "AXDQNY23"}
                     </Text>
                   </Box>
                   <IconButton
@@ -158,7 +147,6 @@ const Refer = () => {
             </Box>
           </Container>
         )}
-
       </ChakraProvider>
       <NavbarBottom />
     </>
