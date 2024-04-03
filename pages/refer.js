@@ -27,6 +27,9 @@ const Refer = () => {
   const setMode = useSetRecoilState(mode);
   const currentPage = useRecoilValue(thisPage);
   const setCurrentPage = useSetRecoilState(thisPage);
+const data = useRecoilValue(userData);
+  const setData = useSetRecoilState(userData);
+
 
   useEffect(() => {
     if (!currentMode) {
@@ -64,7 +67,7 @@ const Refer = () => {
   }
 useEffect(() => {
   
-    if (!profile) {
+    
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
@@ -83,8 +86,8 @@ useEffect(() => {
          // showAlert('Server is down', 'warning');
         },
       });
-    }
-  }, [profile]);
+    
+  }, []);
   return (
     <>
       <ChakraProvider>
