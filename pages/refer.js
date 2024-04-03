@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Box,
   Button,
-  Center,
   ChakraProvider,
   Container,
   Flex,
@@ -12,7 +11,7 @@ import {
   useColorMode,
   Spinner
 } from '@chakra-ui/react';
-import { FiShare2, FiSun, FiMoon } from 'react-icons/fi';
+import { FiShare2 } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { pageLoading, thisPage, mode, userData } from "../components/recoil";
 import Header from "../components/header.js"; // Import Header component
@@ -128,7 +127,7 @@ const Refer = () => {
                       Your Referral Code
                     </Text>
                     <Text textAlign="center" mt={2} color="gray.500">
-                      {profile ? profile.refferalCode : "AXDQNY23"}
+                      {data.profile ? data.profile.refferalCode : "AXDQNY23"}
                     </Text>
                   </Box>
                   <IconButton
