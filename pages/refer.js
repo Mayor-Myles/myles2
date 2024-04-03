@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { FiShare2, FiSun, FiMoon } from 'react-icons/fi';
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { pageLoading, thisPage, mode } from "../components/recoil";
+import { pageLoading, thisPage, mode,userData } from "../components/recoil";
 import Header from "../components/header.js"; // Import Header component
 import NavbarBottom from "../components/navbarBottom.js"; // Import NavbarBottom component
 
@@ -111,7 +111,7 @@ useEffect(() => {
                       Your Referral Code
                     </Text>
                     <Text textAlign="center" mt={2} color="gray.500">
-                      AXDQNY23
+          {profile ? profile.data.refferalCode :"AXDQNY23"}
                     </Text>
                   </Box>
                   <IconButton
