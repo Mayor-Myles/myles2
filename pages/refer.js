@@ -101,13 +101,13 @@ const Refer = () => {
             </Box>
           </Container>
         ) : (
-          <Container bg={colorMode === "dark" && "black"} h="100vh" maxW="100vw">
+          <Container bg={currentMode === "dark" && "black"} h="100vh" maxW="100vw">
             <Box display="flex" justifyContent="center" alignItems="center">
               <Box maxW="550px" h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={colorMode === 'light' ? 'white' : 'black'}>
                 <Heading mb={4} textAlign="center" color="dodgerblue">
                   Refer & Earn!
                 </Heading>
-                <Text color={colorMode === "dark" && "white"} textAlign="center" mb={4}>
+                <Text color={currentMode === "dark" && "white"} textAlign="center" mb={4}>
                   Bring us a client for <b>cheap data plans</b>, <b>airtime</b>, <b>web development</b>, or <b>graphic design</b> services and get rewarded immediately when your referral pays us! There's no limit to the number of clients you can bring. The more you bring, the more you earn. Just ask your referral to use our <b>"Hire Me"</b> menu and input your referral code. Contact us for more information.
                 </Text>
                 <Flex justifyContent="center" alignItems="center" mb={4}>
