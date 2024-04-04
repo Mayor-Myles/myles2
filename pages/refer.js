@@ -34,16 +34,15 @@ const Refer = () => {
     if (!currentMode) {
       setMode("light");
     }
-  }, [currentMode]);
+  }, [currentMode, setMode]);
 
   useEffect(() => {
     const userChoice = localStorage.getItem("mode");
 
     if (userChoice === "dark" || userChoice === "light") {
-      
       setMode(userChoice);
     } else {
-      localStorage.setitem("mode",userChoice);     
+      localStorage.setItem("mode", "light"); // Fixed typo here
       setMode("light");
     }
   }, [setMode]);
@@ -94,22 +93,22 @@ const Refer = () => {
         <meta name="twitter:image" content="https://mylesvtu.com.ng/images/twitter-image.jpg" />
         <link rel="canonical" href="https://mylesvtu.com.ng/refer-and-earn" />
       </Head>
-      <ChakraProvider>
+      <ChakraProvider resetCSS>
         <Header />
         {loadingPage ? (
-          <Container h="100vh" maxW="100vw" bg={colorMode === "dark" && "black"}>
+          <Container h="100vh" maxW="100vw" bg={colorMode === "dark" ? "black" : "white"}>
             <Box h="80vh" shadow="sm" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
               <Spinner size="xl" color="dodgerblue" />
             </Box>
           </Container>
         ) : (
-          <Container bg={currentMode === "dark" && "black"} h="100vh" maxW="100vw">
+          <Container bg={currentMode === "dark" ? "black" : "white"} h="100vh" maxW="100vw">
             <Box display="flex" justifyContent="center" alignItems="center">
               <Box maxW="550px" h="80vh" p={8} borderWidth="0px" borderRadius="lg" boxShadow="sm" bg={currentMode === 'light' ? 'white' : 'black'}>
                 <Heading mb={4} textAlign="center" color="dodgerblue">
                   Refer & Earn!
                 </Heading>
-                <Text color={currentMode === "dark" && "white"} textAlign="center" mb={4}>
+                <Text color={currentMode === "dark" ? "white" : "black"} textAlign="center" mb={4}>
                   Bring us a client for <b>cheap data plans</b>, <b>airtime</b>, <b>web development</b>, or <b>graphic design</b> services and get rewarded immediately when your referral pays us! There's no limit to the number of clients you can bring. The more you bring, the more you earn. Just ask your referral to use our <b>"Hire Me"</b> menu and input your referral code. Contact us for more information.
                 </Text>
                 <Flex justifyContent="center" alignItems="center" mb={4}>
