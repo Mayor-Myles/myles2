@@ -73,6 +73,12 @@ const Refer = () => {
       });
   }, [setData]);
 
+if(!currentMode){
+
+return null;
+}
+
+  
   return (
     <>
       <Head>
