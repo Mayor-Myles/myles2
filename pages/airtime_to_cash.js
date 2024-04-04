@@ -163,7 +163,7 @@ function Airtime2Cash() {
         {/* Meta tags */}
       </Head>
       <Header />
-      <ChakraProvider theme={theme}>
+      <ChakraProvider>
         {loadingPage ? (
           <Container bg={currentMode === "dark" && "black"} h="100vh" maxW="lg" height="100vh"><Center><Flex justifyContent="center" alignItems="center" p="1em" shadow="sm"><Spinner position="absolute" top="40%" color="#657ce0" size="xl" /></Flex></Center></Container>
         ) : currentMode !== 'light' && currentMode !== 'dark' ? (
