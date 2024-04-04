@@ -97,7 +97,7 @@ return null;
         <meta name="twitter:image" content="https://mylesvtu.com.ng/images/twitter-image.jpg" />
         <link rel="canonical" href="https://mylesvtu.com.ng/refer-and-earn" />
       </Head>
-      <ChakraProvider>
+      <ChakraProvider resetCSS>
         <Header />
         {loadingPage ? (
           <Container h="100vh" maxW="100vw" bg={currentMode === "dark" ? "black" : "white"}>
