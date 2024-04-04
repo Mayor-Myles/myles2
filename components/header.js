@@ -38,7 +38,7 @@ window.localStorage.setItem("mode","light");
 }//method to change mode
 
   useEffect(()=>{  
-    alert(currentMode);
+   // alert(currentMode);
    currentMode === "light" ? localStorage.setItem("mode","light") : localStorage.setItem("mode","dark");
   },[currentMode,setMode]);
 
