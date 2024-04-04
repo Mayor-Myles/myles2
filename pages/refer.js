@@ -19,7 +19,7 @@ import NavbarBottom from "../components/navbarBottom.js";
 import Head from 'next/head';
 
 const Refer = () => {
-//  const { colorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const [copied, setCopied] = useState(false);
   const loadingPage = useRecoilValue(pageLoading);
   const setLoadingPage = useSetRecoilState(pageLoading);
@@ -30,27 +30,16 @@ const Refer = () => {
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
 
-  
-
-useEffect(() => {
-  alert(currentMode);
-    const userChoice = window.localStorage.getItem("mode");
-  // alert ("User choice at begin is "+ userChoice);
-    //if (userChoice === "dark" || userChoice === "light") {
-   //   alert("Local storage data found and set");
-      if (!currentMode) {
-        setMode("light");
-        localStorage.setItem("mode","light");
-   //   }
-    } else {
-    //  alert (" Iser choice not defined at start therefore mode set to light");
-  //    window.localStorage.setItem("mode", "light");
-    //  if (!currentMode) {
-        setMode(currentMode);
+  useEffect(() => {
+    if (!currentMode) {
+      const userChoice = window.localStorage.getItem("mode");
+      if (userChoice === "dark" || userChoice === "light") {
+        setMode(userChoice);
+      } else {
+        setMode(colorMode);
       }
-  //  }
-  }, [currentMode, setMode]);
-
+    }
+  }, [currentMode, colorMode, setMode]);
 
   useEffect(() => {
     setCurrentPage("refer");
