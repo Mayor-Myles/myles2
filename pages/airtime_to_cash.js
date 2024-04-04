@@ -50,6 +50,11 @@ function Airtime2Cash() {
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
 
+useEffect(()=>{
+
+  setMode("light");
+},[]);
+                                     
   useEffect(() => {
     const userChoice = localStorage.getItem("mode"); 
     setMode(userChoice || "light"); // Providing a default value if userChoice is null
