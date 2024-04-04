@@ -19,7 +19,7 @@ import NavbarBottom from "../components/navbarBottom.js";
 import Head from 'next/head';
 
 const Refer = () => {
-  const { colorMode } = useColorMode();
+//  const { colorMode } = useColorMode();
   const [copied, setCopied] = useState(false);
   const loadingPage = useRecoilValue(pageLoading);
   const setLoadingPage = useSetRecoilState(pageLoading);
