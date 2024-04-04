@@ -52,8 +52,15 @@ function Airtime2Cash() {
                                      
   useEffect(() => {
     const userChoice = localStorage.getItem("mode"); 
-    setMode(userChoice || "light"); // Providing a default value if userChoice is null
-}, [setMode]);
+    if(currentMode){
+    setMode(userChoice);
+    }
+    else{
+      localStorage.setItem("mode","light");
+      
+       setMode("light");
+    }
+    }, [setMode,currentMode]);
   
   useEffect(() => {
     setLoadingPage(false);
