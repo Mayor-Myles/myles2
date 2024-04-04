@@ -59,6 +59,7 @@ function Airtime2Cash() {
       } else {
         setMode("light");
       }
+    }
     },[currentMode,setMode]);
 
   useEffect(() => {
