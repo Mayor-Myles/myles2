@@ -8,7 +8,7 @@ import Head from "next/head";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
-import { Box, Button, Center, ChakraProvider, Text, Container,Spinner,Flex } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 import Adverts from "../components/adverts";
 
 export default function Dashboard() {
@@ -17,10 +17,10 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
   const setCurrentPage = useSetRecoilState(thisPage);
-  //const setMode = useSetRecoilState(mode);
   const router = useRouter();
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
+
   useEffect(() => {
     const fetchData = async () => {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
@@ -46,32 +46,26 @@ export default function Dashboard() {
   }, [logged, setLogged, setData, router]);
 
   useEffect(() => {
-
-  //alert("dash curr mode is "+ currentMode);
     const userChoice = localStorage.getItem("mode"); 
-   // alert(userChoice);
-    setMode(userChoice);
+    setMode(userChoice || "light"); // Providing a default value if userChoice is null
     setCurrentPage("home");
   }, [setMode, setCurrentPage]);
 
-
-if(currentMode == null){
-
-return(<></>)
-
-}
+  if (currentMode === null) {
+    return null; // or any loading indicator you prefer
+  }
   
   return (
     <>
       <Head>
         <title>mylesVTU — cheap data, airtime and hire web developer and graphics designer</title>
       </Head>
-      <Container color={currentMode ==="dark" && "white"} bg={currentMode ==="dark" ? "black" : "white"}  h="100vh">
+      <Container color={currentMode === "dark" && "white"} bg={currentMode === "dark" ? "black" : "white"} h="100vh">
         <Header />
-    <Wallet />
-         <Adverts/>
-     <Menu />
-   <Transactions />
+        <Wallet />
+        <Adverts />
+        <Menu />
+        <Transactions />
         <NavbarBottom />
       </Container>
     </>
