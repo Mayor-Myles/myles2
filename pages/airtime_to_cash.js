@@ -52,17 +52,15 @@ function Airtime2Cash() {
   const setMode = useSetRecoilState(mode);
 
   useEffect(() => {
-
-    const userChoice = window.localStorage.getItem("mode");
-
-    if (userChoice === "dark") {
-      setMode("dark");
-    } else {
-      setMode("light");
+    if (!currentMode) {
+      const userChoice = window.localStorage.getItem("mode");
+      if (userChoice){ 
+        setMode(userChoice);
+      } else {
+        setMode("light");
+      }
     }
-
-  }, []);
-
+    
   useEffect(() => {
     setCurrentPage("buy_data");
     setLoadingPage(false);
