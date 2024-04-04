@@ -53,14 +53,15 @@ function Airtime2Cash() {
   useEffect(() => {
     if (!currentMode) {
       const userChoice = window.localStorage.getItem("mode");
-      if (userChoice){ 
+      if (userChoice === "dark" || userChoice === "light") {
         setMode(userChoice);
       } else {
-        setMode("light");
+        setMode("light"); // Set default mode to light if no mode is found in local storage
+        localStorage.setItem("mode", "light"); // Update local storage with default mode
       }
     }
-    },[currentMode,setMode]);
-
+  }, [currentMode, setMode]);
+  
   useEffect(() => {
     setLoadingPage(false);
     setCurrentPage("a2c");
