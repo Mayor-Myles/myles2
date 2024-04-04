@@ -30,22 +30,23 @@ const Refer = () => {
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
 
-  useEffect(() => {
-    if (!currentMode) {
-      setMode("light");
-    }
-  }, [currentMode, setMode]);
+  
 
-  useEffect(() => {
+useEffect(() => {
     const userChoice = localStorage.getItem("mode");
 
     if (userChoice === "dark" || userChoice === "light") {
-      setMode(userChoice);
+      if (!currentMode) {
+        setMode(userChoice);
+      }
     } else {
-      localStorage.setItem("mode", "light"); // Fixed typo here
-      setMode("light");
+      localStorage.setItem("mode", "light");
+      if (!currentMode) {
+        setMode("light");
+      }
     }
-  }, [setMode]);
+  }, [currentMode, setMode]);
+
 
   useEffect(() => {
     setCurrentPage("refer");
