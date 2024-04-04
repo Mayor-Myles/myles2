@@ -34,18 +34,18 @@ const Refer = () => {
 
 useEffect(() => {
     const userChoice = window.localStorage.getItem("mode");
-alert ("User choice at begin is "+ userChoice);
+    alert ("User choice at begin is "+ userChoice);
     if (userChoice === "dark" || userChoice === "light") {
       alert("Local storage data found and set");
+      if (!currentMode) {
         setMode(userChoice);
-      
-  
+      }
     } else {
       alert (" Iser choice not defined at start therefore mode set to light");
       window.localStorage.setItem("mode", "light");
-      
+      if (!currentMode) {
         setMode("light");
-      
+      }
     }
   }, [currentMode, setMode]);
 
