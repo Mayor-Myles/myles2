@@ -13,7 +13,6 @@ import {
   Container,
   Select,
   ChakraProvider,
-  extendTheme,
   Center,
   Spinner,
   Flex
@@ -28,12 +27,12 @@ import Head from "next/head";
 import { thisPage, pageLoading, mode } from "../components/recoil";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
-const theme = extendTheme({
+/*const theme = extendTheme({
   fonts: {
     body: 'Arial, sans-serif',
     heading: 'Helvetica Neue, sans-serif',
   },
-});
+});*/
 
 function Airtime2Cash() {
   const [network, setNetwork] = useState();
