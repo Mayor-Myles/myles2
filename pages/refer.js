@@ -33,13 +33,17 @@ const Refer = () => {
   useEffect(() => {
     if (!currentMode) {
       const userChoice = window.localStorage.getItem("mode");
-      if (userChoice === "dark" || userChoice === "light") {
+      if (userChoice){ 
         setMode(userChoice);
       } else {
-        setMode(colorMode);
+        setMode("light");
       }
     }
-  }, [currentMode, colorMode, setMode]);
+    
+
+
+    
+  }, [currentMode, setMode]);
 
   useEffect(() => {
     setCurrentPage("refer");
