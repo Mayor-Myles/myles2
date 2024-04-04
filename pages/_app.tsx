@@ -14,10 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 //const currentMode = window.localStorage.getItem("mode");
   
   useEffect(() => {
-    const currentMode = window.localStorage.getItem("mode");
+    
+    const currentMode = localStorage.getItem("mode");
   
     //User hasn't chosen preffered mode
-    if (currentMode !== "dark") {  
+    if (currentMode === "light") {  
       window.localStorage.setItem("mode", "light");
       
     }
