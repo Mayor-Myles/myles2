@@ -60,12 +60,6 @@ function Airtime2Cash() {
         setMode("light");
       }
     }
-    
-  useEffect(() => {
-    setCurrentPage("buy_data");
-    setLoadingPage(false);
-
-  }, []);
 
   useEffect(() => {
     setLoadingPage(false);
