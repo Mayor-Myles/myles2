@@ -99,7 +99,7 @@ alert ("User choice at begin is "+ userChoice);
       <ChakraProvider resetCSS>
         <Header />
         {loadingPage ? (
-          <Container h="100vh" maxW="100vw" bg={colorMode === "dark" ? "black" : "white"}>
+          <Container h="100vh" maxW="100vw" bg={currentMode === "dark" ? "black" : "white"}>
             <Box h="80vh" shadow="sm" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
               <Spinner size="xl" color="dodgerblue" />
             </Box>
