@@ -49,13 +49,11 @@ function Airtime2Cash() {
   const setLoadingPage = useSetRecoilState(pageLoading);
   const currentMode = useRecoilValue(mode);
   const setMode = useSetRecoilState(mode);
-
                                      
   useEffect(() => {
     const userChoice = window.localStorage.getItem("mode"); 
     setMode(userChoice || "light"); // Providing a default value if userChoice is null
-}, [setMode, setCurrentPage]);
-
+}, [setMode]);
   
   useEffect(() => {
     setLoadingPage(false);
