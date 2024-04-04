@@ -19,7 +19,7 @@ import NavbarBottom from "../components/navbarBottom.js";
 import Head from 'next/head';
 
 const Refer = () => {
-  const { colorMode } = useColorMode();
+  //const { colorMode } = useColorMode();
   const [copied, setCopied] = useState(false);
   const loadingPage = useRecoilValue(pageLoading);
   const setLoadingPage = useSetRecoilState(pageLoading);
@@ -91,7 +91,7 @@ const Refer = () => {
         <meta name="twitter:image" content="https://mylesvtu.com.ng/images/twitter-image.jpg" />
         <link rel="canonical" href="https://mylesvtu.com.ng/refer-and-earn" />
       </Head>
-      <ChakraProvider resetCSS>
+      <ChakraProvider>
         <Header />
         {loadingPage ? (
           <Container h="100vh" maxW="100vw" bg={currentMode === "dark" ? "black" : "white"}>
