@@ -53,7 +53,6 @@ function Airtime2Cash() {
   useEffect(() => {
     const userChoice = localStorage.getItem("mode"); 
     if(!currentMode && userChoice == "dark"){
-   alert("tr");
       localStorage.setItem("mode","light");
       setMode("light");
     }
