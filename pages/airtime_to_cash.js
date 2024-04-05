@@ -62,7 +62,8 @@ function Airtime2Cash() {
       
        setMode("dark");
     }
-    }, [setMode,currentMode]);
+    alert(currentMode);
+    }, []);
   
   useEffect(() => {
     setLoadingPage(false);
