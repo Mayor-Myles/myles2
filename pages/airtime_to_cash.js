@@ -54,6 +54,7 @@ function Airtime2Cash() {
     const userChoice = localStorage.getItem("mode"); 
     if(!currentMode && userChoice == "dark"){
    alert("tr");
+      localStorage.setItem("mode","light");
       setMode("light");
     }
     else{
