@@ -60,7 +60,7 @@ export default function Dashboard() {
       <Head>
         <title>mylesVTU — cheap data, airtime and hire web developer and graphics designer</title>
       </Head>
-      <Container color={currentMode === "dark" && "white"} bg={currentMode === "dark" ? "black" : "white"} w="100vw" h="100vh">
+      <Container color={currentMode === "dark" && "white"} bg={currentMode === "dark" ? "black" : "white"} m={0} w="100%" h="100vh">
         <Header />
         <Wallet />
         <Menu />
