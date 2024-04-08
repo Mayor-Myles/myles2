@@ -63,7 +63,6 @@ export default function Dashboard() {
       <Container color={currentMode === "dark" && "white"} bg={currentMode === "dark" ? "black" : "white"} h="100vh">
         <Header />
         <Wallet />
-        <Adverts />
         <Menu />
         <Transactions />
         <NavbarBottom />
