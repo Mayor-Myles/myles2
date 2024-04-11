@@ -8,7 +8,7 @@ import Head from "next/head";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
-import { Container, Spinner } from '@chakra-ui/react';
+import { Container, Spinner,ChakraProvider } from '@chakra-ui/react';
 //import Adverts from "../components/adverts";
 
 export default function Dashboard() {
@@ -54,10 +54,14 @@ export default function Dashboard() {
   if (currentMode === null) {
 
     return(
+
+<ChakraProvider>
 <Container display="flex" alignItems="center" justifyContent="center" h="100vh">
 
 <Spinner size="md" color="#657fe0" />
-  </Container>)
+  </Container>
+      </ChakraProvider>
+    )
     
   }
   
