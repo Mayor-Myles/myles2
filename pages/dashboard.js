@@ -8,7 +8,7 @@ import Head from "next/head";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { loginStatus, userData, thisPage, mode } from "../components/recoil";
 import { useRouter } from "next/router";
-import { Container } from '@chakra-ui/react';
+import { Container, Spinner } from '@chakra-ui/react';
 //import Adverts from "../components/adverts";
 
 export default function Dashboard() {
@@ -52,7 +52,11 @@ export default function Dashboard() {
   }, [setMode, setCurrentPage]);
 
   if (currentMode === null) {
-    return null; // or any loading indicator you prefer
+
+<Container display="flex" alignItems="center" justifyContent="center" h="100vh">
+
+<Spinner size="sm" color="#657fe0" />
+  </Container>
   }
   
   return (
