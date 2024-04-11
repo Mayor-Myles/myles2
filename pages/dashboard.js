@@ -58,7 +58,9 @@ export default function Dashboard() {
 <ChakraProvider>
 <Container display="flex" alignItems="center" justifyContent="center" h="100vh">
 
-<Spinner size="md" color="#657fe0" />
+<Spinner size="lg" color="blue" />
+
+
   </Container>
       </ChakraProvider>
     )
