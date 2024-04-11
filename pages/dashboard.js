@@ -53,10 +53,12 @@ export default function Dashboard() {
 
   if (currentMode === null) {
 
+    return(
 <Container display="flex" alignItems="center" justifyContent="center" h="100vh">
 
-<Spinner size="sm" color="#657fe0" />
-  </Container>
+<Spinner size="md" color="#657fe0" />
+  </Container>)
+    
   }
   
   return (
